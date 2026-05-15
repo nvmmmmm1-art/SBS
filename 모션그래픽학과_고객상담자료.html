@@ -106,15 +106,16 @@ nav {
 .sec-dark .sec-title { color:#fff; }
 .sec-dark .sec-lead { color:rgba(255,255,255,.5); }
 .port-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:40px; }
-.port-item { position:relative; border-radius:var(--r); overflow:hidden; aspect-ratio:16/9; background:#111; }
-.port-item video { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
-.port-item:hover video { transform:scale(1.03); }
+.port-item { position:relative; border-radius:var(--r); overflow:hidden; aspect-ratio:16/9; background:#111; cursor:pointer; }
+.port-item iframe { position:absolute; inset:0; width:100%; height:100%; border:none; pointer-events:none; }
+.port-item img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.port-item-overlay { position:absolute; inset:0; z-index:3; }
 .port-ov { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 55%); display:flex; flex-direction:column; justify-content:flex-end; padding:14px; opacity:0; transition:opacity .25s; }
 .port-item:hover .port-ov { opacity:1; }
-.port-always { position:absolute; bottom:0; left:0; right:0; padding:18px 14px 13px; background:linear-gradient(transparent, rgba(0,0,0,.75)); }
+.port-always { position:absolute; bottom:0; left:0; right:0; padding:18px 14px 13px; background:linear-gradient(transparent, rgba(0,0,0,.75)); z-index:2; pointer-events:none; }
 .port-name { font-weight:700; font-size:13px; color:#fff; }
 .port-brand { font-family:'SUIT Variable',sans-serif; font-weight:500; font-size:11.5px; color:rgba(255,255,255,.6); }
-.port-bdg { position:absolute; top:10px; right:10px; font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:10.5px; color:#fff; padding:3px 9px; border-radius:6px; }
+.port-bdg { position:absolute; top:10px; right:10px; font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:10.5px; color:#fff; padding:3px 9px; border-radius:6px; z-index:4; pointer-events:none; }
 .bdg-r { background:rgba(201,30,30,.9); }
 .bdg-b { background:rgba(39,138,224,.88); }
 .bdg-pk { background:rgba(162,64,200,.88); }
@@ -399,6 +400,190 @@ nav {
 .port-behance-logo { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:28px; color:#fff; letter-spacing:-1px; }
 .port-behance-sub { font-size:12px; color:rgba(255,255,255,.55); font-family:'SUIT Variable',sans-serif; }
 .fs-visual iframe { width:100%; height:100%; border:none; display:block; }
+
+/* ─── TRACK SELECTOR ─── */
+.track-sec { background:var(--bg); padding:72px 40px 80px; }
+.track-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.track-card { background:var(--card); border-radius:var(--r-lg); border:1.5px solid var(--line); box-shadow:var(--sh); padding:28px 24px 22px; cursor:pointer; transition:all .25s; text-decoration:none; display:block; position:relative; overflow:hidden; }
+.track-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.track-card.tc-job::before { background:var(--red); }
+.track-card.tc-exam::before { background:var(--blue); }
+.track-card.tc-career::before { background:#9b59b6; }
+.track-card.tc-hobby::before { background:#27ae60; }
+.track-card:hover { transform:translateY(-4px); box-shadow:var(--sh-hover); }
+.track-ico { font-size:30px; margin-bottom:13px; }
+.track-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:1.2px; padding:3px 10px; border-radius:6px; display:inline-block; margin-bottom:12px; text-transform:uppercase; }
+.tl-job { background:rgba(201,30,30,.08); color:var(--red); }
+.tl-exam { background:rgba(39,138,224,.09); color:var(--blue); }
+.tl-career { background:rgba(155,89,182,.09); color:#9b59b6; }
+.tl-hobby { background:rgba(39,174,96,.09); color:#27ae60; }
+.track-card h3 { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:17px; color:var(--dark); margin-bottom:10px; line-height:1.35; }
+.track-card p { font-size:12.5px; color:var(--sub); line-height:1.7; margin-bottom:16px; }
+.track-cta { font-size:12px; color:var(--muted); font-family:'SUIT Variable',sans-serif; font-weight:600; display:flex; align-items:center; gap:5px; }
+.track-cta::after { content:'→'; transition:transform .2s; }
+.track-card:hover .track-cta::after { transform:translateX(4px); }
+
+/* ─── 역공학 (결과물 해부) ─── */
+.re-wrap { margin-top:52px; }
+.re-title { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:22px; color:#fff; margin-bottom:6px; }
+.re-sub { font-size:13px; color:rgba(255,255,255,.4); margin-bottom:28px; line-height:1.65; }
+.re-items { display:flex; flex-direction:column; gap:16px; }
+.re-item { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:var(--r-lg); padding:24px; display:grid; grid-template-columns:1fr 1.1fr; gap:28px; align-items:start; }
+.re-thumb { border-radius:12px; overflow:hidden; aspect-ratio:16/9; background:#111; position:relative; cursor:pointer; }
+.re-thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+.re-thumb:hover img { transform:scale(1.04); }
+.re-thumb-overlay { position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center; }
+.re-thumb-overlay .port-play { opacity:0; transition:opacity .2s; }
+.re-thumb:hover .re-thumb-overlay .port-play { opacity:1; }
+.re-thumb-label { position:absolute; bottom:0; left:0; right:0; padding:14px 12px 10px; background:linear-gradient(transparent,rgba(0,0,0,.75)); font-size:12px; color:#fff; font-weight:700; z-index:3; pointer-events:none; }
+.re-meta { display:flex; flex-direction:column; gap:12px; }
+.re-work-title { font-weight:700; font-size:15px; color:#fff; margin-bottom:2px; }
+.re-work-brand { font-size:12px; color:rgba(255,255,255,.42); }
+.re-breakdown-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; letter-spacing:1.5px; color:rgba(255,255,255,.3); text-transform:uppercase; }
+.re-skills { display:flex; flex-direction:column; gap:8px; }
+.re-skill-row { display:flex; align-items:flex-start; gap:10px; }
+.re-skill-cat { font-size:10.5px; color:rgba(255,255,255,.35); width:50px; flex-shrink:0; font-family:'SUIT Variable',sans-serif; padding-top:3px; }
+.re-skill-tags { display:flex; flex-wrap:wrap; gap:5px; }
+.re-tag { font-size:11px; padding:3px 9px; border-radius:6px; font-family:'SUIT Variable',sans-serif; font-weight:600; }
+.rt-art { background:rgba(255,110,199,.14); color:#FF6EC7; }
+.rt-design { background:rgba(39,138,224,.14); color:#5ab4ff; }
+.rt-ai { background:rgba(255,149,0,.14); color:#f4a535; }
+.rt-motion { background:rgba(201,30,30,.18); color:#e8557a; }
+.rt-3d { background:rgba(52,199,89,.12); color:#4cd98a; }
+.rt-edit { background:rgba(255,255,255,.07); color:rgba(255,255,255,.55); }
+.re-quote { font-size:12px; color:rgba(255,255,255,.32); line-height:1.7; border-left:2px solid rgba(255,255,255,.1); padding-left:12px; }
+
+/* ─── 유형별 설득 트랙 공통 ─── */
+.pitch-section { padding:88px 40px; }
+.pitch-section.ps-job  { background:#fff; }
+.pitch-section.ps-exam { background:linear-gradient(160deg,#f0f0f5,#e8e8ed); }
+.pitch-section.ps-career { background:#fff; }
+.pitch-section.ps-hobby { background:linear-gradient(160deg,#edf5ee,#e2ede3); }
+.pitch-track-badge { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:1.2px; padding:4px 14px; border-radius:100px; display:inline-block; margin-bottom:12px; text-transform:uppercase; }
+.ptb-job   { background:rgba(201,30,30,.08);  color:var(--red); }
+.ptb-exam  { background:rgba(39,138,224,.09); color:var(--blue); }
+.ptb-career{ background:rgba(155,89,182,.09); color:#9b59b6; }
+.ptb-hobby { background:rgba(39,174,96,.09);  color:#27ae60; }
+
+/* 업계 현황 stats */
+.stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:40px; }
+.stat-card { background:var(--card); border-radius:var(--r); border:1px solid var(--line); box-shadow:var(--sh); padding:26px 22px; }
+.stat-num { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:38px; color:var(--red); line-height:1; margin-bottom:8px; letter-spacing:-1px; }
+.stat-num.sn-blue   { color:var(--blue); }
+.stat-num.sn-purple { color:#9b59b6; }
+.stat-num.sn-green  { color:#27ae60; }
+.stat-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:12px; color:var(--dark); margin-bottom:5px; }
+.stat-desc { font-size:12px; color:var(--sub); line-height:1.65; }
+
+/* JD 분석 박스 */
+.jd-box { background:var(--dark); border-radius:var(--r-lg); padding:28px 32px; margin-bottom:24px; }
+.jd-box-title { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10.5px; color:rgba(255,255,255,.35); letter-spacing:1.5px; margin-bottom:18px; text-transform:uppercase; }
+.jd-item { display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+.jd-item:last-child { border-bottom:none; }
+.jd-req { font-size:11px; padding:3px 9px; border-radius:5px; flex-shrink:0; font-family:'SUIT Variable',sans-serif; font-weight:700; min-width:36px; text-align:center; }
+.jr-must { background:rgba(201,30,30,.18); color:#e8557a; }
+.jr-pref { background:rgba(39,138,224,.18); color:#5ab4ff; }
+.jd-skill { font-size:13.5px; color:rgba(255,255,255,.82); font-weight:600; flex:1; }
+.jd-map { font-size:11px; color:rgba(255,255,255,.28); padding-left:12px; white-space:nowrap; }
+
+/* 강조 인사이트 박스 */
+.insight-box { border-radius:var(--r); padding:20px 24px; margin-bottom:36px; }
+.ib-red    { background:rgba(201,30,30,.05);  border:1px solid rgba(201,30,30,.14); }
+.ib-blue   { background:rgba(39,138,224,.05); border:1px solid rgba(39,138,224,.14); }
+.ib-purple { background:rgba(155,89,182,.05); border:1px solid rgba(155,89,182,.14); }
+.ib-green  { background:rgba(39,174,96,.05);  border:1px solid rgba(39,174,96,.14); }
+.insight-box p { font-size:13.5px; color:var(--dark); line-height:1.85; }
+
+/* 스킬 갭 */
+.gap-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:32px; }
+.gap-col { background:var(--card); border-radius:var(--r); border:1px solid var(--line); box-shadow:var(--sh); padding:22px 20px; }
+.gap-col-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:11px; letter-spacing:.8px; margin-bottom:14px; display:flex; align-items:center; gap:6px; }
+.gap-col.have .gap-col-label { color:#27ae60; }
+.gap-col.need .gap-col-label { color:var(--red); }
+.gap-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.gap-tag { display:inline-block; font-size:12px; padding:5px 12px; border-radius:7px; font-family:'SUIT Variable',sans-serif; font-weight:600; }
+.gt-have { background:rgba(39,174,96,.1);  color:#27ae60; border:1px solid rgba(39,174,96,.18); }
+.gt-need { background:rgba(201,30,30,.07); color:var(--red); border:1px solid rgba(201,30,30,.14); }
+
+/* 경력자 수강 설계 */
+.career-path-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+
+/* 입시 심사 기준 */
+.exam-criteria { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:32px; }
+.ec-card { background:var(--card); border-radius:var(--r); border:1px solid var(--line); box-shadow:var(--sh); padding:24px 20px; }
+.ec-weight { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:38px; line-height:1; margin-bottom:8px; letter-spacing:-1px; }
+.ec-name { font-weight:700; font-size:14px; color:var(--dark); margin-bottom:8px; }
+.ec-desc { font-size:12.5px; color:var(--sub); line-height:1.65; }
+
+/* 유튜버 경로 */
+.yt-path { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-bottom:36px; position:relative; }
+.yt-step { background:var(--card); border:1px solid var(--line); box-shadow:var(--sh); padding:22px 18px; position:relative; }
+.yt-step:first-child { border-radius:var(--r) 0 0 var(--r); }
+.yt-step:last-child  { border-radius:0 var(--r) var(--r) 0; }
+.yt-step:not(:first-child) { border-left:none; }
+.yt-step-num { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; letter-spacing:1px; color:var(--muted); margin-bottom:8px; }
+.yt-step-ico { font-size:22px; margin-bottom:8px; }
+.yt-step h4 { font-weight:700; font-size:13px; color:var(--dark); margin-bottom:6px; line-height:1.4; }
+.yt-step p  { font-size:11.5px; color:var(--sub); line-height:1.6; }
+.yt-step-arrow { position:absolute; right:-10px; top:50%; transform:translateY(-50%); width:20px; height:20px; background:var(--card); border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; color:var(--muted); z-index:2; }
+.yt-cost-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:28px; }
+.yt-cost-box { border-radius:var(--r); padding:22px 20px; }
+.yt-cost-box.cost-out { background:rgba(201,30,30,.04); border:1px solid rgba(201,30,30,.12); }
+.yt-cost-box.cost-in  { background:rgba(39,174,96,.04);  border:1px solid rgba(39,174,96,.14); }
+.yt-cost-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:11px; margin-bottom:14px; }
+.yt-cost-box.cost-out .yt-cost-label { color:var(--red); }
+.yt-cost-box.cost-in  .yt-cost-label { color:#27ae60; }
+.yt-cost-row { display:flex; justify-content:space-between; align-items:center; font-size:13px; padding:7px 0; border-bottom:1px solid var(--line); }
+.yt-cost-row:last-child { border-bottom:none; }
+.yt-cost-item { color:var(--sub); }
+.yt-cost-val  { font-weight:700; color:var(--dark); }
+.yt-cost-total { border-top:1.5px solid rgba(201,30,30,.2); padding-top:10px; margin-top:4px; display:flex; justify-content:space-between; align-items:center; }
+.yt-cost-total-label { font-weight:700; font-size:13.5px; color:var(--dark); }
+.yt-cost-total-val { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:22px; color:var(--red); }
+
+/* ─── 방학특강 ─── */
+.summer-sec { background:linear-gradient(150deg,#0d0d1a 0%,#111127 55%,#0c1e3a 100%); padding:88px 40px; position:relative; overflow:hidden; }
+.summer-sec::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 50% 60% at 80% 20%, rgba(255,110,199,.07) 0%, transparent 60%); pointer-events:none; }
+.summer-sec .sec-eyebrow { color:var(--pink); }
+.summer-sec .sec-eyebrow::before { background:var(--pink); }
+.summer-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:40px; position:relative; z-index:1; }
+.summer-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09); border-radius:var(--r-lg); padding:26px 22px; transition:all .25s; }
+.summer-card:hover { background:rgba(255,255,255,.08); transform:translateY(-3px); }
+.summer-card-ico { font-size:26px; margin-bottom:13px; }
+.summer-card-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; letter-spacing:1px; padding:3px 9px; border-radius:6px; display:inline-block; margin-bottom:11px; }
+.scl-ai     { background:rgba(255,149,0,.15);  color:#f4a535; }
+.scl-video  { background:rgba(201,30,30,.15);  color:#e8557a; }
+.scl-prompt { background:rgba(39,138,224,.15); color:#5ab4ff; }
+.summer-card h4 { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:14px; color:#fff; margin-bottom:5px; line-height:1.4; }
+.summer-card-hours { font-size:11.5px; color:rgba(255,255,255,.38); margin-bottom:12px; font-family:'SUIT Variable',sans-serif; }
+.summer-card p { font-size:12px; color:rgba(255,255,255,.45); line-height:1.7; margin-bottom:14px; }
+.summer-badge { display:inline-block; font-size:11px; padding:4px 10px; border-radius:6px; font-family:'SUIT Variable',sans-serif; font-weight:600; background:rgba(255,255,255,.08); color:rgba(255,255,255,.55); }
+
+/* ─── RESPONSIVE 추가 ─── */
+@media(max-width:1024px){
+  .track-grid{grid-template-columns:repeat(2,1fr);}
+  .re-item{grid-template-columns:1fr;}
+  .stat-row{grid-template-columns:1fr 1fr;}
+  .gap-grid{grid-template-columns:1fr;}
+  .yt-path{grid-template-columns:repeat(2,1fr);}
+  .yt-step:first-child{border-radius:var(--r) 0 0 0;}
+  .yt-step:nth-child(2){border-radius:0 var(--r) 0 0;border-left:1px solid var(--line);}
+  .yt-step:nth-child(3){border-radius:0 0 0 var(--r);border-top:none;}
+  .yt-step:last-child{border-radius:0 0 var(--r) 0;border-left:none;border-top:none;}
+  .yt-cost-grid{grid-template-columns:1fr;}
+  .exam-criteria{grid-template-columns:1fr 1fr;}
+  .summer-grid{grid-template-columns:repeat(2,1fr);}
+  .career-path-grid{grid-template-columns:1fr;}
+}
+@media(max-width:680px){
+  .track-grid{grid-template-columns:1fr;}
+  .stat-row{grid-template-columns:1fr;}
+  .exam-criteria{grid-template-columns:1fr;}
+  .yt-path{grid-template-columns:1fr;}
+  .yt-step:first-child,.yt-step:nth-child(2),.yt-step:nth-child(3),.yt-step:last-child{border-radius:0;border:1px solid var(--line);}
+  .yt-step:not(:first-child){border-top:none;border-left:1px solid var(--line);}
+  .summer-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -408,12 +593,15 @@ nav {
   <div class="nav-wrap">
     <div class="nav-logo">SBS아카데미 <em>모션그래픽학과</em></div>
     <ul class="nav-menu">
-      <li><a href="#concern">고민</a></li>
+      <li><a href="#tracks">상담유형</a></li>
       <li><a href="#result">결과물</a></li>
-      <li><a href="#flow">수업흐름</a></li>
-      <li><a href="#tools">도구</a></li>
+      <li><a href="#pitch-job">취업</a></li>
+      <li><a href="#pitch-exam">입시</a></li>
+      <li><a href="#pitch-career">이직</a></li>
+      <li><a href="#pitch-hobby">취미</a></li>
+      <li><a href="#flow">커리큘럼</a></li>
+      <li><a href="#summer">방학특강</a></li>
       <li><a href="#why">SBS강남</a></li>
-      <li><a href="#after">수강후변화</a></li>
     </ul>
   </div>
 </nav>
@@ -457,6 +645,45 @@ nav {
           <span class="ov-info-val">아트웍 · 시각편집 · AI 영상</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRACK SELECTOR ─── -->
+<section class="track-sec" id="tracks">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow">00 · 상담 유형</div>
+    <h2 class="sec-title">오늘 상담의 목표가<br>무엇인가요?</h2>
+    <p class="sec-lead">목표에 따라 필요한 과목 구성과 설득 논리가 다릅니다.<br>해당하는 항목을 선택하면 맞춤 내용으로 바로 이동합니다.</p>
+    <div class="track-grid">
+      <a class="track-card tc-job" href="#pitch-job">
+        <div class="track-ico">💼</div>
+        <span class="track-label tl-job">취업 · 프리랜서</span>
+        <h3>모션 디자이너로<br>취업하고 싶어요</h3>
+        <p>스튜디오·광고대행사 취업, 프리랜서 외주 수주, 실무 수준 포트폴리오 완성을 목표로 합니다.</p>
+        <div class="track-cta">업계 현황 · 채용 분석 · 취업 경로 보기</div>
+      </a>
+      <a class="track-card tc-exam" href="#pitch-exam">
+        <div class="track-ico">🎓</div>
+        <span class="track-label tl-exam">입시 · 포트폴리오</span>
+        <h3>입시·편입 포트폴리오를<br>준비하고 있어요</h3>
+        <p>영상·미디어 전공 입시, 편입, 대학원 준비를 위한 포트폴리오 완성을 목표로 합니다.</p>
+        <div class="track-cta">심사 기준 · 포트폴리오 전략 보기</div>
+      </a>
+      <a class="track-card tc-career" href="#pitch-career">
+        <div class="track-ico">🔄</div>
+        <span class="track-label tl-career">이직 · 경력전환</span>
+        <h3>현재 경력을 살려<br>직무를 전환하고 싶어요</h3>
+        <p>디자인·편집 경력은 있지만 모션·3D가 없어서 포지션 전환이나 연봉 업그레이드를 원합니다.</p>
+        <div class="track-cta">스킬 갭 분석 · 맞춤 수강 설계 보기</div>
+      </a>
+      <a class="track-card tc-hobby" href="#pitch-hobby">
+        <div class="track-ico">🎬</div>
+        <span class="track-label tl-hobby">취미 · 유튜버</span>
+        <h3>내 채널을 직접 만들거나<br>영상을 취미로 배우고 싶어요</h3>
+        <p>유튜브 채널 운영, 브랜드 영상 자체 제작, SNS 숏폼 콘텐츠 창작이 목적입니다.</p>
+        <div class="track-cta">외주 없이 혼자 → 수익화 경로 보기</div>
+      </a>
     </div>
   </div>
 </section>
@@ -527,42 +754,49 @@ nav {
     <h2 class="sec-title">이 과정에서 만들 수 있는 결과물</h2>
     <p class="sec-lead">아래는 실제 수강생들이 제작한 포트폴리오입니다. 단순 따라하기가 아니라 실무 수준의 결과물을 직접 기획하고 완성합니다.</p>
     <div class="port-grid">
-      <div class="port-item" data-gdid="1TCFrjHZpXvo6dQdn_JmY-fkKBE9tfDs6" onclick="openLightbox(this)">
-        <img src="https://drive.google.com/thumbnail?id=1TCFrjHZpXvo6dQdn_JmY-fkKBE9tfDs6&sz=w640" loading="lazy" alt="하동연 - SONY WH-1000XM4">
-        <div class="port-play"><div class="port-play-btn"></div></div>
+      <!-- 하동연 -->
+      <div class="port-item">
+        <iframe src="https://drive.google.com/file/d/1TCFrjHZpXvo6dQdn_JmY-fkKBE9tfDs6/preview?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+        <div class="port-item-overlay" data-gdid="1TCFrjHZpXvo6dQdn_JmY-fkKBE9tfDs6" onclick="openLightbox(this)"></div>
         <div class="port-always"><div class="port-name">하동연</div><div class="port-brand">SONY WH-1000XM4</div></div>
         <span class="port-bdg bdg-r">브랜드 CF</span>
       </div>
-      <div class="port-item" data-gdid="1HfkjOFvRKJr55qL8KBMNgsc9DDqnF8_v" onclick="openLightbox(this)">
-        <img src="https://drive.google.com/thumbnail?id=1HfkjOFvRKJr55qL8KBMNgsc9DDqnF8_v&sz=w640" loading="lazy" alt="구정현 - Diptyque">
-        <div class="port-play"><div class="port-play-btn"></div></div>
+      <!-- 구정현 -->
+      <div class="port-item">
+        <iframe src="https://drive.google.com/file/d/1HfkjOFvRKJr55qL8KBMNgsc9DDqnF8_v/preview?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+        <div class="port-item-overlay" data-gdid="1HfkjOFvRKJr55qL8KBMNgsc9DDqnF8_v" onclick="openLightbox(this)"></div>
         <div class="port-always"><div class="port-name">구정현</div><div class="port-brand">Diptyque</div></div>
         <span class="port-bdg bdg-r">향수 브랜드 CF</span>
       </div>
-      <div class="port-item" data-gdid="1V79KEde5Kffn5IOsa2cVizm1_9uYR__U" onclick="openLightbox(this)">
-        <img src="https://drive.google.com/thumbnail?id=1V79KEde5Kffn5IOsa2cVizm1_9uYR__U&sz=w640" loading="lazy" alt="문주연 - YSL">
-        <div class="port-play"><div class="port-play-btn"></div></div>
+      <!-- 문주연 -->
+      <div class="port-item">
+        <iframe src="https://drive.google.com/file/d/1V79KEde5Kffn5IOsa2cVizm1_9uYR__U/preview?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+        <div class="port-item-overlay" data-gdid="1V79KEde5Kffn5IOsa2cVizm1_9uYR__U" onclick="openLightbox(this)"></div>
         <div class="port-always"><div class="port-name">문주연</div><div class="port-brand">YSL</div></div>
         <span class="port-bdg bdg-r">럭셔리 브랜드</span>
       </div>
-      <div class="port-item" data-gdid="1nvKgaRjhuKVZWPqKfWUZttIhp566e-9b" onclick="openLightbox(this)">
-        <img src="https://drive.google.com/thumbnail?id=1nvKgaRjhuKVZWPqKfWUZttIhp566e-9b&sz=w640" loading="lazy" alt="이유찬 - Need for Speed Edge">
-        <div class="port-play"><div class="port-play-btn"></div></div>
+      <!-- 이유찬 -->
+      <div class="port-item">
+        <iframe src="https://drive.google.com/file/d/1nvKgaRjhuKVZWPqKfWUZttIhp566e-9b/preview?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+        <div class="port-item-overlay" data-gdid="1nvKgaRjhuKVZWPqKfWUZttIhp566e-9b" onclick="openLightbox(this)"></div>
         <div class="port-always"><div class="port-name">이유찬</div><div class="port-brand">Need for Speed Edge</div></div>
         <span class="port-bdg bdg-b">3D 모션그래픽</span>
       </div>
-      <div class="port-item" data-gdid="1tjg_xLNZI8KL198M-yNsfOpz9D_DFoP4" onclick="openLightbox(this)">
-        <img src="https://drive.google.com/thumbnail?id=1tjg_xLNZI8KL198M-yNsfOpz9D_DFoP4&sz=w640" loading="lazy" alt="이향지 - TVING">
-        <div class="port-play"><div class="port-play-btn"></div></div>
+      <!-- 이향지 -->
+      <div class="port-item">
+        <iframe src="https://drive.google.com/file/d/1tjg_xLNZI8KL198M-yNsfOpz9D_DFoP4/preview?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+        <div class="port-item-overlay" data-gdid="1tjg_xLNZI8KL198M-yNsfOpz9D_DFoP4" onclick="openLightbox(this)"></div>
         <div class="port-always"><div class="port-name">이향지</div><div class="port-brand">TVING</div></div>
         <span class="port-bdg bdg-b">OTT 브랜딩</span>
       </div>
-      <div class="port-item" data-gdid="13VNCP6s_NBqGRywAtvlj9KLItKttp7zl" onclick="openLightbox(this)">
-        <img src="https://drive.google.com/thumbnail?id=13VNCP6s_NBqGRywAtvlj9KLItKttp7zl&sz=w640" loading="lazy" alt="이희진 - Showreel">
-        <div class="port-play"><div class="port-play-btn"></div></div>
+      <!-- 이희진 -->
+      <div class="port-item">
+        <iframe src="https://drive.google.com/file/d/13VNCP6s_NBqGRywAtvlj9KLItKttp7zl/preview?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+        <div class="port-item-overlay" data-gdid="13VNCP6s_NBqGRywAtvlj9KLItKttp7zl" onclick="openLightbox(this)"></div>
         <div class="port-always"><div class="port-name">이희진</div><div class="port-brand">Showreel — 현재 프리랜서 활동 중</div></div>
         <span class="port-bdg bdg-b">프리랜서 취업</span>
       </div>
+      <!-- 한명훈 (Behance - 외부링크 유지) -->
       <div class="port-item port-behance" onclick="window.open('https://drive.google.com/file/d/1wv1U7QCZJtdru1BgXCC7822-unHubWba/view','_blank')">
         <div class="port-behance-inner">
           <div class="port-behance-logo">Be</div>
@@ -571,15 +805,17 @@ nav {
         <div class="port-always"><div class="port-name">한명훈</div><div class="port-brand">Van Cleef &amp; Arpels — TOVWORKS 재직</div></div>
         <span class="port-bdg bdg-pk">현직 취업</span>
       </div>
-      <div class="port-item" data-gdid="1ygjieyiG-vI4579Otp2ZzQvM8chLwBRT" onclick="openLightbox(this)">
-        <img src="https://drive.google.com/thumbnail?id=1ygjieyiG-vI4579Otp2ZzQvM8chLwBRT&sz=w640" loading="lazy" alt="최혜인 - NUDAKE">
-        <div class="port-play"><div class="port-play-btn"></div></div>
+      <!-- 최혜인 -->
+      <div class="port-item">
+        <iframe src="https://drive.google.com/file/d/1ygjieyiG-vI4579Otp2ZzQvM8chLwBRT/preview?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+        <div class="port-item-overlay" data-gdid="1ygjieyiG-vI4579Otp2ZzQvM8chLwBRT" onclick="openLightbox(this)"></div>
         <div class="port-always"><div class="port-name">최혜인</div><div class="port-brand">NUDAKE — 블랑제리뵈르 활동 작가</div></div>
         <span class="port-bdg bdg-pk">작가 활동</span>
       </div>
-      <div class="port-item" data-gdid="1EAN8PjPaYnmGZtYeMmvBvxOAJ2hWXFpN" onclick="openLightbox(this)">
-        <img src="https://drive.google.com/thumbnail?id=1EAN8PjPaYnmGZtYeMmvBvxOAJ2hWXFpN&sz=w640" loading="lazy" alt="박수진 - O HUI">
-        <div class="port-play"><div class="port-play-btn"></div></div>
+      <!-- 박수진 -->
+      <div class="port-item">
+        <iframe src="https://drive.google.com/file/d/1EAN8PjPaYnmGZtYeMmvBvxOAJ2hWXFpN/preview?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+        <div class="port-item-overlay" data-gdid="1EAN8PjPaYnmGZtYeMmvBvxOAJ2hWXFpN" onclick="openLightbox(this)"></div>
         <div class="port-always"><div class="port-name">박수진</div><div class="port-brand">O HUI 화장품 CF</div></div>
         <span class="port-bdg bdg-r">뷰티 광고</span>
       </div>
@@ -591,6 +827,497 @@ nav {
       <div class="rcat"><div class="rcat-ico">🎭</div><div><h4>3D CG 합성 영상</h4><p>실사 + 3D 오브젝트</p></div></div>
       <div class="rcat"><div class="rcat-ico">✨</div><div><h4>키네틱 타이포그래피</h4><p>텍스트 애니메이션</p></div></div>
       <div class="rcat"><div class="rcat-ico">▶</div><div><h4>유튜브 채널 운영</h4><p>기획 · 편집 · 수익화</p></div></div>
+    </div>
+
+    <!-- ─── 역공학: 결과물 해부 ─── -->
+    <div class="re-wrap">
+      <div class="re-title">위 영상들은 어떻게 만들어졌을까요?</div>
+      <div class="re-sub">위에서 재생 중인 실제 수강생 작품들이 어떤 과목들의 결합으로 완성됐는지 분해합니다.<br>"에펙만 배우면 이 영상이 나올까요?" — 아래를 보면 답이 나옵니다.</div>
+      <div class="re-items">
+
+        <!-- 역공학 1: SONY CF -->
+        <div class="re-item">
+          <div>
+            <div class="re-thumb" data-gdid="1TCFrjHZpXvo6dQdn_JmY-fkKBE9tfDs6" onclick="openLightbox(this)">
+              <img src="https://drive.google.com/thumbnail?id=1TCFrjHZpXvo6dQdn_JmY-fkKBE9tfDs6&sz=w640" loading="lazy" alt="하동연 - SONY WH-1000XM4">
+              <div class="re-thumb-overlay">
+                <div class="port-play"><div class="port-play-btn"></div></div>
+              </div>
+              <div class="re-thumb-label">하동연 · SONY WH-1000XM4 브랜드 CF</div>
+            </div>
+          </div>
+          <div class="re-meta">
+            <div>
+              <div class="re-work-title">SONY WH-1000XM4 브랜드 CF</div>
+              <div class="re-work-brand">수강생 하동연 · 브랜드 광고 영상 (실사 + 3D CG 합성)</div>
+            </div>
+            <div class="re-breakdown-label">이 영상에 들어간 수업들</div>
+            <div class="re-skills">
+              <div class="re-skill-row">
+                <span class="re-skill-cat">아트웍</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-art">스토리보드</span>
+                  <span class="re-tag rt-art">컨셉드로잉</span>
+                  <span class="re-tag rt-art">색채학</span>
+                  <span class="re-tag rt-art">발상과표현</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">디자인</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-design">포토샵 합성소스</span>
+                  <span class="re-tag rt-design">일러스트 벡터</span>
+                  <span class="re-tag rt-design">인포그래픽</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">AI</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-ai">AI 이미지 소스</span>
+                  <span class="re-tag rt-ai">프롬프트 엔지니어링</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">모션</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-motion">After Effects</span>
+                  <span class="re-tag rt-motion">파티큘러</span>
+                  <span class="re-tag rt-motion">모션 트래킹</span>
+                  <span class="re-tag rt-motion">CG 합성</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">3D</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-3d">Cinema 4D</span>
+                  <span class="re-tag rt-3d">Octane Render</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">편집</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-edit">Premiere Pro</span>
+                  <span class="re-tag rt-edit">Lumetri 색보정</span>
+                </div>
+              </div>
+            </div>
+            <div class="re-quote">아이디어 기획 → 소스 제작 → 모션 설계 → 3D 합성 → 최종 편집.<br>이 다섯 단계가 하나의 영상을 만듭니다. 하나라도 빠지면 완성도가 달라집니다.</div>
+          </div>
+        </div>
+
+        <!-- 역공학 2: NFS 3D -->
+        <div class="re-item">
+          <div>
+            <div class="re-thumb" data-gdid="1nvKgaRjhuKVZWPqKfWUZttIhp566e-9b" onclick="openLightbox(this)">
+              <img src="https://drive.google.com/thumbnail?id=1nvKgaRjhuKVZWPqKfWUZttIhp566e-9b&sz=w640" loading="lazy" alt="이유찬 - Need for Speed Edge">
+              <div class="re-thumb-overlay">
+                <div class="port-play"><div class="port-play-btn"></div></div>
+              </div>
+              <div class="re-thumb-label">이유찬 · Need for Speed Edge — 3D 모션그래픽</div>
+            </div>
+          </div>
+          <div class="re-meta">
+            <div>
+              <div class="re-work-title">Need for Speed Edge — 3D 모션그래픽</div>
+              <div class="re-work-brand">수강생 이유찬 · 게임 브랜드 3D 모션 (Cinema 4D + Octane 풀 렌더링)</div>
+            </div>
+            <div class="re-breakdown-label">이 영상에 들어간 수업들</div>
+            <div class="re-skills">
+              <div class="re-skill-row">
+                <span class="re-skill-cat">아트웍</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-art">발상과표현</span>
+                  <span class="re-tag rt-art">스토리보드</span>
+                  <span class="re-tag rt-art">플랫모션</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">디자인</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-design">포토샵 합성</span>
+                  <span class="re-tag rt-design">그래픽아트웍</span>
+                  <span class="re-tag rt-design">타이포그래피</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">모션</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-motion">After Effects</span>
+                  <span class="re-tag rt-motion">Element 3D</span>
+                  <span class="re-tag rt-motion">키네틱 타이포</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">3D</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-3d">Cinema 4D 1~4</span>
+                  <span class="re-tag rt-3d">MoGraph</span>
+                  <span class="re-tag rt-3d">시뮬레이션</span>
+                  <span class="re-tag rt-3d">Octane Render</span>
+                  <span class="re-tag rt-3d">HDRI · PBR</span>
+                </div>
+              </div>
+              <div class="re-skill-row">
+                <span class="re-skill-cat">편집</span>
+                <div class="re-skill-tags">
+                  <span class="re-tag rt-edit">Premiere Pro</span>
+                  <span class="re-tag rt-edit">오디오 믹싱</span>
+                </div>
+              </div>
+            </div>
+            <div class="re-quote">3D 영상은 3D 툴만 배운다고 나오지 않습니다.<br>무엇을 만들지 기획하고(아트웍), 소스를 제작하고(디자인), 모션을 설계해야(에펙) 완성됩니다.</div>
+          </div>
+        </div>
+
+      </div><!-- /re-items -->
+    </div><!-- /re-wrap -->
+
+  </div>
+</section>
+
+<!-- ─── PITCH: 취업·프리랜서 ─── -->
+<section class="pitch-section ps-job" id="pitch-job">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow" style="color:var(--red);">취업 · 프리랜서 트랙</div>
+    <h2 class="sec-title">모션 디자이너 채용 시장,<br>지금 어떻게 움직이고 있나요?</h2>
+    <p class="sec-lead"><strong>채용 공고를 보면 답이 있습니다.</strong> 모션 디자이너를 뽑는 JD(Job Description)를 분석하면, 어떤 스킬을 갖춰야 경쟁력이 생기는지 명확하게 보입니다.</p>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">↑34%</div>
+        <div class="stat-label">모션그래픽 채용 증가율</div>
+        <div class="stat-desc">브랜드 영상·OTT 콘텐츠·SNS 숏폼 수요가 동시에 늘면서 모션 디자이너 채용이 전년 대비 34% 증가했습니다.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num sn-blue">3.2개</div>
+        <div class="stat-label">평균 요구 툴 수</div>
+        <div class="stat-desc">모션 디자이너 채용 JD에서 평균 3.2개 이상의 툴을 요구합니다. <strong>After Effects 하나만으론 지원 자체가 어렵습니다.</strong></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">₩45M+</div>
+        <div class="stat-label">3년차 이상 연봉 중위값</div>
+        <div class="stat-desc">프리랜서는 영상 1편당 <strong>50만~300만원</strong> 단가로 수주. 3D 역량 보유 시 단가가 크게 높아집니다.</div>
+      </div>
+    </div>
+
+    <div class="jd-box">
+      <div class="jd-box-title">실제 채용 공고 JD 분석 — 모션 디자이너를 뽑는 회사가 원하는 것</div>
+      <div class="jd-item">
+        <span class="jd-req jr-must">필수</span>
+        <span class="jd-skill">After Effects 능숙자 (키프레임·이징·플러그인 활용)</span>
+        <span class="jd-map">→ 에펙 기초 · 심화 1 · 심화 2</span>
+      </div>
+      <div class="jd-item">
+        <span class="jd-req jr-must">필수</span>
+        <span class="jd-skill">Premiere Pro 편집 가능 (컷·색보정·오디오)</span>
+        <span class="jd-map">→ 프리미어 실전</span>
+      </div>
+      <div class="jd-item">
+        <span class="jd-req jr-must">필수</span>
+        <span class="jd-skill">Photoshop / Illustrator 소스 제작 가능</span>
+        <span class="jd-map">→ 포토샵 · 포토웍스 · 일러스트</span>
+      </div>
+      <div class="jd-item">
+        <span class="jd-req jr-must">필수</span>
+        <span class="jd-skill">실무 수준 포트폴리오 (브랜드 CF · 모션 인포그래픽)</span>
+        <span class="jd-map">→ 전 과정 결과물</span>
+      </div>
+      <div class="jd-item">
+        <span class="jd-req jr-pref">우대</span>
+        <span class="jd-skill">Cinema 4D 사용 경험 (MoGraph · 시뮬레이션)</span>
+        <span class="jd-map">→ 시포디 1~4 · Octane Render</span>
+      </div>
+      <div class="jd-item">
+        <span class="jd-req jr-pref">우대</span>
+        <span class="jd-skill">스토리보드 · 기획 · 콘셉트 작업 가능</span>
+        <span class="jd-map">→ 스토리보드 · 발상과표현</span>
+      </div>
+      <div class="jd-item">
+        <span class="jd-req jr-pref">우대</span>
+        <span class="jd-skill">AI 툴 활용 경험 (Runway · Firefly · Stable Diffusion)</span>
+        <span class="jd-map">→ AI 크리에이터 영상모션</span>
+      </div>
+    </div>
+
+    <div class="insight-box ib-red">
+      <p><strong>결론:</strong> 채용공고가 요구하는 스킬 전체가 이 커리큘럼 안에 있습니다. After Effects 하나만 배워서는 <strong>"우대"조차 받기 어렵습니다.</strong> 포트폴리오에 담긴 결과물이 JD의 필수 스킬을 직접 증명해야 합니다.</p>
+    </div>
+
+    <!-- AI 블록 - 취업 트랙 -->
+    <div class="jd-box" style="margin-bottom:36px;">
+      <div class="jd-box-title">AI가 바꾸는 모션 디자이너의 경쟁력</div>
+      <div class="jd-item">
+        <span class="jd-req jr-must" style="background:rgba(255,149,0,.18);color:#f4a535;">AI</span>
+        <span class="jd-skill">Runway · Sora · Kling으로 AI 영상 소스 생성 → 에펙에서 합성</span>
+        <span class="jd-map">→ AI 크리에이터 영상모션</span>
+      </div>
+      <div class="jd-item">
+        <span class="jd-req jr-must" style="background:rgba(255,149,0,.18);color:#f4a535;">AI</span>
+        <span class="jd-skill">Firefly · Midjourney · Leonardo로 배경·소스 이미지 즉시 생성</span>
+        <span class="jd-map">→ AI 크리에이터 아트웍</span>
+      </div>
+      <div class="jd-item">
+        <span class="jd-req jr-must" style="background:rgba(255,149,0,.18);color:#f4a535;">AI</span>
+        <span class="jd-skill">ChatGPT · Claude로 기획 문서·스토리보드·카피 초안 자동화</span>
+        <span class="jd-map">→ AI 프롬프트 엔지니어링 1·2단계</span>
+      </div>
+      <p style="font-size:12.5px;color:rgba(255,255,255,.35);margin-top:14px;line-height:1.7;">AI를 모르는 모션 디자이너와 AI를 실무에 연결하는 모션 디자이너의 제작 속도 차이는 이미 현장에서 체감되고 있습니다. 같은 결과물을 더 빠르게 만드는 사람이 더 많은 외주를 수주합니다.</p>
+    </div>
+
+    <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:20px;color:var(--dark);margin-bottom:18px;">수료 후 실제 취업 경로</div>
+    <div class="case-strip">
+      <div class="case-card">
+        <span class="case-bdg cbdg-studio">모션 스튜디오</span>
+        <div class="case-name">한명훈</div>
+        <div class="case-work">Van Cleef &amp; Arpels 브랜드 영상</div>
+        <div class="case-dest">TOVWORKS 재직</div>
+        <div class="case-type">현직 모션 디자이너</div>
+      </div>
+      <div class="case-card">
+        <span class="case-bdg cbdg-brand">브랜드 작가</span>
+        <div class="case-name">최혜인</div>
+        <div class="case-work">NUDAKE 모션 영상</div>
+        <div class="case-dest">블랑제리뵈르 활동 작가</div>
+        <div class="case-type">브랜드 전속 크리에이터</div>
+      </div>
+      <div class="case-card">
+        <span class="case-bdg cbdg-free">프리랜서</span>
+        <div class="case-name">이희진</div>
+        <div class="case-work">Showreel 포트폴리오</div>
+        <div class="case-dest">모션 프리랜서 활동 중</div>
+        <div class="case-type">독립 프리랜서</div>
+      </div>
+      <div class="case-card">
+        <span class="case-bdg cbdg-ad">광고 영상</span>
+        <div class="case-name">박수진</div>
+        <div class="case-work">O HUI 화장품 CF</div>
+        <div class="case-dest">뷰티 광고 영상 제작</div>
+        <div class="case-type">브랜드 광고 디자이너</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PITCH: 입시·포트폴리오 ─── -->
+<section class="pitch-section ps-exam" id="pitch-exam">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow" style="color:var(--blue);">입시 · 포트폴리오 트랙</div>
+    <h2 class="sec-title">채용자가<br>포트폴리오에서 보는 것</h2>
+    <p class="sec-lead"><strong>기술력만으로는 차별화되지 않습니다.</strong> 채용자가 평가하는 기준을 먼저 이해해야, 어떤 과목이 왜 필요한지가 보입니다.</p>
+
+    <div class="exam-criteria">
+      <div class="ec-card">
+        <div class="ec-weight" style="color:var(--red);">40%</div>
+        <div class="ec-name">아이디어력 · 기획력</div>
+        <div class="ec-desc">왜 이 영상을 만들었는가. 콘셉트의 명확성, 스토리보드 구성력, 발상의 독창성. 툴 실력보다 먼저 평가되는 영역입니다.</div>
+      </div>
+      <div class="ec-card">
+        <div class="ec-weight" style="color:var(--blue);">35%</div>
+        <div class="ec-name">기술 완성도</div>
+        <div class="ec-desc">After Effects 모션의 정교함, 3D 렌더링 품질, 색보정 수준. 기술이 아이디어를 받쳐줘야 완성도가 인정됩니다.</div>
+      </div>
+      <div class="ec-card">
+        <div class="ec-weight" style="color:#27ae60;">25%</div>
+        <div class="ec-name">시각 언어 감각</div>
+        <div class="ec-desc">타이포그래피, 색 배합, 레이아웃 밸런스. 이 감각은 색채학·컨셉드로잉·인포그래픽 수업 없이는 단기간에 키워지지 않습니다.</div>
+      </div>
+    </div>
+
+    <div class="insight-box ib-blue">
+      <p><strong>핵심:</strong> 기술이 35%, 기획·감각이 65%입니다. <strong>스토리보드·발상과표현·색채학·컨셉드로잉이 없는 포트폴리오</strong>는 심사에서 이미 구분됩니다. 에펙만 배운 포트폴리오와 전체 커리큘럼을 거친 포트폴리오의 차이가 바로 여기서 납니다.</p>
+    </div>
+
+    <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:20px;color:var(--dark);margin-bottom:16px;">입시 포트폴리오 제작 흐름</div>
+    <div class="roadmap-flow" style="margin-bottom:36px;flex-wrap:wrap;gap:8px;">
+      <div class="rf-item"><span class="rf-box">색채학</span><span class="rf-arr">→</span></div>
+      <div class="rf-item"><span class="rf-box">발상과표현</span><span class="rf-arr">→</span></div>
+      <div class="rf-item"><span class="rf-box">컨셉드로잉</span><span class="rf-arr">→</span></div>
+      <div class="rf-item"><span class="rf-box">스토리보드</span><span class="rf-arr">→</span></div>
+      <div class="rf-item"><span class="rf-box hl-b">포토샵 · 일러스트</span><span class="rf-arr">→</span></div>
+      <div class="rf-item"><span class="rf-box hl-b">After Effects</span><span class="rf-arr">→</span></div>
+      <div class="rf-item"><span class="rf-box hl-b">Cinema 4D</span><span class="rf-arr">→</span></div>
+      <div class="rf-item"><span class="rf-box hl">포트폴리오 완성</span></div>
+    </div>
+
+    <div style="background:var(--dark);border-radius:var(--r-lg);padding:26px 30px;margin-bottom:24px;">
+      <div style="font-family:'SUIT Variable',sans-serif;font-weight:700;font-size:10.5px;color:rgba(255,255,255,.35);letter-spacing:1.5px;margin-bottom:14px;text-transform:uppercase;">포트폴리오 방향 지도</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.72);line-height:1.85;">입시 목적의 포트폴리오는 <strong style="color:#fff;">'잘 만든 영상'이 목표가 아닙니다.</strong> 지원 학교의 심사 기준, 전공 특성에 맞는 방향성, 작품 구성 순서까지 처음부터 함께 설정합니다. 수강 중 완성한 결과물이 포트폴리오로 바로 활용될 수 있도록 방향을 잡아드립니다.</p>
+    </div>
+
+    <!-- AI 블록 - 입시 트랙 -->
+    <div style="background:linear-gradient(135deg,rgba(39,138,224,.07),rgba(255,149,0,.06));border:1px solid rgba(39,138,224,.15);border-radius:var(--r);padding:24px 26px;">
+      <div style="font-family:'SUIT Variable',sans-serif;font-weight:700;font-size:10.5px;color:var(--blue);letter-spacing:1.2px;margin-bottom:12px;text-transform:uppercase;">🤖 AI가 포트폴리오에서 차별점이 되는 이유</div>
+      <p style="font-size:13.5px;color:var(--dark);line-height:1.85;margin-bottom:14px;">같은 에펙 실력이라도, <strong>AI로 만든 소스를 작업에 녹여낸 포트폴리오</strong>는 심사에서 독창성과 기술 이해도 두 가지를 동시에 보여줍니다. AI 이미지 소스로 만든 배경, AI 음악으로 완성한 사운드, AI 보이스로 제작한 내레이션이 들어간 포트폴리오는 같은 수준의 모션 실력으로도 완성도가 다르게 보입니다.</p>
+      <div class="roadmap-flow" style="flex-wrap:wrap;gap:6px;">
+        <div class="rf-item"><span class="rf-box">AI 이미지 소스 생성</span><span class="rf-arr">→</span></div>
+        <div class="rf-item"><span class="rf-box">에펙 합성·색보정</span><span class="rf-arr">→</span></div>
+        <div class="rf-item"><span class="rf-box hl-b">AI 음악 · 더빙</span><span class="rf-arr">→</span></div>
+        <div class="rf-item"><span class="rf-box hl">완성도 높은 포트폴리오</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PITCH: 이직·경력전환 ─── -->
+<section class="pitch-section ps-career" id="pitch-career">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow" style="color:#9b59b6;">이직 · 경력전환 트랙</div>
+    <h2 class="sec-title">경력은 있는데<br>뭔가 하나씩 부족합니다</h2>
+    <p class="sec-lead">편집은 되는데 모션이 안 됩니다. 2D는 되는데 3D가 없습니다. 포토샵은 되는데 에펙을 체계적으로 배운 적이 없습니다.<br><strong>이 갭을 메우는 것이 직무 전환과 연봉 상승의 핵심입니다.</strong></p>
+
+    <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:20px;color:var(--dark);margin-bottom:18px;">경력자의 전형적인 스킬 갭 분석</div>
+    <div class="gap-grid">
+      <div class="gap-col have">
+        <div class="gap-col-label">✓ 보통 갖고 있는 것</div>
+        <div class="gap-tags">
+          <span class="gap-tag gt-have">Photoshop 기본</span>
+          <span class="gap-tag gt-have">Premiere 편집</span>
+          <span class="gap-tag gt-have">Illustrator 기초</span>
+          <span class="gap-tag gt-have">기획 · 커뮤니케이션</span>
+          <span class="gap-tag gt-have">색감 감각</span>
+          <span class="gap-tag gt-have">업무 흐름 이해</span>
+        </div>
+      </div>
+      <div class="gap-col need">
+        <div class="gap-col-label">✗ 시장이 요구하는데 없는 것</div>
+        <div class="gap-tags">
+          <span class="gap-tag gt-need">After Effects 모션</span>
+          <span class="gap-tag gt-need">Cinema 4D</span>
+          <span class="gap-tag gt-need">Octane Render</span>
+          <span class="gap-tag gt-need">파티클 이펙트</span>
+          <span class="gap-tag gt-need">CG 합성</span>
+          <span class="gap-tag gt-need">스토리보드 기획</span>
+          <span class="gap-tag gt-need">AI 영상 툴</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box ib-purple">
+      <p><strong>전략:</strong> 이미 갖고 있는 것부터 다시 배울 필요가 없습니다. <strong>없는 스킬만 정확하게 채우는 수강 설계</strong>가 경력자에게 맞는 접근입니다. 진단 후 불필요한 기초 과정을 건너뛰고 필요한 과목부터 시작합니다.</p>
+    </div>
+
+    <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:20px;color:var(--dark);margin-bottom:18px;">경력자 맞춤 수강 설계 예시</div>
+    <div class="career-path-grid">
+      <div class="cc">
+        <div class="cc-ico">🎬</div>
+        <span class="cc-tag tag-p">영상 편집 경력자</span>
+        <h3>Premiere는 되는데 에펙이 없어요</h3>
+        <p>프리미어 과정 생략 → 에펙 기초부터 시작. 이미 영상 언어를 알기 때문에 에펙 습득 속도가 빠릅니다. 기획·편집 경험이 모션 결과물의 완성도를 바로 높여줍니다.</p>
+      </div>
+      <div class="cc">
+        <div class="cc-ico">🎨</div>
+        <span class="cc-tag tag-b">그래픽 디자인 경력자</span>
+        <h3>포토샵·일러스트는 되는데 모션이 없어요</h3>
+        <p>포토샵·일러스트 과정 생략 → 에펙 기초부터. 이미 소스 제작 능력이 있어서 모션 작업 품질이 처음부터 다릅니다. 아트웍·디자인 감각이 결과물을 차별화합니다.</p>
+      </div>
+      <div class="cc">
+        <div class="cc-ico">🔷</div>
+        <span class="cc-tag tag-r">2D 모션 경력자</span>
+        <h3>에펙은 되는데 3D가 없어요</h3>
+        <p>에펙 과정 생략 → 시포디 1~4 + Octane 집중. 3D 추가만으로 수주 단가와 취업 포지션이 크게 달라집니다. 가장 빠른 연봉 업그레이드 경로입니다.</p>
+      </div>
+      <div class="cc">
+        <div class="cc-ico">🤖</div>
+        <span class="cc-tag tag-g">경력 있는 모든 경우</span>
+        <h3>AI 툴을 실무에 연결하는 방법을 모릅니다</h3>
+        <p>Runway·Sora·Firefly를 써본 적은 있어도 에펙 작업 흐름에 실제로 연결하는 방법은 따로 배워야 합니다. AI 소스 생성 → 에펙 합성·마스킹 → 완성 결과물로 이어지는 워크플로를 익히면 제작 속도와 소스 범위가 동시에 달라집니다.</p>
+      </div>
+    </div>
+
+    <!-- AI 블록 - 이직 트랙 -->
+    <div style="background:linear-gradient(135deg,rgba(155,89,182,.06),rgba(255,149,0,.05));border:1px solid rgba(155,89,182,.15);border-radius:var(--r);padding:24px 26px;margin-top:24px;">
+      <div style="font-family:'SUIT Variable',sans-serif;font-weight:700;font-size:10.5px;color:#9b59b6;letter-spacing:1.2px;margin-bottom:12px;text-transform:uppercase;">🤖 AI 추가 = 경력자의 가장 빠른 단가 업그레이드</div>
+      <p style="font-size:13.5px;color:var(--dark);line-height:1.85;">기존 모션 실력이 있는 경력자가 AI 툴 활용 능력을 더하면 <strong>소스 제작 시간이 줄고, 결과물의 다양성은 늘어납니다.</strong> 클라이언트 입장에서 "AI도 다루는 모션 디자이너"는 동일 단가에 더 많은 결과물을 기대할 수 있다는 의미입니다. AI 크리에이터 영상모션 과정은 경력자가 가장 빠르게 차별점을 만들 수 있는 경로입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PITCH: 취미·유튜버 ─── -->
+<section class="pitch-section ps-hobby" id="pitch-hobby">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow" style="color:#27ae60;">취미 · 유튜버 · 크리에이터 트랙</div>
+    <h2 class="sec-title">유튜브는 누구나 시작합니다.<br>살아남는 채널은 다릅니다.</h2>
+    <p class="sec-lead">콘텐츠를 "찍어서 올리는" 시대는 지났습니다. 지금 살아남는 채널에는 <strong>모션 인트로, 움직이는 자막, 전문적인 썸네일</strong>이 있습니다. 이것이 외주 없이 혼자 된다면, 제작 비용과 속도가 모두 달라집니다.</p>
+
+    <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:20px;color:var(--dark);margin-bottom:18px;">외주 없이 혼자 운영하는 채널 만들기</div>
+    <div class="yt-path">
+      <div class="yt-step">
+        <div class="yt-step-num">STEP 01</div>
+        <div class="yt-step-ico">✂️</div>
+        <h4>기획 · 편집 기초</h4>
+        <p>스토리보드로 콘텐츠 기획, Premiere Pro로 컷 편집·자막·색보정까지</p>
+        <div class="yt-step-arrow">→</div>
+      </div>
+      <div class="yt-step">
+        <div class="yt-step-num">STEP 02</div>
+        <div class="yt-step-ico">🎨</div>
+        <h4>채널 아이덴티티 시각화</h4>
+        <p>Photoshop 썸네일, Illustrator 채널 로고, 색채학으로 채널 컬러 설계</p>
+        <div class="yt-step-arrow">→</div>
+      </div>
+      <div class="yt-step">
+        <div class="yt-step-num">STEP 03</div>
+        <div class="yt-step-ico">✨</div>
+        <h4>모션 인트로 · 자막</h4>
+        <p>After Effects로 오프닝 모션, 키네틱 자막, 숏폼 콘텐츠 모션 이펙트</p>
+        <div class="yt-step-arrow">→</div>
+      </div>
+      <div class="yt-step">
+        <div class="yt-step-num">STEP 04</div>
+        <div class="yt-step-ico">🤖</div>
+        <h4>AI로 제작 속도 ×2</h4>
+        <p>AI 이미지 소스, AI 더빙, AI 영상 생성을 에펙·Premiere 작업에 연결</p>
+      </div>
+    </div>
+
+    <div class="yt-cost-grid">
+      <div class="yt-cost-box cost-out">
+        <div class="yt-cost-label">외주에 맡겼을 때 건당 비용</div>
+        <div class="yt-cost-row"><span class="yt-cost-item">채널 로고 제작</span><span class="yt-cost-val">20~50만원</span></div>
+        <div class="yt-cost-row"><span class="yt-cost-item">인트로 모션</span><span class="yt-cost-val">30~100만원</span></div>
+        <div class="yt-cost-row"><span class="yt-cost-item">썸네일 디자인 1장</span><span class="yt-cost-val">3~10만원</span></div>
+        <div class="yt-cost-row"><span class="yt-cost-item">영상 편집 (10분 내외)</span><span class="yt-cost-val">20~50만원</span></div>
+        <div class="yt-cost-row"><span class="yt-cost-item">숏폼 1개 제작</span><span class="yt-cost-val">10~30만원</span></div>
+        <div class="yt-cost-total">
+          <span class="yt-cost-total-label">채널 오픈 기본 세팅만</span>
+          <span class="yt-cost-total-val">100만원+</span>
+        </div>
+        <div style="margin-top:14px;padding:12px 14px;background:rgba(201,30,30,.06);border-radius:8px;border:1px solid rgba(201,30,30,.12);">
+          <div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:7px;font-family:'SUIT Variable',sans-serif;">📌 매달 업로드한다면?</div>
+          <div style="font-size:12px;color:var(--sub);line-height:1.75;">영상 편집 월 4편 → <strong style="color:var(--dark);">80~200만원/월</strong><br>썸네일 월 4장 → <strong style="color:var(--dark);">12~40만원/월</strong><br>숏폼 월 4개 → <strong style="color:var(--dark);">40~120만원/월</strong><br><span style="color:var(--red);font-weight:700;">→ 월 130~360만원, 연간 1,500~4,300만원</span></div>
+        </div>
+      </div>
+      <div class="yt-cost-box cost-in">
+        <div class="yt-cost-label">직접 만들 수 있게 되면</div>
+        <p style="font-size:13px;color:var(--sub);line-height:1.75;margin-bottom:12px;">원하는 시간에, 원하는 방향으로, 무제한으로 제작 가능. 채널 리브랜딩·콘텐츠 방향 전환도 외주 없이 직접 대응합니다.</p>
+        <p style="font-size:13px;color:var(--sub);line-height:1.75;">실력이 쌓이면 타 채널의 영상 편집·모션 외주를 <strong style="color:var(--dark);">수익으로 수주</strong>하는 것도 가능합니다. 취미가 부업이 됩니다.</p>
+      </div>
+    </div>
+
+    <!-- AI 블록 - 취미 트랙 -->
+    <div style="background:linear-gradient(135deg,rgba(39,174,96,.06),rgba(255,149,0,.05));border:1px solid rgba(39,174,96,.15);border-radius:var(--r);padding:24px 26px;margin-bottom:24px;">
+      <div style="font-family:'SUIT Variable',sans-serif;font-weight:700;font-size:10.5px;color:#27ae60;letter-spacing:1.2px;margin-bottom:16px;text-transform:uppercase;">🤖 취미·유튜버에게 AI가 바꾸는 것</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:16px 14px;border:1px solid var(--line);">
+          <div style="font-size:20px;margin-bottom:8px;">🎨</div>
+          <div style="font-weight:700;font-size:13px;color:var(--dark);margin-bottom:6px;">썸네일 · 배경 소스</div>
+          <p style="font-size:12px;color:var(--sub);line-height:1.65;">Firefly · Midjourney로 배경 이미지 즉시 생성, Photoshop에서 합성. 디자인 감각 없이도 퀄리티 있는 썸네일 제작 가능.</p>
+        </div>
+        <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:16px 14px;border:1px solid var(--line);">
+          <div style="font-size:20px;margin-bottom:8px;">🎬</div>
+          <div style="font-weight:700;font-size:13px;color:var(--dark);margin-bottom:6px;">숏폼 영상 소스</div>
+          <p style="font-size:12px;color:var(--sub);line-height:1.65;">Runway · Kling으로 AI 영상 클립 생성 → Premiere에서 편집. 촬영 없이도 숏폼 콘텐츠 제작이 가능해집니다.</p>
+        </div>
+        <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:16px 14px;border:1px solid var(--line);">
+          <div style="font-size:20px;margin-bottom:8px;">🎵</div>
+          <div style="font-weight:700;font-size:13px;color:var(--dark);margin-bottom:6px;">음악 · 내레이션</div>
+          <p style="font-size:12px;color:var(--sub);line-height:1.65;">Suno로 채널 BGM 생성, 타입캐스트로 AI 더빙. 저작권 걱정 없이 채널 전체 사운드를 직접 제작.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box ib-green">
+      <p>취미로 시작하더라도, <strong>배우는 내용은 실무와 동일합니다.</strong> 나중에 방향이 바뀌어 취업이나 프리랜서로 전환하고 싶어질 때, 쌓아둔 스킬과 포트폴리오가 그대로 활용됩니다. 처음부터 제대로 배우는 것이 결국 가장 효율적입니다.</p>
     </div>
   </div>
 </section>
@@ -1162,7 +1889,7 @@ nav {
         <div class="cmp-card">
           <div class="cmp-head">
             <div class="cmp-label">SBS 자체 인강</div>
-            <div class="cmp-desc">본원 강사 강의 · 온라인</div>
+            <div class="cmp-desc">정규 과정 등록 시 자동 포함</div>
           </div>
           <div class="cmp-rows">
             <div class="cmp-row"><span class="cmp-row-key">기능 학습</span><span class="cmp-val cv-yes">✓</span></div>
@@ -1209,8 +1936,8 @@ nav {
       </div>
       <div class="reason-card">
         <div class="reason-ico">📺</div>
-        <h4>SBS 본원 인강 — 복습 연계</h4>
-        <p>SBS아카데미는 자체 인강도 운영합니다. 강남 본원에서 직접 수강한 학생은 <strong>동일 강사의 인강을 복습용으로 활용</strong>할 수 있습니다. 수업 후 집에서 다시 볼 수 있다는 것은 큰 강점입니다.</p>
+        <h4>SBS 인강 — 정규 과정 등록 시 자동 포함</h4>
+        <p>SBS아카데미 자체 인강은 <strong>정규 과정 등록 시 별도 비용 없이 함께 제공</strong>됩니다. 수업 후 집에서 같은 강사의 강의를 복습용으로 다시 볼 수 있어, 수업 내용을 놓치거나 반복해서 보고 싶을 때 바로 활용할 수 있습니다.</p>
       </div>
       <div class="reason-card">
         <div class="reason-ico">🔄</div>
@@ -1355,6 +2082,49 @@ nav {
   </div>
 </section>
 
+
+<!-- ─── 방학특강 ─── -->
+<section class="summer-sec" id="summer">
+  <div class="sec-wrap" style="position:relative;z-index:1;">
+    <div class="sec-eyebrow">방학특강 · 단기 체험</div>
+    <h2 class="sec-title" style="color:#fff;">아직 결정이 어렵다면,<br>먼저 체험해보세요</h2>
+    <p class="sec-lead">정규 과정이 부담된다면, AI 단기 특강으로 먼저 감각을 익히고 결정할 수 있습니다.<br>특강 수료 후 본 과정으로 이어질 경우 <strong style="color:#fff;">선수학습 인정</strong>을 받습니다.</p>
+    <div class="summer-grid">
+      <div class="summer-card">
+        <div class="summer-card-ico">🎨</div>
+        <span class="summer-card-label scl-ai">AI 비주얼 디자인</span>
+        <h4>AI 비주얼 디자인</h4>
+        <div class="summer-card-hours">20시간 · 2시간 × 10일</div>
+        <p>ChatGPT · Claude · Firefly · Adobe Suite로 로고, 디지털 콘텐츠, 브랜드 시각물을 제작합니다. 디자인 기초 없이도 바로 시작할 수 있습니다.</p>
+        <span class="summer-badge">디자인 입문 · 창업 · 브랜드 운영</span>
+      </div>
+      <div class="summer-card">
+        <div class="summer-card-ico">🎬</div>
+        <span class="summer-card-label scl-video">AI 마케팅 영상</span>
+        <h4>AI 마케팅 영상 제작</h4>
+        <div class="summer-card-hours">20시간 · 13명 소규모 제한</div>
+        <p>AI 도구를 활용해 완성도 있는 광고 영상을 처음부터 끝까지 제작합니다. 소규모 클래스로 집중 피드백이 가능합니다.</p>
+        <span class="summer-badge">SNS 광고 · 브랜드 영상 · 소상공인</span>
+      </div>
+      <div class="summer-card">
+        <div class="summer-card-ico">💡</div>
+        <span class="summer-card-label scl-prompt">AI 프롬프트 1단계</span>
+        <h4>AI 프롬프트 엔지니어링 1단계</h4>
+        <div class="summer-card-hours">8일 · 400,000원</div>
+        <p>ChatGPT · Claude를 업무·창작에 실제로 연결합니다. 수료 시 KPC 공인 <strong style="color:#fff;">AI-POT 자격증</strong> 취득 가능합니다.</p>
+        <span class="summer-badge">직장인 · 자격증 · 업무 자동화</span>
+      </div>
+      <div class="summer-card">
+        <div class="summer-card-ico">✨</div>
+        <span class="summer-card-label scl-prompt">AI 프롬프트 2단계</span>
+        <h4>AI 프롬프트 엔지니어링 2단계</h4>
+        <div class="summer-card-hours">8일 · 400,000원</div>
+        <p>멀티모달 AI로 캐릭터 · 웹툰 · 스토리보드 · 음악까지 비주얼 콘텐츠를 직접 제작합니다. 1단계 수료 후 심화 과정입니다.</p>
+        <span class="summer-badge">비주얼 콘텐츠 · 캐릭터 · AI 크리에이터</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- 라이트박스 오버레이 -->
 <div class="lb-overlay" id="lbOverlay">
