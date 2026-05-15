@@ -275,24 +275,32 @@ nav {
 /* ─── S5 : 왜 SBS 강남 ─── */
 .compare-section { margin-bottom:60px; }
 .compare-heading { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:20px; color:var(--dark); margin-bottom:20px; }
-.compare-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
-.cmp-card { border-radius:var(--r); border:1.5px solid var(--line); background:var(--card); box-shadow:var(--sh); overflow:hidden; transition:all .2s; }
-.cmp-card.highlight { border-color:var(--red); box-shadow:0 0 0 2px rgba(201,30,30,.12), var(--sh); }
-.cmp-head { padding:16px 14px 14px; border-bottom:1px solid var(--line); text-align:center; }
-.cmp-head.hl-head { background:var(--red); border-color:var(--red); }
-.cmp-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:12px; color:var(--dark); margin-bottom:4px; }
-.cmp-head.hl-head .cmp-label { color:#fff; }
-.cmp-desc { font-size:10.5px; color:var(--muted); }
-.cmp-head.hl-head .cmp-desc { color:rgba(255,255,255,.65); }
-.cmp-rows { padding:8px 0; }
-.cmp-row { display:flex; align-items:center; justify-content:space-between; padding:8px 14px; font-size:11.5px; }
-.cmp-row:not(:last-child) { border-bottom:1px solid var(--bg); }
+/* 새 비교 레이아웃 */
+.compare-grid-new { display:grid; grid-template-columns:1fr 1.5fr; gap:16px; align-items:stretch; }
+.cmp-col-left { display:flex; flex-direction:column; gap:10px; }
+.cmp-card-sm { border-radius:var(--r); border:1.5px solid var(--line); background:var(--card); overflow:hidden; opacity:0.82; filter:grayscale(10%); }
+.cmp-card-sm .cmp-head-sm { padding:11px 14px 9px; border-bottom:1px solid var(--line); }
+.cmp-rows-mini { padding:9px 14px; display:flex; flex-wrap:wrap; gap:5px; }
+.cmp-badge { font-size:10.5px; padding:3px 8px; border-radius:20px; font-weight:700; }
+.cmp-badge-no  { background:rgba(192,57,43,.1);  color:#c0392b; }
+.cmp-badge-half{ background:rgba(230,128,10,.1); color:#e6800a; }
+.cmp-badge-yes { background:rgba(39,174,96,.1);  color:#27ae60; }
+.cmp-card-main { border-radius:14px; border:2px solid var(--red); background:var(--card); box-shadow:0 0 0 5px rgba(201,30,30,.07), 0 14px 44px rgba(201,30,30,.18); overflow:hidden; position:relative; display:flex; flex-direction:column; }
+.cmp-main-badge { position:absolute; top:14px; right:14px; background:#fff; color:var(--red); border:1.5px solid var(--red); font-size:10px; font-weight:800; padding:3px 10px; border-radius:20px; letter-spacing:.3px; }
+.cmp-main-head { background:var(--red); padding:22px 18px 16px; }
+.cmp-main-head .cmp-label { color:#fff; font-size:15px; margin-bottom:4px; }
+.cmp-main-head .cmp-desc { color:rgba(255,255,255,.7); font-size:11px; }
+.cmp-main-rows { padding:10px 0; flex:1; }
+.cmp-main-row { display:flex; align-items:center; justify-content:space-between; padding:9px 18px; font-size:12px; }
+.cmp-main-row:not(:last-child) { border-bottom:1px solid var(--bg); }
 .cmp-row-key { color:var(--sub); }
 .cmp-val { font-weight:700; font-size:12px; }
 .cv-yes { color:#27ae60; }
 .cv-no { color:#c0392b; }
 .cv-half { color:#e6800a; }
 .cv-best { color:var(--red); }
+.cmp-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:12px; color:var(--dark); margin-bottom:4px; }
+.cmp-desc { font-size:10.5px; color:var(--muted); }
 
 .reason-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:40px; }
 .reason-card { background:var(--card); border-radius:var(--r); border:1px solid var(--line); box-shadow:var(--sh); padding:28px 24px; }
@@ -360,7 +368,7 @@ nav {
   .fs-visual{min-height:220px;}
   .link-grid{grid-template-columns:1fr;}
   .tool-row{grid-template-columns:1fr;gap:18px;}
-  .compare-grid{grid-template-columns:repeat(3,1fr);}
+  .compare-grid-new{grid-template-columns:1fr;}
   .reason-grid{grid-template-columns:1fr 1fr;}
   .case-strip{grid-template-columns:repeat(2,1fr);}
   .case-strip-5{grid-template-columns:repeat(3,1fr);}
@@ -375,7 +383,7 @@ nav {
   .overview{padding:48px 20px 40px;}
   .nav-menu{display:none;}
   .concern-grid{grid-template-columns:1fr;}
-  .compare-grid{grid-template-columns:1fr 1fr;}
+  .compare-grid-new{grid-template-columns:1fr;}
   .career-type-grid{grid-template-columns:repeat(2,1fr);}
   .case-strip-5{grid-template-columns:repeat(2,1fr);}
   .after-grid{grid-template-columns:1fr;}
@@ -1840,82 +1848,71 @@ nav {
     <!-- 비교표 -->
     <div class="compare-section">
       <div class="compare-heading">같은 목표, 다른 선택 — 무엇이 결과를 가르는가</div>
-      <div class="compare-grid">
-        <div class="cmp-card">
-          <div class="cmp-head">
-            <div class="cmp-label">유튜브 · 독학</div>
-            <div class="cmp-desc">무료, 방대한 자료</div>
+      <div class="compare-grid-new">
+
+        <!-- 왼쪽: 경쟁 3개 (흐릿하게) -->
+        <div class="cmp-col-left">
+          <div class="cmp-card-sm">
+            <div class="cmp-head-sm">
+              <div class="cmp-label">독학</div>
+              <div class="cmp-desc">유튜브 · 무료 강의</div>
+            </div>
+            <div class="cmp-rows-mini">
+              <span class="cmp-badge cmp-badge-half">기능학습 △</span>
+              <span class="cmp-badge cmp-badge-no">즉각 피드백 ✗</span>
+              <span class="cmp-badge cmp-badge-no">포트폴리오 지도 ✗</span>
+              <span class="cmp-badge cmp-badge-no">멘토 시스템 ✗</span>
+              <span class="cmp-badge cmp-badge-no">취업 연계 ✗</span>
+            </div>
           </div>
-          <div class="cmp-rows">
-            <div class="cmp-row"><span class="cmp-row-key">기능 학습</span><span class="cmp-val cv-half">△</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">즉각 피드백</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">완성도 판단</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">포트폴리오 지도</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">멘토 시스템</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">복습 재수강</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">취업 연계</span><span class="cmp-val cv-no">✗</span></div>
+          <div class="cmp-card-sm">
+            <div class="cmp-head-sm">
+              <div class="cmp-label">인강</div>
+              <div class="cmp-desc">패캠 · 클래스101 등</div>
+            </div>
+            <div class="cmp-rows-mini">
+              <span class="cmp-badge cmp-badge-yes">기능학습 ✓</span>
+              <span class="cmp-badge cmp-badge-no">즉각 피드백 ✗</span>
+              <span class="cmp-badge cmp-badge-no">포트폴리오 지도 ✗</span>
+              <span class="cmp-badge cmp-badge-no">멘토 시스템 ✗</span>
+              <span class="cmp-badge cmp-badge-no">취업 연계 ✗</span>
+            </div>
           </div>
-        </div>
-        <div class="cmp-card">
-          <div class="cmp-head">
-            <div class="cmp-label">타사 인강</div>
-            <div class="cmp-desc">패캠 · 클래스101 등</div>
-          </div>
-          <div class="cmp-rows">
-            <div class="cmp-row"><span class="cmp-row-key">기능 학습</span><span class="cmp-val cv-yes">✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">즉각 피드백</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">완성도 판단</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">포트폴리오 지도</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">멘토 시스템</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">복습 재수강</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">취업 연계</span><span class="cmp-val cv-no">✗</span></div>
-          </div>
-        </div>
-        <div class="cmp-card">
-          <div class="cmp-head">
-            <div class="cmp-label">타 디자인 학원</div>
-            <div class="cmp-desc">수준 편차 있음</div>
-          </div>
-          <div class="cmp-rows">
-            <div class="cmp-row"><span class="cmp-row-key">기능 학습</span><span class="cmp-val cv-yes">✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">즉각 피드백</span><span class="cmp-val cv-half">△</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">완성도 판단</span><span class="cmp-val cv-half">△</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">포트폴리오 지도</span><span class="cmp-val cv-half">△</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">멘토 시스템</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">복습 재수강</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">취업 연계</span><span class="cmp-val cv-half">△</span></div>
+          <div class="cmp-card-sm">
+            <div class="cmp-head-sm">
+              <div class="cmp-label">타 학원</div>
+              <div class="cmp-desc">수준 편차 있음</div>
+            </div>
+            <div class="cmp-rows-mini">
+              <span class="cmp-badge cmp-badge-yes">기능학습 ✓</span>
+              <span class="cmp-badge cmp-badge-half">즉각 피드백 △</span>
+              <span class="cmp-badge cmp-badge-half">포트폴리오 지도 △</span>
+              <span class="cmp-badge cmp-badge-no">멘토 시스템 ✗</span>
+              <span class="cmp-badge cmp-badge-half">취업 연계 △</span>
+            </div>
           </div>
         </div>
-        <div class="cmp-card">
-          <div class="cmp-head">
-            <div class="cmp-label">SBS 자체 인강</div>
-            <div class="cmp-desc">정규 과정 등록 시 자동 포함</div>
-          </div>
-          <div class="cmp-rows">
-            <div class="cmp-row"><span class="cmp-row-key">기능 학습</span><span class="cmp-val cv-yes">✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">즉각 피드백</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">완성도 판단</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">포트폴리오 지도</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">멘토 시스템</span><span class="cmp-val cv-no">✗</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">복습 재수강</span><span class="cmp-val cv-yes">✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">취업 연계</span><span class="cmp-val cv-no">✗</span></div>
-          </div>
-        </div>
-        <div class="cmp-card highlight">
-          <div class="cmp-head hl-head">
+
+        <!-- 오른쪽: SBS아카데미 강남 (크고 선명하게) -->
+        <div class="cmp-card-main">
+          <span class="cmp-main-badge">최선의 선택</span>
+          <div class="cmp-main-head">
             <div class="cmp-label">SBS아카데미 강남</div>
             <div class="cmp-desc">본원 직접 수강</div>
           </div>
-          <div class="cmp-rows">
-            <div class="cmp-row"><span class="cmp-row-key">기능 학습</span><span class="cmp-val cv-best">✓✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">즉각 피드백</span><span class="cmp-val cv-best">✓✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">완성도 판단</span><span class="cmp-val cv-best">✓✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">포트폴리오 지도</span><span class="cmp-val cv-best">✓✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">멘토 시스템</span><span class="cmp-val cv-best">✓✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">복습 재수강</span><span class="cmp-val cv-best">✓✓</span></div>
-            <div class="cmp-row"><span class="cmp-row-key">취업 연계</span><span class="cmp-val cv-best">✓✓</span></div>
+          <div class="cmp-main-rows">
+            <div class="cmp-main-row"><span class="cmp-row-key">기능 학습</span><span class="cmp-val cv-best">✓✓</span></div>
+            <div class="cmp-main-row"><span class="cmp-row-key">즉각 피드백</span><span class="cmp-val cv-best">✓✓</span></div>
+            <div class="cmp-main-row"><span class="cmp-row-key">완성도 판단</span><span class="cmp-val cv-best">✓✓</span></div>
+            <div class="cmp-main-row"><span class="cmp-row-key">포트폴리오 지도</span><span class="cmp-val cv-best">✓✓</span></div>
+            <div class="cmp-main-row"><span class="cmp-row-key">멘토 시스템</span><span class="cmp-val cv-best">✓✓</span></div>
+            <div class="cmp-main-row"><span class="cmp-row-key">복습 재수강</span><span class="cmp-val cv-best">✓✓</span></div>
+            <div class="cmp-main-row"><span class="cmp-row-key">취업 연계</span><span class="cmp-val cv-best">✓✓</span></div>
+            <div class="cmp-main-row" style="background:rgba(201,30,30,.04);"><span class="cmp-row-key">복습용 SBS 인강</span><span class="cmp-val cv-best" style="font-size:10.5px;">정규 등록 시 제공</span></div>
+            <div class="cmp-main-row" style="background:rgba(201,30,30,.04);"><span class="cmp-row-key">실무자 기반 인강 <span style="font-size:10px;color:var(--muted);">(블러 등)</span></span><span class="cmp-val cv-best" style="font-size:10.5px;">별도 수강 가능</span></div>
           </div>
         </div>
+
       </div>
     </div>
 
