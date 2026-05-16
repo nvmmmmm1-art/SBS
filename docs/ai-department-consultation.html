@@ -343,6 +343,15 @@ nav {
 .csubj-row { display:flex; align-items:center; gap:9px; }
 .csubj-why { font-size:10.5px; color:rgba(255,255,255,.28); line-height:1.55; padding-left:27px; }
 
+/* ─── PORTFOLIO SCROLL GRID ─── */
+.pf-scroll { max-height:320px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.15) transparent; }
+.pf-scroll::-webkit-scrollbar { width:4px; }
+.pf-scroll::-webkit-scrollbar-track { background:transparent; }
+.pf-scroll::-webkit-scrollbar-thumb { background:rgba(255,255,255,.15); border-radius:4px; }
+.pf-grid-3 { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.pf-section-label { font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:10px; color:rgba(255,255,255,.3); letter-spacing:1.5px; text-transform:uppercase; margin:10px 0 7px; }
+.pf-section-label:first-child { margin-top:0; }
+
 /* ─── VIDEO PORTFOLIO CARD ─── */
 .pf-video-card { border-radius:8px; aspect-ratio:16/9; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
 .pf-video-play { font-size:22px; color:rgba(255,255,255,.4); margin-bottom:5px; }
@@ -660,27 +669,45 @@ nav {
               <div style="position:absolute;bottom:0;left:0;right:0;padding:7px 8px 6px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:10px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">AI 뮤직비디오</div>
             </div>
           </div>
-          <div style="font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:10px; color:rgba(255,255,255,.3); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px;">수강생 포트폴리오</div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#1a0a10,#2a0015); display:flex; flex-direction:column; align-items:center; justify-content:center;">
-              <div style="font-size:16px; color:rgba(255,255,255,.35); margin-bottom:4px;">▶</div>
-              <div style="font-family:'Paperlogy',sans-serif; font-size:9px; color:rgba(255,180,210,.8); letter-spacing:1px;">CHANCE CHANEL</div>
-              <div style="font-size:8px; color:rgba(255,255,255,.28); margin-top:2px; font-family:'SUIT Variable',sans-serif;">김정은</div>
-            </div>
-            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#0a1a10,#001a10); display:flex; flex-direction:column; align-items:center; justify-content:center;">
-              <div style="font-size:16px; color:rgba(255,255,255,.35); margin-bottom:4px;">▶</div>
-              <div style="font-family:'Paperlogy',sans-serif; font-size:9px; color:rgba(200,240,200,.8); letter-spacing:1px;">Diptyque</div>
-              <div style="font-size:8px; color:rgba(255,255,255,.28); margin-top:2px; font-family:'SUIT Variable',sans-serif;">구정현</div>
-            </div>
-            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#1a1a0a,#2a2000); display:flex; flex-direction:column; align-items:center; justify-content:center;">
-              <div style="font-size:16px; color:rgba(255,255,255,.35); margin-bottom:4px;">▶</div>
-              <div style="font-family:'Paperlogy',sans-serif; font-size:9px; color:rgba(255,220,100,.8); letter-spacing:1px;">O HUI</div>
-              <div style="font-size:8px; color:rgba(255,255,255,.28); margin-top:2px; font-family:'SUIT Variable',sans-serif;">박수진</div>
-            </div>
-            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#001010,#001a1a); display:flex; flex-direction:column; align-items:center; justify-content:center;">
-              <div style="font-size:16px; color:rgba(255,255,255,.35); margin-bottom:4px;">▶</div>
-              <div style="font-family:'Paperlogy',sans-serif; font-size:9px; color:rgba(100,220,255,.8); letter-spacing:1px;">SONY WH-1000XM4</div>
-              <div style="font-size:8px; color:rgba(255,255,255,.28); margin-top:2px; font-family:'SUIT Variable',sans-serif;">하동연</div>
+          <div class="pf-section-label">수강생 포트폴리오</div>
+          <div class="pf-scroll">
+            <div class="pf-grid-3">
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_구정현_Diptyque.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">구정현 · Diptyque</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_김정은_CHANEL.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">김정은 · CHANCE CHANEL</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_문주연_YSL.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">문주연 · YSL</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_박수진_OHUI.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">박수진 · O HUI</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_박자인_해적.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">박자인 · 해적</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_우승림_Missing.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">우승림 · Missing</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_이민지_아기돼지.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">이민지 · 아기돼지 삼형제</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_이향지_TVING.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">이향지 · TVING</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/motion_김지수_해리포터.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">김지수 · 해리포터</div>
+              </div>
             </div>
           </div>
         </div>
@@ -719,19 +746,25 @@ nav {
       </div>
       <div class="cp-right">
         <div class="cp-mockup">
-          <div class="cp-mockup-label">결과물 미리보기</div>
-          <div class="cp-showcase">
-            <div class="cs-item" style="background:linear-gradient(135deg,#1a0a0a,#2d0000); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:28px;">▶️</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">유튜브 영상</div></div>
+          <div class="cp-mockup-label">AI 제작 영상 예시</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
+            <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+              <video src="videos/03.AI인물이 말하는 미래 브랜드 영상.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+              <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">AI 인물 브랜드 영상</div>
             </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a0a,#1a2d00); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:28px;">🖼️</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">썸네일</div></div>
+            <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+              <video src="videos/04.C4D와 Runway로 제작하는 하이브리드 모션.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+              <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9.5px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">C4D + Runway 하이브리드</div>
             </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a1a,#00002d); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:28px;">📱</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">숏폼</div></div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div style="border-radius:8px;aspect-ratio:16/9;background:linear-gradient(135deg,#0a0a0a,#1a0a00);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+              <div style="font-size:22px;margin-bottom:4px;">📱</div>
+              <div style="font-size:9.5px;color:rgba(255,255,255,.5);font-family:'SUIT Variable',sans-serif;">숏폼 · 릴스 · 틱톡</div>
             </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#1a1a0a,#2d2a00); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:28px;">💰</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">수익화</div></div>
+            <div style="border-radius:8px;aspect-ratio:16/9;background:linear-gradient(135deg,#001a0a,#002a10);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+              <div style="font-size:22px;margin-bottom:4px;">🖼️</div>
+              <div style="font-size:9.5px;color:rgba(255,255,255,.5);font-family:'SUIT Variable',sans-serif;">AI 썸네일 디자인</div>
             </div>
           </div>
         </div>
@@ -770,11 +803,28 @@ nav {
       <div class="cp-right">
         <div class="cp-mockup">
           <div class="cp-mockup-label">수강생 포트폴리오</div>
-          <div class="pf-grid">
-            <div class="pf-item"><img src="portfolio/v1.jpg" alt="음료수 패키지"><div class="pf-item-label">패키지 디자인</div></div>
-            <div class="pf-item"><img src="portfolio/v2.png" alt="뮤지엄 리브랜딩"><div class="pf-item-label">뮤지엄 리브랜딩</div></div>
-            <div class="pf-item"><img src="portfolio/v3.png" alt="미스트 브랜딩"><div class="pf-item-label">브랜딩 디자인</div></div>
-            <div class="pf-item"><img src="portfolio/v5.png" alt="그래픽 아트웍"><div class="pf-item-label">그래픽 아트웍</div></div>
+          <div class="pf-scroll">
+            <div class="pf-section-label">편집 · 포스터</div>
+            <div class="pf-grid-3">
+              <div class="pf-item"><img src="portfolio/v1.jpg" alt="음료수 패키지"><div class="pf-item-label">패키지 디자인 · 정진선</div></div>
+              <div class="pf-item"><img src="portfolio/ve1.png" alt="상세페이지"><div class="pf-item-label">상세페이지 · 구수진</div></div>
+              <div class="pf-item"><img src="portfolio/ve2.png" alt="인어공주 포스터"><div class="pf-item-label">포스터리디자인 · 남윤영</div></div>
+              <div class="pf-item"><img src="portfolio/v2.png" alt="뮤지엄 리브랜딩"><div class="pf-item-label">뮤지엄 리브랜딩 · 이소정</div></div>
+            </div>
+            <div class="pf-section-label" style="margin-top:10px;">브랜딩 · 앱 디자인</div>
+            <div class="pf-grid-3">
+              <div class="pf-item"><img src="portfolio/v3.png" alt="미스트 브랜딩"><div class="pf-item-label">미스트 브랜딩 · 남윤영</div></div>
+              <div class="pf-item"><img src="portfolio/ve3.png" alt="손안 어플"><div class="pf-item-label">앱 브랜딩 · 송자은</div></div>
+              <div class="pf-item"><img src="portfolio/ve4.png" alt="데코리어스 어플"><div class="pf-item-label">앱 브랜딩 · 유지연</div></div>
+              <div class="pf-item"><img src="portfolio/v4.png" alt="카페 브랜딩"><div class="pf-item-label">카페 브랜딩 · 전효정</div></div>
+            </div>
+            <div class="pf-section-label" style="margin-top:10px;">패키지MD · 그래픽아트웍</div>
+            <div class="pf-grid-3">
+              <div class="pf-item"><img src="portfolio/ve5.png" alt="세븐틴 굿즈"><div class="pf-item-label">굿즈 패키지MD · 천서경</div></div>
+              <div class="pf-item"><img src="portfolio/ve6.png" alt="순백수VMD"><div class="pf-item-label">VMD 패키지 · 박하림</div></div>
+              <div class="pf-item"><img src="portfolio/ve7.jpg" alt="milkway 그래픽"><div class="pf-item-label">그래픽아트웍 · 조민영</div></div>
+              <div class="pf-item"><img src="portfolio/ve8.png" alt="숲의아이"><div class="pf-item-label">그래픽아트웍 · 이희정</div></div>
+            </div>
           </div>
         </div>
         <div class="course-subjects">
@@ -812,11 +862,32 @@ nav {
       <div class="cp-right">
         <div class="cp-mockup">
           <div class="cp-mockup-label">수강생 포트폴리오</div>
-          <div class="pf-grid">
-            <div class="pf-item"><img src="portfolio/a2.jpg" alt="컨셉드로잉"><div class="pf-item-label">컨셉드로잉</div></div>
-            <div class="pf-item"><img src="portfolio/a1.jpg" alt="디지털드로잉"><div class="pf-item-label">디지털드로잉</div></div>
-            <div class="pf-item"><img src="portfolio/a5.jpg" alt="플랫모션 아트웍"><div class="pf-item-label">플랫 아트웍</div></div>
-            <div class="pf-item"><img src="portfolio/a4.jpg" alt="팬시 아트웍"><div class="pf-item-label">팬시 굿즈</div></div>
+          <div class="pf-scroll">
+            <div class="pf-section-label">디지털드로잉</div>
+            <div class="pf-grid-3">
+              <div class="pf-item"><img src="portfolio/a1.jpg" alt="디지털드로잉"><div class="pf-item-label">신송미</div></div>
+              <div class="pf-item"><img src="portfolio/aw1.jpg" alt="디지털드로잉"><div class="pf-item-label">김은화</div></div>
+              <div class="pf-item"><img src="portfolio/aw2.jpg" alt="디지털드로잉"><div class="pf-item-label">김나연</div></div>
+            </div>
+            <div class="pf-section-label" style="margin-top:10px;">컨셉드로잉</div>
+            <div class="pf-grid-3">
+              <div class="pf-item"><img src="portfolio/a2.jpg" alt="컨셉드로잉"><div class="pf-item-label">이소정</div></div>
+              <div class="pf-item"><img src="portfolio/aw3.jpg" alt="컨셉드로잉"><div class="pf-item-label">류민지</div></div>
+              <div class="pf-item"><img src="portfolio/aw4.jpg" alt="컨셉드로잉"><div class="pf-item-label">컨셉드로잉</div></div>
+            </div>
+            <div class="pf-section-label" style="margin-top:10px;">플랫모션 · 아트웍</div>
+            <div class="pf-grid-3">
+              <div class="pf-item"><img src="portfolio/a5.jpg" alt="플랫모션"><div class="pf-item-label">황혜림 · 크리스마스</div></div>
+              <div class="pf-item"><img src="portfolio/a6.jpg" alt="플랫아트웍"><div class="pf-item-label">권희중 · 일러스트</div></div>
+              <div class="pf-item"><img src="portfolio/aw5.jpg" alt="플랫디자인"><div class="pf-item-label">이수연 · 플랫디자인</div></div>
+              <div class="pf-item"><img src="portfolio/aw6.jpg" alt="EDMPARTY포스터"><div class="pf-item-label">황혜림 · EDM파티</div></div>
+            </div>
+            <div class="pf-section-label" style="margin-top:10px;">팬시굿즈 · 캐릭터</div>
+            <div class="pf-grid-3">
+              <div class="pf-item"><img src="portfolio/a4.jpg" alt="팬시굿즈"><div class="pf-item-label">구한울 · 팬시아트웍</div></div>
+              <div class="pf-item"><img src="portfolio/aw7.jpg" alt="팬시상품"><div class="pf-item-label">서혜원</div></div>
+              <div class="pf-item"><img src="portfolio/aw8.jpg" alt="팬시아트웍"><div class="pf-item-label">조훈희 · 팬시아트웍</div></div>
+            </div>
           </div>
         </div>
         <div class="course-subjects">
@@ -854,26 +925,55 @@ nav {
       <div class="cp-right">
         <div class="cp-mockup">
           <div class="cp-mockup-label">수강생 포트폴리오</div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#0a0a1a,#1a0a30); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-              <div style="font-size:18px; color:rgba(255,255,255,.4); margin-bottom:4px;">▶</div>
-              <div style="font-family:'Paperlogy',sans-serif; font-size:9.5px; color:rgba(255,255,255,.7); letter-spacing:1px; text-align:center;">Van Cleef & Arpels</div>
-              <div style="font-size:8.5px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif;">한명훈 [TOVWORKS]</div>
+          <div class="pf-scroll">
+            <div class="pf-section-label">모델링</div>
+            <div class="pf-grid-3">
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/CG_모델링_신현도.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">신현도 · 모델링 포폴</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/CG_모델링_김민수.mov" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">김민수 · Turntable</div>
+              </div>
             </div>
-            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#0d1a00,#1a2800); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-              <div style="font-size:18px; color:rgba(255,255,255,.4); margin-bottom:4px;">▶</div>
-              <div style="font-family:'Paperlogy',sans-serif; font-size:9.5px; color:rgba(255,200,100,.8); letter-spacing:1px; text-align:center;">불닭볶음면</div>
-              <div style="font-size:8.5px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif;">이고운 · Behance</div>
+            <div class="pf-section-label" style="margin-top:10px;">룩뎁 · VFX 합성</div>
+            <div class="pf-grid-3">
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/CG_룩뎁_조수빈.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">조수빈 · 룩뎁 [자이언트스탭]</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/CG_매트_김채민.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">김채민 · 매트페인팅 RD101</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/CG_합성_권기연.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">권기연 · 합성 [걸리버스튜디오]</div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:#000;position:relative;">
+                <video src="videos/CG_합성_이충희.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+                <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 7px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">이충희 · 합성 [틴트스튜디오]</div>
+              </div>
             </div>
-            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#1a0005,#2d000a); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-              <div style="font-size:18px; color:rgba(255,255,255,.4); margin-bottom:4px;">▶</div>
-              <div style="font-family:'Paperlogy',sans-serif; font-size:9.5px; color:rgba(255,150,180,.8); letter-spacing:1px; text-align:center;">NUDAKE</div>
-              <div style="font-size:8.5px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif;">최혜인 [블랑제리뵈르]</div>
-            </div>
-            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#0a1a1a,#001a20); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-              <div style="font-size:18px; color:rgba(255,255,255,.4); margin-bottom:4px;">▶</div>
-              <div style="font-family:'Paperlogy',sans-serif; font-size:9.5px; color:rgba(100,220,255,.8); letter-spacing:1px; text-align:center;">Showreel</div>
-              <div style="font-size:8.5px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif;">이희진 [프리랜서 활동중]</div>
+            <div class="pf-section-label" style="margin-top:10px;">AI + 합성 활동 수강생</div>
+            <div class="pf-grid-3" style="gap:5px;">
+              <div style="border-radius:7px;aspect-ratio:16/9;background:linear-gradient(135deg,#0a0a1a,#1a0a30);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <div style="font-size:9px;color:rgba(255,255,255,.65);font-family:'Paperlogy',sans-serif;letter-spacing:1px;">Van Cleef & Arpels</div>
+                <div style="font-size:8px;color:rgba(255,255,255,.3);margin-top:2px;font-family:'SUIT Variable',sans-serif;">한명훈 [TOVWORKS]</div>
+              </div>
+              <div style="border-radius:7px;aspect-ratio:16/9;background:linear-gradient(135deg,#1a0005,#2d000a);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <div style="font-size:9px;color:rgba(255,150,180,.8);font-family:'Paperlogy',sans-serif;letter-spacing:1px;">NUDAKE</div>
+                <div style="font-size:8px;color:rgba(255,255,255,.3);margin-top:2px;font-family:'SUIT Variable',sans-serif;">최혜인 [블랑제리뵈르]</div>
+              </div>
+              <div style="border-radius:7px;aspect-ratio:16/9;background:linear-gradient(135deg,#0a1a1a,#001a20);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <div style="font-size:9px;color:rgba(100,220,255,.8);font-family:'Paperlogy',sans-serif;letter-spacing:1px;">Showreel</div>
+                <div style="font-size:8px;color:rgba(255,255,255,.3);margin-top:2px;font-family:'SUIT Variable',sans-serif;">이희진 [프리랜서]</div>
+              </div>
+              <div style="border-radius:7px;aspect-ratio:16/9;background:linear-gradient(135deg,#0d1a00,#1a2800);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <div style="font-size:9px;color:rgba(255,200,100,.8);font-family:'Paperlogy',sans-serif;letter-spacing:1px;">불닭볶음면</div>
+                <div style="font-size:8px;color:rgba(255,255,255,.3);margin-top:2px;font-family:'SUIT Variable',sans-serif;">이고운 · Behance</div>
+              </div>
             </div>
           </div>
         </div>
@@ -912,11 +1012,18 @@ nav {
       <div class="cp-right">
         <div class="cp-mockup">
           <div class="cp-mockup-label">수강생 포트폴리오</div>
-          <div class="pf-grid">
-            <div class="pf-item"><img src="portfolio/i1.jpg" alt="스케치업 인테리어"><div class="pf-item-label">공간 렌더링</div></div>
-            <div class="pf-item"><img src="portfolio/i2.jpg" alt="Farnsworth House"><div class="pf-item-label">주거 공간</div></div>
-            <div class="pf-item"><img src="portfolio/i3.jpg" alt="익스테리어"><div class="pf-item-label">익스테리어</div></div>
-            <div class="pf-item" style="background:linear-gradient(135deg,#0a1218,#0a1a28);display:flex;align-items:center;justify-content:center;"><div style="font-size:30px;">📐</div></div>
+          <div class="pf-scroll">
+            <div class="pf-section-label">스케치업 · 공간 렌더링</div>
+            <div class="pf-grid-3">
+              <div class="pf-item"><img src="portfolio/i1.jpg" alt="스케치업 인테리어"><div class="pf-item-label">도해인 · 실내공간</div></div>
+              <div class="pf-item"><img src="portfolio/ii2.jpg" alt="Clothing Shop"><div class="pf-item-label">도해인 · Clothing Shop</div></div>
+              <div class="pf-item"><img src="portfolio/ii3.jpg" alt="스케치업B"><div class="pf-item-label">도해인 · 공간 B</div></div>
+              <div class="pf-item"><img src="portfolio/ii1.jpg" alt="수정 공간"><div class="pf-item-label">도해인 · 수정안</div></div>
+              <div class="pf-item"><img src="portfolio/i3.jpg" alt="스케치업 박세정"><div class="pf-item-label">박세정 · 인테리어</div></div>
+              <div class="pf-item"><img src="portfolio/ii4.jpg" alt="익스테리어"><div class="pf-item-label">박세정 · 익스테리어</div></div>
+              <div class="pf-item"><img src="portfolio/i2.jpg" alt="Farnsworth House"><div class="pf-item-label">정혜찬 · Farnsworth</div></div>
+              <div class="pf-item"><img src="portfolio/ii5.jpg" alt="함현숙 스케치업"><div class="pf-item-label">함현숙 · 공간 렌더링</div></div>
+            </div>
           </div>
         </div>
         <div class="course-subjects">
@@ -953,20 +1060,31 @@ nav {
       </div>
       <div class="cp-right">
         <div class="cp-mockup">
-          <div class="cp-mockup-label">완성 결과물</div>
-          <div class="mock-web" style="border-radius:12px; border:1px solid rgba(255,255,255,.1); height:200px;">
-            <div class="mock-web-bar">
-              <div class="mock-web-dot" style="background:#ff5f57;"></div>
-              <div class="mock-web-dot" style="background:#febc2e;"></div>
-              <div class="mock-web-dot" style="background:#28c840;"></div>
-              <div class="mock-web-url" style="background:#e5e5e5;"></div>
+          <div class="cp-mockup-label">수강생 포트폴리오</div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:10px; overflow:hidden;">
+              <div style="background:#f3f3f3; padding:5px 10px; display:flex; gap:5px; align-items:center;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#febc2e;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#28c840;"></div>
+                <div style="flex:1;background:#e5e5e5;border-radius:3px;height:12px;margin:0 6px;"></div>
+              </div>
+              <div style="padding:12px; background:linear-gradient(135deg,#0d0d22,#1a1a3a); min-height:70px; display:flex; align-items:center; justify-content:center;">
+                <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:12px;color:rgba(255,255,255,.7);letter-spacing:1.5px;">신승재 · 웹 포트폴리오</div>
+              </div>
             </div>
-            <div class="mock-web-body">
-              <div class="mock-web-hero"><div class="mock-web-hero-text">AI로 만든 내 사이트</div></div>
-              <div class="mock-web-cards">
-                <div class="mock-web-card"></div>
-                <div class="mock-web-card"></div>
-                <div class="mock-web-card"></div>
+            <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:14px; display:flex; align-items:center; gap:12px;">
+              <div style="font-size:24px;">🌐</div>
+              <div>
+                <div style="font-family:'SUIT Variable',sans-serif;font-weight:700;font-size:12px;color:rgba(255,255,255,.75);">UX/UI 포트폴리오</div>
+                <div style="font-size:10.5px;color:rgba(255,255,255,.35);margin-top:3px;">반응형 웹 · AI 바이브코딩으로 완성</div>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:14px; display:flex; align-items:center; gap:12px;">
+              <div style="font-size:24px;">🛒</div>
+              <div>
+                <div style="font-family:'SUIT Variable',sans-serif;font-weight:700;font-size:12px;color:rgba(255,255,255,.75);">쇼핑몰 · 랜딩페이지</div>
+                <div style="font-size:10.5px;color:rgba(255,255,255,.35);margin-top:3px;">GPT + Claude로 코드 없이 제작·배포</div>
               </div>
             </div>
           </div>
