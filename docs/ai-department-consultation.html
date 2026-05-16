@@ -320,9 +320,34 @@ nav {
 .course-subjects { margin-top:14px; padding:14px 16px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:12px; }
 .csubj-hd { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; color:rgba(255,255,255,.3); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; }
 .csubj-list { display:flex; flex-direction:column; gap:7px; }
-.csubj-item { display:flex; align-items:center; gap:9px; font-size:12px; color:rgba(255,255,255,.75); font-family:'SUIT Variable',sans-serif; }
+.csubj-item { display:flex; flex-direction:column; align-items:flex-start; gap:3px; font-size:12px; color:rgba(255,255,255,.75); font-family:'SUIT Variable',sans-serif; }
 .csubj-num { width:18px; height:18px; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; font-size:9px; color:rgba(255,255,255,.4); font-weight:700; flex-shrink:0; }
 .csubj-arrow { font-size:10px; color:rgba(255,255,255,.2); margin:0 2px; }
+
+/* ─── HERO LINK ARROW ─── */
+.hcl-item { display:flex; align-items:center; gap:12px; padding:10px 12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:10px; cursor:pointer; }
+.hcl-arrow { margin-left:auto; font-size:12px; color:rgba(255,255,255,.2); transition:all .2s; flex-shrink:0; }
+.hcl-item:hover .hcl-arrow { color:rgba(255,255,255,.7); transform:translateX(4px); }
+
+/* ─── S1 WHY BLOCK ─── */
+.cc-why { margin-top:14px; padding:12px 14px; border-left:2px solid; border-radius:0 8px 8px 0; }
+.cc.c-red   .cc-why { border-color:var(--red);    background:rgba(201,30,30,.05); }
+.cc.c-blue  .cc-why { border-color:var(--blue);   background:rgba(39,138,224,.05); }
+.cc.c-purple .cc-why{ border-color:var(--purple); background:rgba(155,89,182,.05); }
+.cc.c-green .cc-why { border-color:var(--green);  background:rgba(39,174,96,.05); }
+.cc-why-title { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; letter-spacing:.6px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.cc-why-text { font-size:12px; color:var(--sub); line-height:1.75; }
+
+/* ─── SUBJECT WHY ─── */
+.csubj-item { flex-direction:column; align-items:flex-start; gap:3px; }
+.csubj-row { display:flex; align-items:center; gap:9px; }
+.csubj-why { font-size:10.5px; color:rgba(255,255,255,.28); line-height:1.55; padding-left:27px; }
+
+/* ─── VIDEO PORTFOLIO CARD ─── */
+.pf-video-card { border-radius:8px; aspect-ratio:16/9; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.pf-video-play { font-size:22px; color:rgba(255,255,255,.4); margin-bottom:5px; }
+.pf-video-brand { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:10px; color:rgba(255,255,255,.7); letter-spacing:1px; text-align:center; }
+.pf-video-student { font-size:9px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif; }
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:1024px) {
@@ -398,38 +423,47 @@ nav {
           <div class="hcl-item" onclick="goToTab('video')">
             <span class="hcl-ico">🎬</span>
             <div><div class="hcl-name">AI 크리에이터 영상/모션</div><div class="hcl-tag">Runway · After Effects · Premiere</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
           <div class="hcl-item" onclick="goToTab('youtube')">
             <span class="hcl-ico">📹</span>
             <div><div class="hcl-name">AI 크리에이터 유튜브</div><div class="hcl-tag">숏폼 · 썸네일 · 채널 운영</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
           <div class="hcl-item" onclick="goToTab('visual')">
             <span class="hcl-ico">🎨</span>
             <div><div class="hcl-name">AI 크리에이터 시각편집</div><div class="hcl-tag">Photoshop · Illustrator · AI 이미지</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
           <div class="hcl-item" onclick="goToTab('artwork')">
             <span class="hcl-ico">✏️</span>
             <div><div class="hcl-name">AI 크리에이터 아트웍</div><div class="hcl-tag">AI 이미지 생성 · 브랜딩</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
           <div class="hcl-item" onclick="goToTab('web')">
             <span class="hcl-ico">🌐</span>
             <div><div class="hcl-name">AI 바이브코딩 웹</div><div class="hcl-tag">코딩 없이 사이트 완성</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
           <div class="hcl-item" onclick="goToTab('agent')">
             <span class="hcl-ico">🤖</span>
             <div><div class="hcl-name">AI 에이전트</div><div class="hcl-tag">업무자동화 · AI 워크플로우</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
           <div class="hcl-item" onclick="goToTab('prompt')">
             <span class="hcl-ico">💡</span>
             <div><div class="hcl-name">AI 프롬프트 엔지니어링</div><div class="hcl-tag">GPT · Gemini · 프롬프트 설계</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
           <div class="hcl-item" onclick="goToTab('interior')">
             <span class="hcl-ico">🏠</span>
             <div><div class="hcl-name">AI 크리에이터 인테리어</div><div class="hcl-tag">공간 렌더링 · AI 시안 제작</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
           <div class="hcl-item" onclick="goToTab('cg')">
             <span class="hcl-ico">🎭</span>
             <div><div class="hcl-name">AI 크리에이터 CG/마야</div><div class="hcl-tag">3D 합성 · 시네마틱 영상</div></div>
+            <span class="hcl-arrow">→</span>
           </div>
         </div>
       </div>
@@ -468,6 +502,10 @@ nav {
             </div>
           </div>
         </div>
+        <div class="cc-why">
+          <div class="cc-why-title">왜 함께 필요한가</div>
+          <div class="cc-why-text">취업이나 프리랜서를 목표로 한다면, 광고주가 원하는 건 <strong>'AI 소스'가 아니라 완성된 납품 영상</strong>입니다. AI가 발전할수록 편집 타이밍·자막 흐름·사운드 믹싱처럼 "사람이 판단해야 하는 영역"이 오히려 더 중요해집니다. <strong>After Effects</strong>로 모션 타이밍을 정밀하게 조정하고, <strong>Premiere Pro</strong>로 납품 가능한 편집을 완성하고, <strong>플랫모션</strong>으로 2D 캐릭터 애니메이션을 구현하는 능력이 AI와 함께 있어야 진짜 결과물이 나옵니다.</div>
+        </div>
       </div>
 
       <div class="cc c-blue">
@@ -496,6 +534,10 @@ nav {
             </div>
           </div>
         </div>
+        <div class="cc-why">
+          <div class="cc-why-title">왜 함께 필요한가</div>
+          <div class="cc-why-text">AI가 만든 이미지는 어디까지나 '초안'입니다. 취업을 목표로 한다면 회사는 <strong>정확한 색상 코드, 브랜드 가이드라인 준수, 레이아웃 규정</strong>을 요구합니다. <strong>색채학</strong>으로 배색 감각을 쌓고, <strong>컨셉드로잉·발상과표현</strong>으로 창작 방향을 잡고, <strong>디지털드로잉</strong>으로 섬세하게 후보정하는 능력이 있어야 합니다. <strong>Photoshop·Illustrator</strong>는 이 모든 작업을 실무 수준으로 마무리하는 도구입니다.</div>
+        </div>
       </div>
 
       <div class="cc c-purple">
@@ -520,6 +562,10 @@ nav {
               <span class="cc-ex cc-ex-tool">UX 기획 기초</span>
             </div>
           </div>
+        </div>
+        <div class="cc-why">
+          <div class="cc-why-title">왜 함께 필요한가</div>
+          <div class="cc-why-text">AI가 코드를 만들어줘도, <strong>버튼 위치 하나, 색상 하나를 바꾸려면 HTML/CSS 구조를 이해해야</strong> 합니다. 수정하지 못하면 AI가 만든 대로만 써야 합니다. 또한 보기 좋은 사이트보다 <strong>'쓰기 좋은 사이트'</strong>를 만들려면 UX 기획으로 사용자 흐름을 먼저 설계해야 합니다. AI는 코딩 속도를 높여주지만, 방향을 잡는 건 여전히 사람의 몫입니다.</div>
         </div>
       </div>
 
@@ -546,6 +592,10 @@ nav {
               <span class="cc-ex cc-ex-tool">발상과표현</span>
             </div>
           </div>
+        </div>
+        <div class="cc-why">
+          <div class="cc-why-title">왜 함께 필요한가</div>
+          <div class="cc-why-text">AI 렌더링은 <strong>'아이디어를 빠르게 보여주는 도구'</strong>입니다. 하지만 클라이언트에게 정확한 치수와 도면을 제출하고, 시공 가능한 제안서를 만들려면 <strong>스케치업으로 정밀 모델링</strong>하고, <strong>3ds Max로 고품질 렌더링</strong>하고, <strong>캐드로 도면을 작성</strong>하는 능력이 필요합니다. <strong>발상과표현</strong>은 공간 콘셉트 자체를 설계하는 기초 감각입니다. AI는 속도를 높여주지만 실무 완성도는 전문 툴이 결정합니다.</div>
         </div>
       </div>
 
@@ -591,27 +641,60 @@ nav {
       </div>
       <div class="cp-right">
         <div class="cp-mockup">
-          <div class="cp-mockup-label">결과물 미리보기</div>
-          <div class="cp-showcase">
-            <div class="cs-item" style="background:linear-gradient(135deg,#0d1a0a,#1a2d0a); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:28px; margin-bottom:8px;">🌿</div><div style="font-family:'Paperlogy',sans-serif;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:2px;">SYNGREEN</div></div>
+          <div class="cp-mockup-label">AI 제작 결과물 — 수업 실습 영상</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
+            <div style="border-radius:8px; overflow:hidden; aspect-ratio:16/9; background:#000; position:relative;">
+              <video src="videos/01.Syngreen브랜드오프닝.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+              <div style="position:absolute;bottom:0;left:0;right:0;padding:7px 8px 6px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:10px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">Syngreen 브랜드 오프닝</div>
             </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a0a,#1a0a00); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:28px; margin-bottom:8px;">👾</div><div style="font-family:'Paperlogy',sans-serif;font-size:10px;color:rgba(255,100,100,.8);letter-spacing:2px;">UNLEASH</div></div>
+            <div style="border-radius:8px; overflow:hidden; aspect-ratio:16/9; background:#000; position:relative;">
+              <video src="videos/02.monster unleash the monster teaser.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+              <div style="position:absolute;bottom:0;left:0;right:0;padding:7px 8px 6px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:10px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">Monster Energy Teaser</div>
             </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#000,#1a1a1a); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:24px; margin-bottom:8px;">👟</div><div style="font-family:'Paperlogy',sans-serif;font-size:10px;color:rgba(255,255,255,.6);letter-spacing:1px;">NIKE AD</div></div>
+            <div style="border-radius:8px; overflow:hidden; aspect-ratio:16/9; background:#000; position:relative;">
+              <video src="videos/05.AI를 활용한 모션그래픽 나이키 광고.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+              <div style="position:absolute;bottom:0;left:0;right:0;padding:7px 8px 6px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:10px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">Nike 모션그래픽 광고</div>
             </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a1a,#1a0a2a); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:24px; margin-bottom:8px;">🎵</div><div style="font-family:'Paperlogy',sans-serif;font-size:10px;color:rgba(255,110,199,.7);letter-spacing:1px;">MUSIC VIDEO</div></div>
+            <div style="border-radius:8px; overflow:hidden; aspect-ratio:16/9; background:#000; position:relative;">
+              <video src="videos/06.수많은 손이 필요한 작업을 AI와 함께 완성한 뮤직비디오.mp4" muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+              <div style="position:absolute;bottom:0;left:0;right:0;padding:7px 8px 6px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:10px;font-weight:700;color:#fff;font-family:'SUIT Variable',sans-serif;">AI 뮤직비디오</div>
+            </div>
+          </div>
+          <div style="font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:10px; color:rgba(255,255,255,.3); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px;">수강생 포트폴리오</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#1a0a10,#2a0015); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+              <div style="font-size:16px; color:rgba(255,255,255,.35); margin-bottom:4px;">▶</div>
+              <div style="font-family:'Paperlogy',sans-serif; font-size:9px; color:rgba(255,180,210,.8); letter-spacing:1px;">CHANCE CHANEL</div>
+              <div style="font-size:8px; color:rgba(255,255,255,.28); margin-top:2px; font-family:'SUIT Variable',sans-serif;">김정은</div>
+            </div>
+            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#0a1a10,#001a10); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+              <div style="font-size:16px; color:rgba(255,255,255,.35); margin-bottom:4px;">▶</div>
+              <div style="font-family:'Paperlogy',sans-serif; font-size:9px; color:rgba(200,240,200,.8); letter-spacing:1px;">Diptyque</div>
+              <div style="font-size:8px; color:rgba(255,255,255,.28); margin-top:2px; font-family:'SUIT Variable',sans-serif;">구정현</div>
+            </div>
+            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#1a1a0a,#2a2000); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+              <div style="font-size:16px; color:rgba(255,255,255,.35); margin-bottom:4px;">▶</div>
+              <div style="font-family:'Paperlogy',sans-serif; font-size:9px; color:rgba(255,220,100,.8); letter-spacing:1px;">O HUI</div>
+              <div style="font-size:8px; color:rgba(255,255,255,.28); margin-top:2px; font-family:'SUIT Variable',sans-serif;">박수진</div>
+            </div>
+            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#001010,#001a1a); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+              <div style="font-size:16px; color:rgba(255,255,255,.35); margin-bottom:4px;">▶</div>
+              <div style="font-family:'Paperlogy',sans-serif; font-size:9px; color:rgba(100,220,255,.8); letter-spacing:1px;">SONY WH-1000XM4</div>
+              <div style="font-size:8px; color:rgba(255,255,255,.28); margin-top:2px; font-family:'SUIT Variable',sans-serif;">하동연</div>
             </div>
           </div>
         </div>
         <div class="course-subjects">
           <div class="csubj-hd">수강 과목</div>
           <div class="csubj-list">
-            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
-            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 영상/모션</div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-why">원하는 영상 소스를 AI에서 정확히 뽑아내는 지시 설계 — 모든 AI 과정의 필수 기반</div>
+            </div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">2</div>AI 크리에이터 영상/모션</div>
+              <div class="csubj-why">Runway로 영상 생성 → After Effects로 편집 완성 → 실제 납품 수준의 브랜드 영상 제작</div>
+            </div>
           </div>
         </div>
       </div>
@@ -655,8 +738,14 @@ nav {
         <div class="course-subjects">
           <div class="csubj-hd">수강 과목</div>
           <div class="csubj-list">
-            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
-            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 유튜브</div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-why">영상 기획·스크립트·썸네일 문구를 AI로 빠르게 설계하는 기초 능력</div>
+            </div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">2</div>AI 크리에이터 유튜브</div>
+              <div class="csubj-why">채널 개설·영상 제작·수익화 전략까지 혼자 운영하는 실전 유튜브 과정</div>
+            </div>
           </div>
         </div>
       </div>
@@ -691,8 +780,14 @@ nav {
         <div class="course-subjects">
           <div class="csubj-hd">수강 과목</div>
           <div class="csubj-list">
-            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
-            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 시각편집</div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-why">Midjourney·Firefly에서 원하는 이미지를 정확히 생성하는 프롬프트 설계 능력</div>
+            </div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">2</div>AI 크리에이터 시각편집</div>
+              <div class="csubj-why">AI 이미지를 Photoshop·Illustrator로 다듬어 광고·브랜딩 결과물로 완성</div>
+            </div>
           </div>
         </div>
       </div>
@@ -727,8 +822,14 @@ nav {
         <div class="course-subjects">
           <div class="csubj-hd">수강 과목</div>
           <div class="csubj-list">
-            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
-            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 아트웍</div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-why">나만의 스타일·세계관을 AI에게 정확히 전달하는 이미지 프롬프트 설계</div>
+            </div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">2</div>AI 크리에이터 아트웍</div>
+              <div class="csubj-why">Midjourney·SD로 캐릭터·일러스트 제작 → 굿즈·브랜딩·SNS 작업으로 연결</div>
+            </div>
           </div>
         </div>
       </div>
@@ -752,19 +853,41 @@ nav {
       </div>
       <div class="cp-right">
         <div class="cp-mockup">
-          <div class="cp-mockup-label">수강생 포트폴리오 (영상)</div>
-          <div class="cp-showcase">
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a1a,#0a0020); display:flex; align-items:center; justify-content:center;"><div style="text-align:center;"><div style="font-size:28px;">🤖</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:5px;">AI 캐릭터 합성</div></div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#001a1a,#001020); display:flex; align-items:center; justify-content:center;"><div style="text-align:center;"><div style="font-size:28px;">🌆</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:5px;">3D+AI 합성</div></div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#1a0010,#200010); display:flex; align-items:center; justify-content:center;"><div style="text-align:center;"><div style="font-size:28px;">🎬</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:5px;">VFX 씬</div></div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a0a,#001400); display:flex; align-items:center; justify-content:center;"><div style="text-align:center;"><div style="font-size:28px;">✨</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:5px;">룩뎁 포트폴리오</div></div></div>
+          <div class="cp-mockup-label">수강생 포트폴리오</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#0a0a1a,#1a0a30); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+              <div style="font-size:18px; color:rgba(255,255,255,.4); margin-bottom:4px;">▶</div>
+              <div style="font-family:'Paperlogy',sans-serif; font-size:9.5px; color:rgba(255,255,255,.7); letter-spacing:1px; text-align:center;">Van Cleef & Arpels</div>
+              <div style="font-size:8.5px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif;">한명훈 [TOVWORKS]</div>
+            </div>
+            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#0d1a00,#1a2800); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+              <div style="font-size:18px; color:rgba(255,255,255,.4); margin-bottom:4px;">▶</div>
+              <div style="font-family:'Paperlogy',sans-serif; font-size:9.5px; color:rgba(255,200,100,.8); letter-spacing:1px; text-align:center;">불닭볶음면</div>
+              <div style="font-size:8.5px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif;">이고운 · Behance</div>
+            </div>
+            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#1a0005,#2d000a); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+              <div style="font-size:18px; color:rgba(255,255,255,.4); margin-bottom:4px;">▶</div>
+              <div style="font-family:'Paperlogy',sans-serif; font-size:9.5px; color:rgba(255,150,180,.8); letter-spacing:1px; text-align:center;">NUDAKE</div>
+              <div style="font-size:8.5px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif;">최혜인 [블랑제리뵈르]</div>
+            </div>
+            <div style="border-radius:8px; aspect-ratio:16/9; background:linear-gradient(135deg,#0a1a1a,#001a20); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+              <div style="font-size:18px; color:rgba(255,255,255,.4); margin-bottom:4px;">▶</div>
+              <div style="font-family:'Paperlogy',sans-serif; font-size:9.5px; color:rgba(100,220,255,.8); letter-spacing:1px; text-align:center;">Showreel</div>
+              <div style="font-size:8.5px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif;">이희진 [프리랜서 활동중]</div>
+            </div>
           </div>
         </div>
         <div class="course-subjects">
           <div class="csubj-hd">수강 과목</div>
           <div class="csubj-list">
-            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
-            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 CG/마야</div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-why">AI 텍스처·컨셉 이미지를 3D 소스에 맞게 정밀 생성하는 프롬프트 능력</div>
+            </div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">2</div>AI 크리에이터 CG/마야</div>
+              <div class="csubj-why">Cinema 4D·Maya 3D 작업에 AI를 결합해 시네마틱 포트폴리오 완성</div>
+            </div>
           </div>
         </div>
       </div>
@@ -799,8 +922,14 @@ nav {
         <div class="course-subjects">
           <div class="csubj-hd">수강 과목</div>
           <div class="csubj-list">
-            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
-            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 인테리어</div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-why">공간 스타일·조명·소재를 AI에게 정확히 전달해 원하는 렌더링 결과를 생성</div>
+            </div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">2</div>AI 크리에이터 인테리어</div>
+              <div class="csubj-why">AI 렌더링으로 공간 시안을 빠르게 제작 → 스케치업 연계로 실무 제안서까지 완성</div>
+            </div>
           </div>
         </div>
       </div>
@@ -844,8 +973,14 @@ nav {
           <div class="course-subjects">
             <div class="csubj-hd">수강 과목</div>
             <div class="csubj-list">
-              <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
-              <div class="csubj-item"><div class="csubj-num">2</div>AI 바이브코딩 웹</div>
+              <div class="csubj-item">
+                <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+                <div class="csubj-why">AI에게 원하는 사이트 구조를 말로 설명해 코드를 뽑아내는 대화 설계 능력</div>
+              </div>
+              <div class="csubj-item">
+                <div class="csubj-row"><div class="csubj-num">2</div>AI 바이브코딩 웹</div>
+                <div class="csubj-why">코딩 없이 GPT·Claude로 반응형 웹사이트를 만들고 실제 배포까지 완성</div>
+              </div>
             </div>
           </div>
         </div>
@@ -890,8 +1025,14 @@ nav {
         <div class="course-subjects">
           <div class="csubj-hd">수강 과목</div>
           <div class="csubj-list">
-            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
-            <div class="csubj-item"><div class="csubj-num">2</div>AI 에이전트</div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-why">AI 도구를 업무 흐름에 맞게 정확히 지시하는 프롬프트 설계 — 자동화의 핵심 언어</div>
+            </div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">2</div>AI 에이전트</div>
+              <div class="csubj-why">GPT·Make·Zapier를 연결해 반복 업무를 자동으로 처리하는 AI 파이프라인 구축</div>
+            </div>
           </div>
         </div>
       </div>
@@ -926,7 +1067,10 @@ nav {
         <div class="course-subjects">
           <div class="csubj-hd">수강 과목</div>
           <div class="csubj-list">
-            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+            <div class="csubj-item">
+              <div class="csubj-row"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-why">GPT·Gemini·Claude·Midjourney를 목적에 맞게 설계 — 이미지·영상·글쓰기·코딩 전 분야에 적용되는 AI 활용의 기초 과목</div>
+            </div>
           </div>
         </div>
       </div>
