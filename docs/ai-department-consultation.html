@@ -297,6 +297,33 @@ nav {
 .insight-box p { font-size:13.5px; color:var(--dark); line-height:1.85; }
 .insight-box p strong { color:var(--red); }
 
+/* ─── CLICKABLE HCL ─── */
+.hcl-item { cursor:pointer; transition:all .2s; }
+.hcl-item:hover { background:rgba(255,255,255,.12) !important; border-color:rgba(255,255,255,.25) !important; transform:translateX(4px); }
+
+/* ─── S1 NEW TOOL CARDS ─── */
+.cc-tool-row { margin-top:16px; display:flex; flex-direction:column; gap:9px; }
+.cc-tg-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; letter-spacing:.8px; color:var(--muted); text-transform:uppercase; margin-bottom:5px; }
+.cc-ex-ai   { background:rgba(201,30,30,.07);  border:1px solid rgba(201,30,30,.18);  color:var(--red);    font-weight:600; }
+.cc-ex-tool { background:rgba(39,138,224,.07); border:1px solid rgba(39,138,224,.18); color:var(--blue);   font-weight:600; }
+.cc-divider { display:flex; align-items:center; gap:8px; margin:2px 0; }
+.cc-divider-line { flex:1; height:1px; background:var(--line); }
+.cc-divider-plus { font-size:13px; font-weight:800; color:var(--muted); }
+
+/* ─── PORTFOLIO GRID ─── */
+.pf-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.pf-item { border-radius:8px; overflow:hidden; aspect-ratio:4/3; background:#111; position:relative; }
+.pf-item img { width:100%; height:100%; object-fit:cover; display:block; }
+.pf-item-label { position:absolute; bottom:0; left:0; right:0; padding:7px 8px 6px; background:linear-gradient(transparent,rgba(0,0,0,.75)); font-size:10px; font-weight:700; color:#fff; font-family:'SUIT Variable',sans-serif; }
+
+/* ─── COURSE SUBJECTS ─── */
+.course-subjects { margin-top:14px; padding:14px 16px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:12px; }
+.csubj-hd { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; color:rgba(255,255,255,.3); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; }
+.csubj-list { display:flex; flex-direction:column; gap:7px; }
+.csubj-item { display:flex; align-items:center; gap:9px; font-size:12px; color:rgba(255,255,255,.75); font-family:'SUIT Variable',sans-serif; }
+.csubj-num { width:18px; height:18px; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; font-size:9px; color:rgba(255,255,255,.4); font-weight:700; flex-shrink:0; }
+.csubj-arrow { font-size:10px; color:rgba(255,255,255,.2); margin:0 2px; }
+
 /* ─── RESPONSIVE ─── */
 @media(max-width:1024px) {
   .hero-wrap { grid-template-columns:1fr; }
@@ -368,39 +395,39 @@ nav {
       <div class="hero-card">
         <div class="hero-card-title">AI 과정 라인업</div>
         <div class="hero-course-list">
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('video')">
             <span class="hcl-ico">🎬</span>
             <div><div class="hcl-name">AI 크리에이터 영상/모션</div><div class="hcl-tag">Runway · After Effects · Premiere</div></div>
           </div>
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('youtube')">
             <span class="hcl-ico">📹</span>
             <div><div class="hcl-name">AI 크리에이터 유튜브</div><div class="hcl-tag">숏폼 · 썸네일 · 채널 운영</div></div>
           </div>
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('visual')">
             <span class="hcl-ico">🎨</span>
             <div><div class="hcl-name">AI 크리에이터 시각편집</div><div class="hcl-tag">Photoshop · Illustrator · AI 이미지</div></div>
           </div>
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('artwork')">
             <span class="hcl-ico">✏️</span>
             <div><div class="hcl-name">AI 크리에이터 아트웍</div><div class="hcl-tag">AI 이미지 생성 · 브랜딩</div></div>
           </div>
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('web')">
             <span class="hcl-ico">🌐</span>
             <div><div class="hcl-name">AI 바이브코딩 웹</div><div class="hcl-tag">코딩 없이 사이트 완성</div></div>
           </div>
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('agent')">
             <span class="hcl-ico">🤖</span>
             <div><div class="hcl-name">AI 에이전트</div><div class="hcl-tag">업무자동화 · AI 워크플로우</div></div>
           </div>
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('prompt')">
             <span class="hcl-ico">💡</span>
             <div><div class="hcl-name">AI 프롬프트 엔지니어링</div><div class="hcl-tag">GPT · Gemini · 프롬프트 설계</div></div>
           </div>
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('interior')">
             <span class="hcl-ico">🏠</span>
             <div><div class="hcl-name">AI 크리에이터 인테리어</div><div class="hcl-tag">공간 렌더링 · AI 시안 제작</div></div>
           </div>
-          <div class="hcl-item">
+          <div class="hcl-item" onclick="goToTab('cg')">
             <span class="hcl-ico">🎭</span>
             <div><div class="hcl-name">AI 크리에이터 CG/마야</div><div class="hcl-tag">3D 합성 · 시네마틱 영상</div></div>
           </div>
@@ -410,64 +437,115 @@ nav {
   </div>
 </section>
 
-<!-- ─── S1 : 고민 카드 ─── -->
+<!-- ─── S1 : AI + 보완 툴 ─── -->
 <section class="sec" id="concern">
   <div class="sec-wrap">
-    <div class="sec-eyebrow">이런 고민, 해보셨나요?</div>
-    <h2 class="sec-title">목적은 다양해도<br>AI가 해답입니다</h2>
-    <p class="sec-lead">어떤 상황에 있든, 어떤 목표를 가지든—AI를 어떻게 활용하느냐에 따라 결과는 완전히 달라집니다.</p>
+    <div class="sec-eyebrow">AI만으로는 완성되지 않습니다</div>
+    <h2 class="sec-title">AI가 강해질수록<br>사람의 역할도 더 분명해집니다</h2>
+    <p class="sec-lead">AI는 강력한 시작점입니다. 하지만 <strong>원하는 결과로 완성하는 과정</strong>—배치, 색상, 편집, 수정—은 사람의 감각과 전문 툴이 함께 있어야 합니다. AI 도구가 발전할수록, <strong>무엇을 어떻게 고칠지 판단하는 능력</strong>이 오히려 더 중요해집니다.</p>
     <div class="concern-grid">
 
       <div class="cc c-red">
         <div class="cc-ico">🎬</div>
-        <span class="cc-tag tag-r">콘텐츠 · 수익화</span>
-        <h3>아이디어는 있는데,<br>결과물로 만들기가 어렵다</h3>
-        <p>머릿속에 그림은 있는데 직접 제작하기엔 툴도 어렵고 시간도 부족합니다. AI가 제작 과정의 벽을 낮춰줍니다.</p>
-        <div class="cc-examples">
-          <span class="cc-ex">유튜버 준비중</span>
-          <span class="cc-ex">영상 납품</span>
-          <span class="cc-ex">브랜드 홍보</span>
-          <span class="cc-ex">프리랜서</span>
-          <span class="cc-ex">창작 활동</span>
+        <span class="cc-tag tag-r">영상 · 모션 계열</span>
+        <h3>AI가 클립을 만들어줘도<br>편집·완성은 내 손으로</h3>
+        <p>AI가 영상 소스를 생성해도 편집 흐름, 자막 타이밍, 사운드 연결—이 작업은 전문 툴 없이는 완성되지 않습니다.</p>
+        <div class="cc-tool-row">
+          <div>
+            <div class="cc-tg-label">AI 과정</div>
+            <div class="cc-examples">
+              <span class="cc-ex cc-ex-ai">AI 크리에이터 영상/모션</span>
+              <span class="cc-ex cc-ex-ai">AI 크리에이터 유튜브</span>
+            </div>
+          </div>
+          <div class="cc-divider"><div class="cc-divider-line"></div><div class="cc-divider-plus">+</div><div class="cc-divider-line"></div></div>
+          <div>
+            <div class="cc-tg-label">함께 필요한 과목</div>
+            <div class="cc-examples">
+              <span class="cc-ex cc-ex-tool">After Effects</span>
+              <span class="cc-ex cc-ex-tool">Premiere Pro</span>
+              <span class="cc-ex cc-ex-tool">플랫모션</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="cc c-blue">
-        <div class="cc-ico">🌐</div>
-        <span class="cc-tag tag-b">창업 · 사업화</span>
-        <h3>개발자 없이도<br>직접 만들고 싶다</h3>
-        <p>사이트, 쇼핑몰, 포트폴리오—코딩을 전혀 몰라도 AI로 완성된 결과물을 만들 수 있습니다.</p>
-        <div class="cc-examples">
-          <span class="cc-ex">창업 준비</span>
-          <span class="cc-ex">쇼핑몰 운영</span>
-          <span class="cc-ex">서비스 런칭</span>
-          <span class="cc-ex">포트폴리오</span>
+        <div class="cc-ico">🎨</div>
+        <span class="cc-tag tag-b">디자인 · 아트 계열</span>
+        <h3>AI가 이미지를 만들어줘도<br>완성도는 감각이 결정한다</h3>
+        <p>색상 조정, 레이아웃 배치, 브랜드 합성—AI 이미지를 내가 원하는 수준으로 다듬으려면 디자인 툴과 기초 감각이 필요합니다.</p>
+        <div class="cc-tool-row">
+          <div>
+            <div class="cc-tg-label">AI 과정</div>
+            <div class="cc-examples">
+              <span class="cc-ex cc-ex-ai">AI 크리에이터 시각편집</span>
+              <span class="cc-ex cc-ex-ai">AI 크리에이터 아트웍</span>
+            </div>
+          </div>
+          <div class="cc-divider"><div class="cc-divider-line"></div><div class="cc-divider-plus">+</div><div class="cc-divider-line"></div></div>
+          <div>
+            <div class="cc-tg-label">함께 필요한 과목</div>
+            <div class="cc-examples">
+              <span class="cc-ex cc-ex-tool">Photoshop</span>
+              <span class="cc-ex cc-ex-tool">Illustrator</span>
+              <span class="cc-ex cc-ex-tool">컨셉드로잉</span>
+              <span class="cc-ex cc-ex-tool">디지털드로잉</span>
+              <span class="cc-ex cc-ex-tool">색채학</span>
+              <span class="cc-ex cc-ex-tool">발상과표현</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="cc c-purple">
-        <div class="cc-ico">🏆</div>
-        <span class="cc-tag tag-p">공모전 · 프로젝트</span>
-        <h3>보여줄 수 있는 결과물이<br>필요하다</h3>
-        <p>공모전, 디자인 프로젝트, 나라지원 사업, 취업 포트폴리오—AI를 활용하면 퀄리티와 속도 모두 잡습니다.</p>
-        <div class="cc-examples">
-          <span class="cc-ex">공모전 준비</span>
-          <span class="cc-ex">디자인 프로젝트</span>
-          <span class="cc-ex">국가지원 사업</span>
-          <span class="cc-ex">취업 포트폴리오</span>
+        <div class="cc-ico">🌐</div>
+        <span class="cc-tag tag-p">웹 · 창업 계열</span>
+        <h3>AI가 코드를 짜줘도<br>수정과 배치는 내가 한다</h3>
+        <p>AI가 만든 코드를 수정하고, 원하는 배치로 바꾸고, UX를 개선하려면 구조를 읽는 최소한의 이해가 필요합니다.</p>
+        <div class="cc-tool-row">
+          <div>
+            <div class="cc-tg-label">AI 과정</div>
+            <div class="cc-examples">
+              <span class="cc-ex cc-ex-ai">AI 바이브코딩 웹</span>
+              <span class="cc-ex cc-ex-ai">AI 에이전트</span>
+              <span class="cc-ex cc-ex-ai">AI 프롬프트 엔지니어링</span>
+            </div>
+          </div>
+          <div class="cc-divider"><div class="cc-divider-line"></div><div class="cc-divider-plus">+</div><div class="cc-divider-line"></div></div>
+          <div>
+            <div class="cc-tg-label">함께 필요한 과목</div>
+            <div class="cc-examples">
+              <span class="cc-ex cc-ex-tool">HTML/CSS 구조 이해</span>
+              <span class="cc-ex cc-ex-tool">UX 기획 기초</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="cc c-green">
-        <div class="cc-ico">⚡</div>
-        <span class="cc-tag tag-g">업무 · 효율화</span>
-        <h3>지금 하는 일을 더<br>빠르고 스마트하게</h3>
-        <p>반복 업무, 문서 정리, 데이터 처리, 보고서 작성—AI 자동화로 시간을 되찾고 본질에 집중합니다.</p>
-        <div class="cc-examples">
-          <span class="cc-ex">직장인 자동화</span>
-          <span class="cc-ex">사무업무 개선</span>
-          <span class="cc-ex">AI 도구 연결</span>
-          <span class="cc-ex">스타트업</span>
+        <div class="cc-ico">🏠</div>
+        <span class="cc-tag tag-g">공간 · 3D 계열</span>
+        <h3>AI 렌더링은 시작일 뿐<br>실무는 3D 툴이 완성한다</h3>
+        <p>AI 렌더링은 아이디어 시각화 단계입니다. 실제 도면·모델링·클라이언트 제안서로 가려면 전문 툴이 반드시 필요합니다.</p>
+        <div class="cc-tool-row">
+          <div>
+            <div class="cc-tg-label">AI 과정</div>
+            <div class="cc-examples">
+              <span class="cc-ex cc-ex-ai">AI 크리에이터 인테리어</span>
+              <span class="cc-ex cc-ex-ai">AI 크리에이터 CG/마야</span>
+            </div>
+          </div>
+          <div class="cc-divider"><div class="cc-divider-line"></div><div class="cc-divider-plus">+</div><div class="cc-divider-line"></div></div>
+          <div>
+            <div class="cc-tg-label">함께 필요한 과목</div>
+            <div class="cc-examples">
+              <span class="cc-ex cc-ex-tool">스케치업</span>
+              <span class="cc-ex cc-ex-tool">3ds Max</span>
+              <span class="cc-ex cc-ex-tool">캐드</span>
+              <span class="cc-ex cc-ex-tool">발상과표현</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -529,13 +607,11 @@ nav {
             </div>
           </div>
         </div>
-        <div style="margin-top:16px; padding:16px 18px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:12px;">
-          <div style="font-family:'SUIT Variable',sans-serif;font-weight:700;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">과정 정보</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,.38);">총 수업 시간</span><span style="color:#fff;font-weight:700;">16시간 (4일)</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,.38);">난이도</span><span style="color:#fff;font-weight:700;">중상 ★★★★☆</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,.38);">선수 과목</span><span style="color:#fff;font-weight:700;">AI 프엔, 영상 기초</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,.38);">실습 예제</span><span style="color:#fff;font-weight:700;">6개 상업 프로젝트</span></div>
+        <div class="course-subjects">
+          <div class="csubj-hd">수강 과목</div>
+          <div class="csubj-list">
+            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 영상/모션</div>
           </div>
         </div>
       </div>
@@ -576,6 +652,13 @@ nav {
             </div>
           </div>
         </div>
+        <div class="course-subjects">
+          <div class="csubj-hd">수강 과목</div>
+          <div class="csubj-list">
+            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 유튜브</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -597,20 +680,19 @@ nav {
       </div>
       <div class="cp-right">
         <div class="cp-mockup">
-          <div class="cp-mockup-label">결과물 미리보기</div>
-          <div class="cp-showcase">
-            <div class="cs-item" style="background:linear-gradient(135deg,#f5f5f7,#e8e8ed); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:24px;">📢</div><div style="font-size:10px;color:#57576e;margin-top:6px;">SNS 광고</div></div>
-            </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#1a0a1a,#2d002d); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:24px;">🗞️</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">포스터</div></div>
-            </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a1a,#002a2a); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:24px;">🛍️</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">상세페이지</div></div>
-            </div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#1a1a0a,#2d2800); display:flex; align-items:center; justify-content:center;">
-              <div style="text-align:center;"><div style="font-size:24px;">📦</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">패키지</div></div>
-            </div>
+          <div class="cp-mockup-label">수강생 포트폴리오</div>
+          <div class="pf-grid">
+            <div class="pf-item"><img src="portfolio/v1.jpg" alt="음료수 패키지"><div class="pf-item-label">패키지 디자인</div></div>
+            <div class="pf-item"><img src="portfolio/v2.png" alt="뮤지엄 리브랜딩"><div class="pf-item-label">뮤지엄 리브랜딩</div></div>
+            <div class="pf-item"><img src="portfolio/v3.png" alt="미스트 브랜딩"><div class="pf-item-label">브랜딩 디자인</div></div>
+            <div class="pf-item"><img src="portfolio/v5.png" alt="그래픽 아트웍"><div class="pf-item-label">그래픽 아트웍</div></div>
+          </div>
+        </div>
+        <div class="course-subjects">
+          <div class="csubj-hd">수강 과목</div>
+          <div class="csubj-list">
+            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 시각편집</div>
           </div>
         </div>
       </div>
@@ -634,12 +716,19 @@ nav {
       </div>
       <div class="cp-right">
         <div class="cp-mockup">
-          <div class="cp-mockup-label">결과물 미리보기</div>
-          <div class="cp-showcase">
-            <div class="cs-item" style="background:linear-gradient(135deg,#1a0a2a,#0a001a); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🎨</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a2a,#001228); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">✨</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#2a1a0a,#1a0a00); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🖼️</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a2a1a,#001a0a); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🛒</div></div>
+          <div class="cp-mockup-label">수강생 포트폴리오</div>
+          <div class="pf-grid">
+            <div class="pf-item"><img src="portfolio/a2.jpg" alt="컨셉드로잉"><div class="pf-item-label">컨셉드로잉</div></div>
+            <div class="pf-item"><img src="portfolio/a1.jpg" alt="디지털드로잉"><div class="pf-item-label">디지털드로잉</div></div>
+            <div class="pf-item"><img src="portfolio/a5.jpg" alt="플랫모션 아트웍"><div class="pf-item-label">플랫 아트웍</div></div>
+            <div class="pf-item"><img src="portfolio/a4.jpg" alt="팬시 아트웍"><div class="pf-item-label">팬시 굿즈</div></div>
+          </div>
+        </div>
+        <div class="course-subjects">
+          <div class="csubj-hd">수강 과목</div>
+          <div class="csubj-list">
+            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 아트웍</div>
           </div>
         </div>
       </div>
@@ -663,12 +752,19 @@ nav {
       </div>
       <div class="cp-right">
         <div class="cp-mockup">
-          <div class="cp-mockup-label">결과물 미리보기</div>
+          <div class="cp-mockup-label">수강생 포트폴리오 (영상)</div>
           <div class="cp-showcase">
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a1a,#0a0020); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🤖</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#001a1a,#001020); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🌆</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#1a0010,#200010); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🎬</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a0a,#001400); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">✨</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a1a,#0a0020); display:flex; align-items:center; justify-content:center;"><div style="text-align:center;"><div style="font-size:28px;">🤖</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:5px;">AI 캐릭터 합성</div></div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#001a1a,#001020); display:flex; align-items:center; justify-content:center;"><div style="text-align:center;"><div style="font-size:28px;">🌆</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:5px;">3D+AI 합성</div></div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#1a0010,#200010); display:flex; align-items:center; justify-content:center;"><div style="text-align:center;"><div style="font-size:28px;">🎬</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:5px;">VFX 씬</div></div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a0a,#001400); display:flex; align-items:center; justify-content:center;"><div style="text-align:center;"><div style="font-size:28px;">✨</div><div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:5px;">룩뎁 포트폴리오</div></div></div>
+          </div>
+        </div>
+        <div class="course-subjects">
+          <div class="csubj-hd">수강 과목</div>
+          <div class="csubj-list">
+            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 CG/마야</div>
           </div>
         </div>
       </div>
@@ -692,12 +788,19 @@ nav {
       </div>
       <div class="cp-right">
         <div class="cp-mockup">
-          <div class="cp-mockup-label">결과물 미리보기</div>
-          <div class="cp-showcase">
-            <div class="cs-item" style="background:linear-gradient(135deg,#1a1208,#2a1e0a); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🏠</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#0a1218,#0a1a28); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🛋️</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#181218,#200a20); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">✨</div></div>
-            <div class="cs-item" style="background:linear-gradient(135deg,#121a12,#0a200a); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">📐</div></div>
+          <div class="cp-mockup-label">수강생 포트폴리오</div>
+          <div class="pf-grid">
+            <div class="pf-item"><img src="portfolio/i1.jpg" alt="스케치업 인테리어"><div class="pf-item-label">공간 렌더링</div></div>
+            <div class="pf-item"><img src="portfolio/i2.jpg" alt="Farnsworth House"><div class="pf-item-label">주거 공간</div></div>
+            <div class="pf-item"><img src="portfolio/i3.jpg" alt="익스테리어"><div class="pf-item-label">익스테리어</div></div>
+            <div class="pf-item" style="background:linear-gradient(135deg,#0a1218,#0a1a28);display:flex;align-items:center;justify-content:center;"><div style="font-size:30px;">📐</div></div>
+          </div>
+        </div>
+        <div class="course-subjects">
+          <div class="csubj-hd">수강 과목</div>
+          <div class="csubj-list">
+            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+            <div class="csubj-item"><div class="csubj-num">2</div>AI 크리에이터 인테리어</div>
           </div>
         </div>
       </div>
@@ -738,12 +841,11 @@ nav {
               </div>
             </div>
           </div>
-          <div style="margin-top:12px; padding:12px 14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:10px;">
-            <div style="font-size:11px; color:rgba(255,255,255,.35); margin-bottom:8px; font-family:'SUIT Variable',sans-serif; font-weight:600;">AI가 만든 코드 예시</div>
-            <div style="font-size:11px; color:rgba(52,199,89,.7); font-family:monospace; line-height:1.8;">
-              &lt;section class="hero"&gt;<br>
-              &nbsp;&nbsp;&lt;h1&gt;내 브랜드&lt;/h1&gt;<br>
-              &lt;/section&gt;
+          <div class="course-subjects">
+            <div class="csubj-hd">수강 과목</div>
+            <div class="csubj-list">
+              <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+              <div class="csubj-item"><div class="csubj-num">2</div>AI 바이브코딩 웹</div>
             </div>
           </div>
         </div>
@@ -785,6 +887,13 @@ nav {
             </div>
           </div>
         </div>
+        <div class="course-subjects">
+          <div class="csubj-hd">수강 과목</div>
+          <div class="csubj-list">
+            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
+            <div class="csubj-item"><div class="csubj-num">2</div>AI 에이전트</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -812,6 +921,12 @@ nav {
             <div style="background:rgba(255,255,255,.05); border-radius:8px; padding:12px; font-size:12px; color:rgba(255,255,255,.45); line-height:1.7;">"멋진 광고 이미지 만들어줘"</div>
             <div style="font-size:10px; color:rgba(52,199,89,.5); font-family:'SUIT Variable',sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase;">AFTER — 설계된 프롬프트</div>
             <div style="background:rgba(52,199,89,.06); border:1px solid rgba(52,199,89,.15); border-radius:8px; padding:12px; font-size:12px; color:rgba(255,255,255,.7); line-height:1.7;">"Nike Air Max, 흰색 배경, 45도 앵글, 시네마틱 조명, 제품 중심 구도, 8K 품질, 상업 광고 스타일"</div>
+          </div>
+        </div>
+        <div class="course-subjects">
+          <div class="csubj-hd">수강 과목</div>
+          <div class="csubj-list">
+            <div class="csubj-item"><div class="csubj-num">1</div>AI 프롬프트 엔지니어링</div>
           </div>
         </div>
       </div>
@@ -1173,6 +1288,16 @@ function showTab(id) {
   document.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   event.target.classList.add('active');
+}
+function goToTab(id) {
+  document.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
+  const panel = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  document.querySelectorAll('.ctab').forEach(t => {
+    if (t.getAttribute('onclick') === "showTab('" + id + "')") t.classList.add('active');
+  });
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
 }
 </script>
 </body>
