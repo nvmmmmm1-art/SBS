@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI학과 상담자료 | SBS아카데미 컴퓨터아트학원</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css">
+<style>
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2309@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+}
+:root {
+  --red: #c91e1e;   --blue: #278ae0;  --pink: #FF6EC7;
+  --orange: #e6800a; --green: #27ae60; --purple: #9b59b6;
+  --dark: #1D1D1F;  --mid: #3a3a3c;   --sub: #57576e;
+  --muted: #8e8ea0; --bg: #F5F5F7;    --card: #fff;
+  --line: rgba(0,0,0,0.07);
+  --sh: 0 1px 3px rgba(0,0,0,0.07), 0 8px 20px rgba(0,0,0,0.06);
+  --sh-hover: 0 2px 6px rgba(0,0,0,0.09), 0 16px 36px rgba(0,0,0,0.09);
+  --r: 16px; --r-sm: 10px; --r-lg: 22px;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family:'Pretendard Variable','Pretendard',sans-serif; background:var(--bg); color:var(--dark); line-height:1.65; -webkit-font-smoothing:antialiased; }
+img { display:block; }
+a { text-decoration:none; }
+
+/* ─── NAV ─── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(245,245,247,.92);
+  backdrop-filter:blur(24px) saturate(1.6);
+  -webkit-backdrop-filter:blur(24px) saturate(1.6);
+  border-bottom:1px solid var(--line);
+}
+.nav-wrap { max-width:1100px; margin:0 auto; padding:0 36px; display:flex; align-items:center; justify-content:space-between; height:52px; }
+.nav-logo { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:14px; color:var(--dark); letter-spacing:-.2px; }
+.nav-logo em { color:var(--red); font-style:normal; }
+.nav-menu { display:flex; gap:6px; list-style:none; }
+.nav-menu a { font-family:'SUIT Variable',sans-serif; font-weight:500; font-size:12.5px; color:var(--sub); padding:5px 12px; border-radius:100px; transition:all .2s; }
+.nav-menu a:hover { background:rgba(0,0,0,.05); color:var(--dark); }
+
+/* ─── HERO ─── */
+.hero {
+  margin-top:52px;
+  background:linear-gradient(150deg,#060614 0%,#0d0d22 50%,#091428 100%);
+  padding:80px 40px 72px;
+  position:relative; overflow:hidden; min-height:560px; display:flex; align-items:center;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 55% 70% at 90% 20%, rgba(201,30,30,.12) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 55% at 10% 80%, rgba(39,138,224,.09) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 50% 50%, rgba(255,110,199,.05) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-wrap { max-width:1100px; margin:0 auto; position:relative; z-index:1; display:grid; grid-template-columns:1fr 400px; gap:56px; align-items:center; }
+.hero-eyebrow { font-family:'SUIT Variable',sans-serif; font-weight:500; font-size:11.5px; color:rgba(255,255,255,.4); letter-spacing:2.8px; text-transform:uppercase; margin-bottom:20px; }
+.hero-title { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:clamp(38px,5.5vw,62px); color:#fff; line-height:1.06; letter-spacing:-1.8px; margin-bottom:20px; }
+.hero-title .hl { background:linear-gradient(120deg,#c91e1e,#ff6ec7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero-title .hl2 { background:linear-gradient(120deg,#278ae0,#6dd5fa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero-sub { font-size:16px; color:rgba(255,255,255,.48); line-height:1.75; margin-bottom:32px; max-width:500px; }
+.hero-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.hero-tag { font-family:'SUIT Variable',sans-serif; font-weight:500; font-size:12px; color:rgba(255,255,255,.6); background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:100px; padding:6px 16px; }
+.hero-right {}
+.hero-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-lg); padding:28px 24px; backdrop-filter:blur(12px); }
+.hero-card-title { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:11px; color:rgba(255,255,255,.35); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:18px; }
+.hero-course-list { display:flex; flex-direction:column; gap:10px; }
+.hcl-item { display:flex; align-items:center; gap:12px; padding:10px 12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:10px; }
+.hcl-ico { font-size:18px; flex-shrink:0; }
+.hcl-name { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:12.5px; color:rgba(255,255,255,.82); }
+.hcl-tag { font-size:10px; color:rgba(255,255,255,.32); margin-top:1px; }
+
+/* ─── SECTION BASE ─── */
+.sec { padding:88px 40px; }
+.sec-wrap { max-width:1100px; margin:0 auto; }
+.sec-eyebrow { font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:11px; color:var(--red); letter-spacing:2.5px; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.sec-eyebrow::before { content:''; display:block; width:20px; height:2px; background:var(--red); border-radius:2px; }
+.sec-title { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:clamp(26px,3.5vw,42px); color:var(--dark); line-height:1.2; letter-spacing:-.8px; margin-bottom:12px; }
+.sec-lead { font-size:16px; color:var(--sub); line-height:1.75; margin-bottom:56px; max-width:580px; }
+.sec-lead strong { color:var(--dark); font-weight:700; }
+
+/* ─── S1 : 고민 카드 ─── */
+.concern-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.cc { background:var(--card); border-radius:var(--r); padding:28px 22px; box-shadow:var(--sh); border:1px solid var(--line); transition:all .25s; cursor:default; position:relative; overflow:hidden; }
+.cc::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:3px 3px 0 0; }
+.cc.c-red::before { background:var(--red); }
+.cc.c-blue::before { background:var(--blue); }
+.cc.c-purple::before { background:var(--purple); }
+.cc.c-green::before { background:var(--green); }
+.cc:hover { transform:translateY(-3px); box-shadow:var(--sh-hover); }
+.cc-ico { font-size:28px; margin-bottom:14px; }
+.cc-tag { font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:10.5px; letter-spacing:.5px; padding:3px 10px; border-radius:6px; display:inline-block; margin-bottom:12px; }
+.tag-r { color:var(--red); background:rgba(201,30,30,.08); }
+.tag-b { color:var(--blue); background:rgba(39,138,224,.09); }
+.tag-p { color:var(--purple); background:rgba(155,89,182,.09); }
+.tag-g { color:var(--green); background:rgba(39,174,96,.09); }
+.cc h3 { font-weight:700; font-size:14px; color:var(--dark); line-height:1.5; margin-bottom:10px; }
+.cc p { font-size:12.5px; color:var(--sub); line-height:1.7; }
+.cc-examples { margin-top:14px; display:flex; flex-wrap:wrap; gap:5px; }
+.cc-ex { font-size:11px; padding:3px 8px; border-radius:5px; background:var(--bg); border:1px solid var(--line); color:var(--mid); }
+
+/* ─── S2 : 과정별 결과물 (탭) ─── */
+.sec-dark { background:var(--dark); }
+.sec-dark .sec-eyebrow { color:var(--pink); }
+.sec-dark .sec-eyebrow::before { background:var(--pink); }
+.sec-dark .sec-title { color:#fff; }
+.sec-dark .sec-lead { color:rgba(255,255,255,.48); }
+
+.course-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:40px; }
+.ctab { font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:12.5px; padding:8px 18px; border-radius:100px; border:1.5px solid rgba(255,255,255,.12); color:rgba(255,255,255,.5); background:rgba(255,255,255,.04); cursor:pointer; transition:all .2s; }
+.ctab.active, .ctab:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.3); color:#fff; }
+.ctab.active { border-color:var(--red); background:rgba(201,30,30,.15); color:#fff; }
+
+.course-panel { display:none; }
+.course-panel.active { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+.cp-left {}
+.cp-badge { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:11px; letter-spacing:1px; padding:4px 14px; border-radius:100px; display:inline-block; margin-bottom:16px; text-transform:uppercase; }
+.cpb-video  { background:rgba(201,30,30,.2);  color:#e8557a; }
+.cpb-web    { background:rgba(39,138,224,.2); color:#5ab4ff; }
+.cpb-design { background:rgba(255,110,199,.2); color:var(--pink); }
+.cpb-agent  { background:rgba(230,128,10,.2); color:#f4a535; }
+.cpb-cg     { background:rgba(52,199,89,.2);  color:#4cd98a; }
+.cpb-ai     { background:rgba(155,89,182,.2); color:#c39bf5; }
+.cpb-prompt { background:rgba(39,138,224,.15);color:#5ab4ff; }
+.cpb-yt     { background:rgba(201,30,30,.18); color:#ff8a80; }
+.cpb-interior{ background:rgba(230,128,10,.18); color:#f4a535; }
+
+.cp-title { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:28px; color:#fff; line-height:1.25; margin-bottom:12px; letter-spacing:-.5px; }
+.cp-desc { font-size:14.5px; color:rgba(255,255,255,.5); line-height:1.8; margin-bottom:24px; }
+.cp-results { display:flex; flex-direction:column; gap:10px; }
+.cp-result { display:flex; align-items:flex-start; gap:12px; padding:12px 14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:10px; }
+.cp-result-ico { font-size:18px; flex-shrink:0; margin-top:1px; }
+.cp-result-text {}
+.cp-result-name { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:13px; color:#fff; margin-bottom:3px; }
+.cp-result-desc { font-size:11.5px; color:rgba(255,255,255,.36); line-height:1.6; }
+.cp-tools { margin-top:20px; display:flex; flex-wrap:wrap; gap:6px; }
+.cp-tool { font-size:11.5px; padding:4px 12px; border-radius:6px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.55); font-family:'SUIT Variable',sans-serif; font-weight:500; }
+
+.cp-right {}
+.cp-mockup { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:var(--r-lg); padding:20px; }
+.cp-mockup-label { font-family:'SUIT Variable',sans-serif; font-weight:600; font-size:10px; color:rgba(255,255,255,.3); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:14px; }
+.cp-showcase { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.cs-item { border-radius:10px; overflow:hidden; aspect-ratio:16/9; background:#111; position:relative; }
+.cs-item.tall { aspect-ratio:4/5; }
+.cs-item-inner { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:11px; color:rgba(255,255,255,.2); font-family:'SUIT Variable',sans-serif; }
+.cs-label { position:absolute; bottom:0; left:0; right:0; padding:10px 10px 8px; background:linear-gradient(transparent, rgba(0,0,0,.8)); font-size:11px; font-weight:700; color:#fff; }
+
+/* 모의 화면 컴포넌트 */
+.mock-video { background:linear-gradient(135deg,#1a0a0a,#2d0a0a); width:100%; aspect-ratio:16/9; border-radius:10px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.mock-video::before { content:'▶'; font-size:32px; color:rgba(201,30,30,.7); }
+.mock-video::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 60% 40%, rgba(201,30,30,.15), transparent 70%); }
+.mock-web { background:#fff; border-radius:10px; width:100%; aspect-ratio:16/9; overflow:hidden; display:flex; flex-direction:column; }
+.mock-web-bar { background:#f3f3f3; padding:7px 10px; display:flex; gap:5px; align-items:center; border-bottom:1px solid #e5e5e5; }
+.mock-web-dot { width:8px; height:8px; border-radius:50%; }
+.mock-web-url { flex:1; background:#fff; border-radius:4px; height:14px; margin:0 8px; }
+.mock-web-body { flex:1; padding:10px; display:flex; flex-direction:column; gap:6px; }
+.mock-web-hero { background:linear-gradient(135deg,#0d0d22,#1a1a3a); border-radius:6px; flex:2; display:flex; align-items:center; justify-content:center; }
+.mock-web-hero-text { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:11px; color:rgba(255,255,255,.6); letter-spacing:1px; }
+.mock-web-cards { display:flex; gap:5px; }
+.mock-web-card { flex:1; background:#f5f5f7; border-radius:5px; height:30px; }
+.mock-agent { background:linear-gradient(135deg,#0a0a1a,#0d1a2a); border-radius:10px; width:100%; aspect-ratio:16/9; overflow:hidden; display:flex; flex-direction:column; padding:12px; gap:8px; }
+.mock-agent-row { display:flex; gap:8px; align-items:center; }
+.mock-agent-bubble { padding:6px 10px; border-radius:8px; font-size:9px; line-height:1.4; font-family:'SUIT Variable',sans-serif; }
+.mab-ai { background:rgba(39,138,224,.2); color:#5ab4ff; border-radius:8px 8px 8px 2px; }
+.mab-user { background:rgba(255,255,255,.08); color:rgba(255,255,255,.6); border-radius:8px 8px 2px 8px; margin-left:auto; }
+.mock-agent-status { background:rgba(52,199,89,.1); border:1px solid rgba(52,199,89,.2); border-radius:6px; padding:5px 8px; display:flex; align-items:center; gap:6px; }
+.mas-dot { width:6px; height:6px; border-radius:50%; background:#27ae60; }
+.mas-text { font-size:9px; color:rgba(52,199,89,.8); font-family:'SUIT Variable',sans-serif; }
+
+/* ─── S3 : 목적별 과정 선택 ─── */
+.purpose-intro { margin-bottom:56px; }
+.purpose-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+.purpose-card { background:var(--card); border-radius:var(--r-lg); border:1px solid var(--line); box-shadow:var(--sh); overflow:hidden; transition:all .25s; cursor:default; }
+.purpose-card:hover { transform:translateY(-3px); box-shadow:var(--sh-hover); }
+.pc-head { padding:24px 28px 18px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:16px; }
+.pc-ico { width:48px; height:48px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+.pc-ico-red    { background:rgba(201,30,30,.08); }
+.pc-ico-blue   { background:rgba(39,138,224,.09); }
+.pc-ico-purple { background:rgba(155,89,182,.09); }
+.pc-ico-green  { background:rgba(39,174,96,.09); }
+.pc-head-text {}
+.pc-situation { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:.8px; text-transform:uppercase; margin-bottom:4px; }
+.pc-situation.s-red    { color:var(--red); }
+.pc-situation.s-blue   { color:var(--blue); }
+.pc-situation.s-purple { color:var(--purple); }
+.pc-situation.s-green  { color:var(--green); }
+.pc-head h3 { font-weight:700; font-size:16px; color:var(--dark); line-height:1.4; }
+.pc-body { padding:20px 28px 24px; }
+.pc-desc { font-size:13.5px; color:var(--sub); line-height:1.8; margin-bottom:16px; }
+.pc-cases { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
+.pc-case { font-size:11.5px; padding:4px 11px; border-radius:7px; background:var(--bg); border:1px solid var(--line); color:var(--mid); }
+.pc-courses-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; letter-spacing:1px; color:var(--muted); text-transform:uppercase; margin-bottom:10px; }
+.pc-courses { display:flex; flex-wrap:wrap; gap:6px; }
+.pc-course-tag { font-size:11.5px; padding:5px 12px; border-radius:7px; font-family:'SUIT Variable',sans-serif; font-weight:600; }
+.pct-red    { background:rgba(201,30,30,.07);  color:var(--red);    border:1px solid rgba(201,30,30,.15); }
+.pct-blue   { background:rgba(39,138,224,.07); color:var(--blue);   border:1px solid rgba(39,138,224,.15); }
+.pct-purple { background:rgba(155,89,182,.07); color:var(--purple); border:1px solid rgba(155,89,182,.15); }
+.pct-green  { background:rgba(39,174,96,.07);  color:var(--green);  border:1px solid rgba(39,174,96,.15); }
+
+/* ─── S4 : 과정 로드맵 ─── */
+.roadmap-sec { background:linear-gradient(160deg,#f0f0f5,#e8e8ed); }
+.roadmap-intro { margin-bottom:48px; }
+.track-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.track-card { background:var(--card); border-radius:var(--r-lg); border:1.5px solid var(--line); box-shadow:var(--sh); padding:28px 22px 24px; transition:all .25s; position:relative; overflow:hidden; }
+.track-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.track-card.tc-red::before    { background:var(--red); }
+.track-card.tc-blue::before   { background:var(--blue); }
+.track-card.tc-purple::before { background:var(--purple); }
+.track-card.tc-green::before  { background:var(--green); }
+.track-card.tc-orange::before { background:var(--orange); }
+.track-card.tc-pink::before   { background:var(--pink); }
+.track-card:hover { transform:translateY(-3px); box-shadow:var(--sh-hover); }
+.track-ico { font-size:28px; margin-bottom:12px; }
+.track-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:10px; letter-spacing:1px; padding:3px 10px; border-radius:6px; display:inline-block; margin-bottom:12px; text-transform:uppercase; }
+.tl-red    { background:rgba(201,30,30,.08);  color:var(--red); }
+.tl-blue   { background:rgba(39,138,224,.09); color:var(--blue); }
+.tl-purple { background:rgba(155,89,182,.09); color:var(--purple); }
+.tl-green  { background:rgba(39,174,96,.09);  color:var(--green); }
+.tl-orange { background:rgba(230,128,10,.1);  color:var(--orange); }
+.tl-pink   { background:rgba(255,110,199,.1); color:#c05fb8; }
+.track-card h3 { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:17px; color:var(--dark); margin-bottom:8px; line-height:1.35; }
+.track-card p { font-size:12.5px; color:var(--sub); line-height:1.72; margin-bottom:16px; }
+.track-steps { display:flex; flex-direction:column; gap:6px; }
+.track-step { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--mid); }
+.track-step-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; background:var(--line); }
+.track-step-dot.ts-red    { background:var(--red); }
+.track-step-dot.ts-blue   { background:var(--blue); }
+.track-step-dot.ts-purple { background:var(--purple); }
+.track-step-dot.ts-green  { background:var(--green); }
+.track-step-dot.ts-orange { background:var(--orange); }
+.track-step-dot.ts-pink   { background:#c05fb8; }
+
+/* ─── S5 : 왜 SBS ─── */
+.compare-heading { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:22px; color:var(--dark); margin-bottom:22px; }
+.compare-grid-new { display:grid; grid-template-columns:1fr 1.5fr; gap:16px; align-items:stretch; margin-bottom:48px; }
+.cmp-col-left { display:flex; flex-direction:column; gap:10px; }
+.cmp-card-sm { border-radius:var(--r); border:1.5px solid var(--line); background:var(--card); overflow:hidden; opacity:0.82; }
+.cmp-head-sm { padding:11px 14px 9px; border-bottom:1px solid var(--line); }
+.cmp-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:12px; color:var(--dark); margin-bottom:3px; }
+.cmp-desc { font-size:10.5px; color:var(--muted); }
+.cmp-rows-mini { padding:9px 14px; display:flex; flex-wrap:wrap; gap:5px; }
+.cmp-badge { font-size:10.5px; padding:3px 8px; border-radius:20px; font-weight:700; }
+.cmp-badge-no   { background:rgba(192,57,43,.1);  color:#c0392b; }
+.cmp-badge-half { background:rgba(230,128,10,.1); color:var(--orange); }
+.cmp-badge-yes  { background:rgba(39,174,96,.1);  color:var(--green); }
+.cmp-card-main { border-radius:14px; border:2px solid var(--red); background:var(--card); box-shadow:0 0 0 5px rgba(201,30,30,.07), 0 14px 44px rgba(201,30,30,.18); overflow:hidden; position:relative; display:flex; flex-direction:column; }
+.cmp-main-badge { position:absolute; top:14px; right:14px; background:#fff; color:var(--red); border:1.5px solid var(--red); font-size:10px; font-weight:800; padding:3px 10px; border-radius:20px; letter-spacing:.3px; }
+.cmp-main-head { background:var(--red); padding:22px 18px 16px; }
+.cmp-main-head .cmp-label { color:#fff; font-size:15px; margin-bottom:4px; }
+.cmp-main-head .cmp-desc { color:rgba(255,255,255,.7); font-size:11px; }
+.cmp-main-rows { padding:10px 0; flex:1; }
+.cmp-main-row { display:flex; align-items:center; justify-content:space-between; padding:9px 18px; font-size:12px; }
+.cmp-main-row:not(:last-child) { border-bottom:1px solid var(--bg); }
+.cmp-row-key { color:var(--sub); }
+.cmp-val { font-weight:700; font-size:12px; }
+.cv-yes  { color:var(--green); }
+.cv-best { color:var(--red); }
+
+.reason-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:40px; }
+.reason-card { background:var(--card); border-radius:var(--r); border:1px solid var(--line); box-shadow:var(--sh); padding:28px 24px; }
+.reason-ico { font-size:28px; margin-bottom:14px; }
+.reason-card h4 { font-weight:700; font-size:15px; color:var(--dark); margin-bottom:10px; line-height:1.4; }
+.reason-card p { font-size:13px; color:var(--sub); line-height:1.75; }
+.reason-card p strong { color:var(--dark); font-weight:700; }
+
+/* ─── S6 : 달라지는 점 ─── */
+.sec-after { background:var(--dark); }
+.sec-after .sec-eyebrow { color:var(--pink); }
+.sec-after .sec-eyebrow::before { background:var(--pink); }
+.sec-after .sec-title { color:#fff; }
+.sec-after .sec-lead { color:rgba(255,255,255,.48); }
+.after-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.after-card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:var(--r); padding:26px 22px; transition:all .25s; }
+.after-card:hover { background:rgba(255,255,255,.07); transform:translateY(-3px); }
+.after-ico { font-size:26px; margin-bottom:13px; }
+.after-card h3 { font-weight:700; font-size:15px; color:#fff; margin-bottom:9px; line-height:1.4; }
+.after-card p { font-size:13px; color:rgba(255,255,255,.45); line-height:1.73; }
+
+/* ─── STAT ─── */
+.stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:48px; }
+.stat-card { background:var(--card); border-radius:var(--r); border:1px solid var(--line); box-shadow:var(--sh); padding:26px 22px; }
+.stat-num { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:40px; color:var(--red); line-height:1; margin-bottom:8px; letter-spacing:-1px; }
+.stat-num.sn-blue { color:var(--blue); }
+.stat-num.sn-green { color:var(--green); }
+.stat-label { font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:12.5px; color:var(--dark); margin-bottom:5px; }
+.stat-desc { font-size:12px; color:var(--sub); line-height:1.65; }
+
+/* ─── INSIGHT ─── */
+.insight-box { border-radius:var(--r); padding:22px 26px; margin-bottom:36px; }
+.ib-red  { background:rgba(201,30,30,.05); border:1px solid rgba(201,30,30,.14); }
+.ib-blue { background:rgba(39,138,224,.05); border:1px solid rgba(39,138,224,.14); }
+.insight-box p { font-size:13.5px; color:var(--dark); line-height:1.85; }
+.insight-box p strong { color:var(--red); }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px) {
+  .hero-wrap { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .concern-grid { grid-template-columns:repeat(2,1fr); }
+  .course-panel.active { grid-template-columns:1fr; }
+  .purpose-grid { grid-template-columns:1fr; }
+  .track-grid { grid-template-columns:repeat(2,1fr); }
+  .compare-grid-new { grid-template-columns:1fr; }
+  .reason-grid { grid-template-columns:1fr 1fr; }
+  .after-grid { grid-template-columns:repeat(2,1fr); }
+  .stat-row { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:680px) {
+  .sec { padding:60px 20px; }
+  .nav-wrap { padding:0 20px; }
+  .hero { padding:52px 20px 48px; }
+  .nav-menu { display:none; }
+  .concern-grid { grid-template-columns:1fr; }
+  .track-grid { grid-template-columns:1fr; }
+  .after-grid { grid-template-columns:1fr; }
+  .stat-row { grid-template-columns:1fr; }
+  .reason-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-wrap">
+    <div class="nav-logo"><em>SBS</em> 아카데미 컴퓨터아트학원</div>
+    <ul class="nav-menu">
+      <li><a href="#concern">이런 고민</a></li>
+      <li><a href="#results">결과물</a></li>
+      <li><a href="#purpose">목적별 과정</a></li>
+      <li><a href="#roadmap">로드맵</a></li>
+      <li><a href="#why">왜 SBS</a></li>
+      <li><a href="#after">수강 후</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div class="hero-left">
+      <div class="hero-eyebrow">SBS Academy · AI Department</div>
+      <h1 class="hero-title">
+        AI로<br>
+        <span class="hl">무엇을</span> 만들고<br>
+        싶으세요?
+      </h1>
+      <p class="hero-sub">
+        영상, 사이트, 디자인, 자동화까지—<br>
+        목적이 다르면 배워야 할 것도 달라집니다.<br>
+        당신의 목표에 맞는 AI 과정이 있습니다.
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">🎬 AI 영상·모션</span>
+        <span class="hero-tag">🌐 AI 웹 제작</span>
+        <span class="hero-tag">🎨 AI 디자인</span>
+        <span class="hero-tag">🤖 AI 자동화</span>
+        <span class="hero-tag">📸 AI 유튜브</span>
+        <span class="hero-tag">🏠 AI 인테리어</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-title">AI 과정 라인업</div>
+        <div class="hero-course-list">
+          <div class="hcl-item">
+            <span class="hcl-ico">🎬</span>
+            <div><div class="hcl-name">AI 크리에이터 영상/모션</div><div class="hcl-tag">Runway · After Effects · Premiere</div></div>
+          </div>
+          <div class="hcl-item">
+            <span class="hcl-ico">📹</span>
+            <div><div class="hcl-name">AI 크리에이터 유튜브</div><div class="hcl-tag">숏폼 · 썸네일 · 채널 운영</div></div>
+          </div>
+          <div class="hcl-item">
+            <span class="hcl-ico">🎨</span>
+            <div><div class="hcl-name">AI 크리에이터 시각편집</div><div class="hcl-tag">Photoshop · Illustrator · AI 이미지</div></div>
+          </div>
+          <div class="hcl-item">
+            <span class="hcl-ico">✏️</span>
+            <div><div class="hcl-name">AI 크리에이터 아트웍</div><div class="hcl-tag">AI 이미지 생성 · 브랜딩</div></div>
+          </div>
+          <div class="hcl-item">
+            <span class="hcl-ico">🌐</span>
+            <div><div class="hcl-name">AI 바이브코딩 웹</div><div class="hcl-tag">코딩 없이 사이트 완성</div></div>
+          </div>
+          <div class="hcl-item">
+            <span class="hcl-ico">🤖</span>
+            <div><div class="hcl-name">AI 에이전트</div><div class="hcl-tag">업무자동화 · AI 워크플로우</div></div>
+          </div>
+          <div class="hcl-item">
+            <span class="hcl-ico">💡</span>
+            <div><div class="hcl-name">AI 프롬프트 엔지니어링</div><div class="hcl-tag">GPT · Gemini · 프롬프트 설계</div></div>
+          </div>
+          <div class="hcl-item">
+            <span class="hcl-ico">🏠</span>
+            <div><div class="hcl-name">AI 크리에이터 인테리어</div><div class="hcl-tag">공간 렌더링 · AI 시안 제작</div></div>
+          </div>
+          <div class="hcl-item">
+            <span class="hcl-ico">🎭</span>
+            <div><div class="hcl-name">AI 크리에이터 CG/마야</div><div class="hcl-tag">3D 합성 · 시네마틱 영상</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── S1 : 고민 카드 ─── -->
+<section class="sec" id="concern">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow">이런 고민, 해보셨나요?</div>
+    <h2 class="sec-title">목적은 다양해도<br>AI가 해답입니다</h2>
+    <p class="sec-lead">어떤 상황에 있든, 어떤 목표를 가지든—AI를 어떻게 활용하느냐에 따라 결과는 완전히 달라집니다.</p>
+    <div class="concern-grid">
+
+      <div class="cc c-red">
+        <div class="cc-ico">🎬</div>
+        <span class="cc-tag tag-r">콘텐츠 · 수익화</span>
+        <h3>아이디어는 있는데,<br>결과물로 만들기가 어렵다</h3>
+        <p>머릿속에 그림은 있는데 직접 제작하기엔 툴도 어렵고 시간도 부족합니다. AI가 제작 과정의 벽을 낮춰줍니다.</p>
+        <div class="cc-examples">
+          <span class="cc-ex">유튜버 준비중</span>
+          <span class="cc-ex">영상 납품</span>
+          <span class="cc-ex">브랜드 홍보</span>
+          <span class="cc-ex">프리랜서</span>
+          <span class="cc-ex">창작 활동</span>
+        </div>
+      </div>
+
+      <div class="cc c-blue">
+        <div class="cc-ico">🌐</div>
+        <span class="cc-tag tag-b">창업 · 사업화</span>
+        <h3>개발자 없이도<br>직접 만들고 싶다</h3>
+        <p>사이트, 쇼핑몰, 포트폴리오—코딩을 전혀 몰라도 AI로 완성된 결과물을 만들 수 있습니다.</p>
+        <div class="cc-examples">
+          <span class="cc-ex">창업 준비</span>
+          <span class="cc-ex">쇼핑몰 운영</span>
+          <span class="cc-ex">서비스 런칭</span>
+          <span class="cc-ex">포트폴리오</span>
+        </div>
+      </div>
+
+      <div class="cc c-purple">
+        <div class="cc-ico">🏆</div>
+        <span class="cc-tag tag-p">공모전 · 프로젝트</span>
+        <h3>보여줄 수 있는 결과물이<br>필요하다</h3>
+        <p>공모전, 디자인 프로젝트, 나라지원 사업, 취업 포트폴리오—AI를 활용하면 퀄리티와 속도 모두 잡습니다.</p>
+        <div class="cc-examples">
+          <span class="cc-ex">공모전 준비</span>
+          <span class="cc-ex">디자인 프로젝트</span>
+          <span class="cc-ex">국가지원 사업</span>
+          <span class="cc-ex">취업 포트폴리오</span>
+        </div>
+      </div>
+
+      <div class="cc c-green">
+        <div class="cc-ico">⚡</div>
+        <span class="cc-tag tag-g">업무 · 효율화</span>
+        <h3>지금 하는 일을 더<br>빠르고 스마트하게</h3>
+        <p>반복 업무, 문서 정리, 데이터 처리, 보고서 작성—AI 자동화로 시간을 되찾고 본질에 집중합니다.</p>
+        <div class="cc-examples">
+          <span class="cc-ex">직장인 자동화</span>
+          <span class="cc-ex">사무업무 개선</span>
+          <span class="cc-ex">AI 도구 연결</span>
+          <span class="cc-ex">스타트업</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── S2 : 과정별 결과물 (탭) ─── -->
+<section class="sec sec-dark" id="results">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow">과정별 결과물</div>
+    <h2 class="sec-title">배우면 이런 걸<br>만들 수 있습니다</h2>
+    <p class="sec-lead">각 과정을 선택해서 어떤 결과물이 나오는지 확인해보세요.</p>
+
+    <div class="course-tabs">
+      <button class="ctab active" onclick="showTab('video')">🎬 영상/모션</button>
+      <button class="ctab" onclick="showTab('youtube')">📹 유튜브</button>
+      <button class="ctab" onclick="showTab('visual')">🎨 시각편집</button>
+      <button class="ctab" onclick="showTab('artwork')">✏️ 아트웍</button>
+      <button class="ctab" onclick="showTab('cg')">🎭 CG/마야</button>
+      <button class="ctab" onclick="showTab('interior')">🏠 인테리어</button>
+      <button class="ctab" onclick="showTab('web')">🌐 바이브코딩 웹</button>
+      <button class="ctab" onclick="showTab('agent')">🤖 AI 에이전트</button>
+      <button class="ctab" onclick="showTab('prompt')">💡 프롬프트 엔지니어링</button>
+    </div>
+
+    <!-- 영상/모션 -->
+    <div class="course-panel active" id="tab-video">
+      <div class="cp-left">
+        <span class="cp-badge cpb-video">AI 크리에이터 영상/모션</span>
+        <h3 class="cp-title">브랜드 광고부터<br>뮤직비디오까지</h3>
+        <p class="cp-desc">생성형 AI로 영상 소스를 만들고, After Effects·Premiere로 상업 수준의 결과물로 완성합니다. 촬영 없이도 광고를 납품할 수 있습니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">🎥</span><div><div class="cp-result-name">브랜드 오프닝 · 로고 시퀀스</div><div class="cp-result-desc">AI 이미지 + AE 트랜지션으로 완성하는 브랜드 영상</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">📱</span><div><div class="cp-result-name">SNS 광고 영상 · 숏폼</div><div class="cp-result-desc">나이키·몬스터 에너지 수준의 모션그래픽 광고</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🎵</span><div><div class="cp-result-name">뮤직비디오 · 감성 콘텐츠</div><div class="cp-result-desc">Runway V2V 스타일 전환 + AE 타이포그래피 연출</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🤖</span><div><div class="cp-result-name">AI 립싱크 · 3D 합성 영상</div><div class="cp-result-desc">C4D + Runway 로봇 영상 합성, 홀로그램 연출</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">GPT</span><span class="cp-tool">Gemini</span><span class="cp-tool">Google AI Flow</span>
+          <span class="cp-tool">Runway</span><span class="cp-tool">After Effects</span><span class="cp-tool">Premiere Pro</span><span class="cp-tool">Cinema 4D</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">결과물 미리보기</div>
+          <div class="cp-showcase">
+            <div class="cs-item" style="background:linear-gradient(135deg,#0d1a0a,#1a2d0a); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:28px; margin-bottom:8px;">🌿</div><div style="font-family:'Paperlogy',sans-serif;font-size:11px;color:rgba(255,255,255,.6);letter-spacing:2px;">SYNGREEN</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a0a,#1a0a00); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:28px; margin-bottom:8px;">👾</div><div style="font-family:'Paperlogy',sans-serif;font-size:10px;color:rgba(255,100,100,.8);letter-spacing:2px;">UNLEASH</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#000,#1a1a1a); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:24px; margin-bottom:8px;">👟</div><div style="font-family:'Paperlogy',sans-serif;font-size:10px;color:rgba(255,255,255,.6);letter-spacing:1px;">NIKE AD</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a1a,#1a0a2a); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:24px; margin-bottom:8px;">🎵</div><div style="font-family:'Paperlogy',sans-serif;font-size:10px;color:rgba(255,110,199,.7);letter-spacing:1px;">MUSIC VIDEO</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:16px; padding:16px 18px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:12px;">
+          <div style="font-family:'SUIT Variable',sans-serif;font-weight:700;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">과정 정보</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,.38);">총 수업 시간</span><span style="color:#fff;font-weight:700;">16시간 (4일)</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,.38);">난이도</span><span style="color:#fff;font-weight:700;">중상 ★★★★☆</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,.38);">선수 과목</span><span style="color:#fff;font-weight:700;">AI 프엔, 영상 기초</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:rgba(255,255,255,.38);">실습 예제</span><span style="color:#fff;font-weight:700;">6개 상업 프로젝트</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 유튜브 -->
+    <div class="course-panel" id="tab-youtube">
+      <div class="cp-left">
+        <span class="cp-badge cpb-yt">AI 크리에이터 유튜브</span>
+        <h3 class="cp-title">채널 개설부터<br>수익화까지</h3>
+        <p class="cp-desc">AI로 영상 기획, 제작, 썸네일, 자막까지 혼자서 완성하는 유튜브 채널 운영 전략을 배웁니다. 카메라 없이도 콘텐츠를 만들 수 있습니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">🎬</span><div><div class="cp-result-name">AI 생성 유튜브 영상</div><div class="cp-result-desc">카메라 없이 AI 보이스 + 이미지로 완성하는 채널 콘텐츠</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🖼️</span><div><div class="cp-result-name">클릭률 높은 썸네일 디자인</div><div class="cp-result-desc">AI 이미지 + Photoshop으로 완성하는 매력적인 썸네일</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">📱</span><div><div class="cp-result-name">숏폼 · 릴스 · 틱톡</div><div class="cp-result-desc">세로형 AI 영상으로 멀티 플랫폼 동시 운영</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">💰</span><div><div class="cp-result-name">수익화 채널 구조 설계</div><div class="cp-result-desc">AI로 콘텐츠 제작 효율을 높인 수익형 채널 운영</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">GPT</span><span class="cp-tool">Runway</span><span class="cp-tool">Premiere Pro</span>
+          <span class="cp-tool">Photoshop</span><span class="cp-tool">ElevenLabs</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">결과물 미리보기</div>
+          <div class="cp-showcase">
+            <div class="cs-item" style="background:linear-gradient(135deg,#1a0a0a,#2d0000); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:28px;">▶️</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">유튜브 영상</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a0a,#1a2d00); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:28px;">🖼️</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">썸네일</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a1a,#00002d); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:28px;">📱</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">숏폼</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#1a1a0a,#2d2a00); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:28px;">💰</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">수익화</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 시각편집 -->
+    <div class="course-panel" id="tab-visual">
+      <div class="cp-left">
+        <span class="cp-badge cpb-design">AI 크리에이터 시각편집</span>
+        <h3 class="cp-title">SNS 광고부터<br>브랜드 디자인까지</h3>
+        <p class="cp-desc">AI 이미지 생성과 Adobe 편집 툴을 결합해 상업 수준의 그래픽 결과물을 만듭니다. 광고, 포스터, 상세페이지 모두 가능합니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">📢</span><div><div class="cp-result-name">SNS 광고 · 배너 디자인</div><div class="cp-result-desc">인스타그램·네이버 광고 수준의 그래픽</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🗞️</span><div><div class="cp-result-name">포스터 · 편집 디자인</div><div class="cp-result-desc">AI 이미지를 활용한 완성도 높은 인쇄물</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🛍️</span><div><div class="cp-result-name">상세페이지 · 패키지 디자인</div><div class="cp-result-desc">쇼핑몰 상세페이지, 제품 패키지 시안</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">Photoshop</span><span class="cp-tool">Illustrator</span>
+          <span class="cp-tool">Adobe Firefly</span><span class="cp-tool">Midjourney</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">결과물 미리보기</div>
+          <div class="cp-showcase">
+            <div class="cs-item" style="background:linear-gradient(135deg,#f5f5f7,#e8e8ed); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:24px;">📢</div><div style="font-size:10px;color:#57576e;margin-top:6px;">SNS 광고</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#1a0a1a,#2d002d); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:24px;">🗞️</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">포스터</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a1a,#002a2a); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:24px;">🛍️</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">상세페이지</div></div>
+            </div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#1a1a0a,#2d2800); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center;"><div style="font-size:24px;">📦</div><div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:6px;">패키지</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 아트웍 -->
+    <div class="course-panel" id="tab-artwork">
+      <div class="cp-left">
+        <span class="cp-badge cpb-ai">AI 크리에이터 아트웍</span>
+        <h3 class="cp-title">AI 이미지로<br>나만의 세계를</h3>
+        <p class="cp-desc">Midjourney, Stable Diffusion 등 AI 이미지 툴을 활용해 캐릭터, 일러스트, 브랜딩 소스를 제작합니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">🎨</span><div><div class="cp-result-name">AI 캐릭터 · 일러스트</div><div class="cp-result-desc">Midjourney로 나만의 캐릭터와 일러스트 세계관 구축</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🖼️</span><div><div class="cp-result-name">브랜딩 이미지 소스</div><div class="cp-result-desc">광고, SNS, 굿즈에 활용 가능한 AI 아트</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🛒</span><div><div class="cp-result-name">굿즈 · 인쇄물 시안</div><div class="cp-result-desc">AI 이미지를 활용한 판매 가능한 굿즈 제작</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">Midjourney</span><span class="cp-tool">Stable Diffusion</span>
+          <span class="cp-tool">Photoshop</span><span class="cp-tool">Adobe Firefly</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">결과물 미리보기</div>
+          <div class="cp-showcase">
+            <div class="cs-item" style="background:linear-gradient(135deg,#1a0a2a,#0a001a); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🎨</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a2a,#001228); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">✨</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#2a1a0a,#1a0a00); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🖼️</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a2a1a,#001a0a); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🛒</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CG/마야 -->
+    <div class="course-panel" id="tab-cg">
+      <div class="cp-left">
+        <span class="cp-badge cpb-cg">AI 크리에이터 CG/마야</span>
+        <h3 class="cp-title">3D + AI로<br>시네마틱 영상을</h3>
+        <p class="cp-desc">Comfy UI, Higgsfield 등 AI 툴로 개념 이미지를 생성하고, Cinema 4D · Maya와 합성해 영화 같은 결과물을 만듭니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">🤖</span><div><div class="cp-result-name">AI 캐릭터 시네마틱 영상</div><div class="cp-result-desc">나만의 캐릭터로 제작하는 영화 같은 영상</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🌆</span><div><div class="cp-result-name">3D 합성 · VFX 씬</div><div class="cp-result-desc">AI 배경 + 3D 오브젝트 합성</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🎬</span><div><div class="cp-result-name">텍스처 기반 비주얼 컨셉</div><div class="cp-result-desc">AI 텍스처로 완성하는 고품질 CG 결과물</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">Comfy UI</span><span class="cp-tool">Higgsfield</span>
+          <span class="cp-tool">Cinema 4D</span><span class="cp-tool">Maya</span><span class="cp-tool">Suno</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">결과물 미리보기</div>
+          <div class="cp-showcase">
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a0a1a,#0a0020); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🤖</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#001a1a,#001020); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🌆</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#1a0010,#200010); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🎬</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a1a0a,#001400); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">✨</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 인테리어 -->
+    <div class="course-panel" id="tab-interior">
+      <div class="cp-left">
+        <span class="cp-badge cpb-interior">AI 크리에이터 인테리어</span>
+        <h3 class="cp-title">AI 렌더링으로<br>공간을 디자인</h3>
+        <p class="cp-desc">AI 이미지 생성과 렌더링 툴을 활용해 인테리어 공간 시안을 빠르게 제작합니다. 실제 시공 전 시각화까지 가능합니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">🏠</span><div><div class="cp-result-name">AI 인테리어 공간 렌더링</div><div class="cp-result-desc">실사 같은 인테리어 시안을 AI로 빠르게 완성</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🛋️</span><div><div class="cp-result-name">공간 스타일 제안 자료</div><div class="cp-result-desc">클라이언트 제안용 고퀄리티 공간 비주얼</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">📐</span><div><div class="cp-result-name">리모델링 전/후 비교 자료</div><div class="cp-result-desc">Before/After AI 렌더링으로 설득력 있는 제안</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">Midjourney</span><span class="cp-tool">Stable Diffusion</span>
+          <span class="cp-tool">RoomGPT</span><span class="cp-tool">Photoshop</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">결과물 미리보기</div>
+          <div class="cp-showcase">
+            <div class="cs-item" style="background:linear-gradient(135deg,#1a1208,#2a1e0a); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🏠</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#0a1218,#0a1a28); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">🛋️</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#181218,#200a20); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">✨</div></div>
+            <div class="cs-item" style="background:linear-gradient(135deg,#121a12,#0a200a); display:flex; align-items:center; justify-content:center;"><div style="font-size:36px;">📐</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 바이브코딩 웹 -->
+    <div class="course-panel" id="tab-web">
+      <div class="cp-left">
+        <span class="cp-badge cpb-web">AI 바이브코딩 웹</span>
+        <h3 class="cp-title">코딩 없이<br>사이트를 완성</h3>
+        <p class="cp-desc">GPT, Claude 등 AI에게 원하는 사이트를 말로 설명하면 코드가 만들어집니다. 개발자 없이도 반응형 웹사이트를 직접 제작할 수 있습니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">🌐</span><div><div class="cp-result-name">반응형 웹사이트 · 랜딩페이지</div><div class="cp-result-desc">창업, 브랜드, 서비스 소개를 위한 완성된 사이트</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🛒</span><div><div class="cp-result-name">쇼핑몰 · 포트폴리오 사이트</div><div class="cp-result-desc">내 상품과 작업물을 보여주는 나만의 사이트</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">📊</span><div><div class="cp-result-name">대시보드 · 관리자 페이지</div><div class="cp-result-desc">AI로 만드는 데이터 시각화 인터페이스</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">GPT</span><span class="cp-tool">Claude</span><span class="cp-tool">Cursor</span>
+          <span class="cp-tool">GitHub Pages</span><span class="cp-tool">Vercel</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">완성 결과물</div>
+          <div class="mock-web" style="border-radius:12px; border:1px solid rgba(255,255,255,.1); height:200px;">
+            <div class="mock-web-bar">
+              <div class="mock-web-dot" style="background:#ff5f57;"></div>
+              <div class="mock-web-dot" style="background:#febc2e;"></div>
+              <div class="mock-web-dot" style="background:#28c840;"></div>
+              <div class="mock-web-url" style="background:#e5e5e5;"></div>
+            </div>
+            <div class="mock-web-body">
+              <div class="mock-web-hero"><div class="mock-web-hero-text">AI로 만든 내 사이트</div></div>
+              <div class="mock-web-cards">
+                <div class="mock-web-card"></div>
+                <div class="mock-web-card"></div>
+                <div class="mock-web-card"></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px; padding:12px 14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:10px;">
+            <div style="font-size:11px; color:rgba(255,255,255,.35); margin-bottom:8px; font-family:'SUIT Variable',sans-serif; font-weight:600;">AI가 만든 코드 예시</div>
+            <div style="font-size:11px; color:rgba(52,199,89,.7); font-family:monospace; line-height:1.8;">
+              &lt;section class="hero"&gt;<br>
+              &nbsp;&nbsp;&lt;h1&gt;내 브랜드&lt;/h1&gt;<br>
+              &lt;/section&gt;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI 에이전트 -->
+    <div class="course-panel" id="tab-agent">
+      <div class="cp-left">
+        <span class="cp-badge cpb-agent">AI 에이전트</span>
+        <h3 class="cp-title">반복 업무는 AI가,<br>나는 핵심에 집중</h3>
+        <p class="cp-desc">GPT, Make, Zapier 등을 연결해 업무 자동화 시스템을 구축합니다. 문서 작성, 데이터 정리, 이메일까지 AI가 대신합니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">⚙️</span><div><div class="cp-result-name">업무 자동화 워크플로우</div><div class="cp-result-desc">반복 업무를 자동으로 처리하는 AI 파이프라인</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">📋</span><div><div class="cp-result-name">AI 문서 생성 · 보고서 자동화</div><div class="cp-result-desc">GPT로 보고서, 기획서, 이메일 자동 초안 생성</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🔗</span><div><div class="cp-result-name">AI 도구 연결 시스템</div><div class="cp-result-desc">노션, 슬랙, 구글시트를 연결한 스마트 업무 환경</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">GPT</span><span class="cp-tool">Claude</span><span class="cp-tool">Make</span>
+          <span class="cp-tool">Zapier</span><span class="cp-tool">Notion AI</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">AI 에이전트 동작 예시</div>
+          <div class="mock-agent">
+            <div class="mock-agent-row">
+              <div class="mock-agent-bubble mab-user">보고서 초안 작성해줘</div>
+            </div>
+            <div class="mock-agent-row">
+              <div class="mock-agent-bubble mab-ai">네! 데이터를 분석하고 보고서를 작성합니다...</div>
+            </div>
+            <div class="mock-agent-status">
+              <div class="mas-dot"></div>
+              <div class="mas-text">구글시트 → 분석 → 문서 자동 생성 완료</div>
+            </div>
+            <div class="mock-agent-row">
+              <div class="mock-agent-bubble mab-ai">보고서가 완성되었습니다. 슬랙으로 공유할까요?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 프롬프트 엔지니어링 -->
+    <div class="course-panel" id="tab-prompt">
+      <div class="cp-left">
+        <span class="cp-badge cpb-prompt">AI 프롬프트 엔지니어링</span>
+        <h3 class="cp-title">AI를 제대로<br>다루는 능력</h3>
+        <p class="cp-desc">GPT, Gemini, Claude를 목적에 맞게 설계하고 원하는 결과를 정확히 뽑아내는 프롬프트 설계 능력을 배웁니다. 모든 AI 과정의 기반이 됩니다.</p>
+        <div class="cp-results">
+          <div class="cp-result"><span class="cp-result-ico">💬</span><div><div class="cp-result-name">목적별 프롬프트 설계</div><div class="cp-result-desc">이미지, 영상, 글쓰기 등 목적에 맞는 프롬프트 구조</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">🎯</span><div><div class="cp-result-name">AI 결과물 품질 컨트롤</div><div class="cp-result-desc">원하는 결과를 정확히 얻는 프롬프트 최적화 전략</div></div></div>
+          <div class="cp-result"><span class="cp-result-ico">📁</span><div><div class="cp-result-name">나만의 프롬프트 라이브러리</div><div class="cp-result-desc">업무·창작에 재사용 가능한 프롬프트 자산 구축</div></div></div>
+        </div>
+        <div class="cp-tools">
+          <span class="cp-tool">GPT</span><span class="cp-tool">Gemini</span><span class="cp-tool">Claude</span>
+          <span class="cp-tool">Midjourney</span><span class="cp-tool">Runway</span>
+        </div>
+      </div>
+      <div class="cp-right">
+        <div class="cp-mockup">
+          <div class="cp-mockup-label">프롬프트 설계 예시</div>
+          <div style="background:#0a0a1a; border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px;">
+            <div style="font-size:10px; color:rgba(255,255,255,.28); font-family:'SUIT Variable',sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase;">BEFORE — 막연한 요청</div>
+            <div style="background:rgba(255,255,255,.05); border-radius:8px; padding:12px; font-size:12px; color:rgba(255,255,255,.45); line-height:1.7;">"멋진 광고 이미지 만들어줘"</div>
+            <div style="font-size:10px; color:rgba(52,199,89,.5); font-family:'SUIT Variable',sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase;">AFTER — 설계된 프롬프트</div>
+            <div style="background:rgba(52,199,89,.06); border:1px solid rgba(52,199,89,.15); border-radius:8px; padding:12px; font-size:12px; color:rgba(255,255,255,.7); line-height:1.7;">"Nike Air Max, 흰색 배경, 45도 앵글, 시네마틱 조명, 제품 중심 구도, 8K 품질, 상업 광고 스타일"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── S3 : 목적별 과정 선택 ─── -->
+<section class="sec" id="purpose">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow">목적별 과정 가이드</div>
+    <h2 class="sec-title">내 상황에 맞는<br>과정은 무엇일까?</h2>
+    <p class="sec-lead">같은 AI라도 목적이 다르면 배워야 할 내용이 다릅니다. 아래에서 지금 상황을 찾아보세요.</p>
+
+    <div class="purpose-grid">
+
+      <div class="purpose-card">
+        <div class="pc-head">
+          <div class="pc-ico pc-ico-red">🎬</div>
+          <div class="pc-head-text">
+            <div class="pc-situation s-red">콘텐츠 · 수익화</div>
+            <h3>아이디어를 영상이나 이미지 결과물로 만들고 싶다</h3>
+          </div>
+        </div>
+        <div class="pc-body">
+          <p class="pc-desc">유튜브 채널, 브랜드 광고, SNS 콘텐츠, 프리랜서 납품, 창작 활동—AI로 직접 제작하고 싶은 모든 상황에 해당합니다.</p>
+          <div class="pc-cases">
+            <span class="pc-case">유튜버 준비</span>
+            <span class="pc-case">영상 프리랜서</span>
+            <span class="pc-case">브랜드 홍보</span>
+            <span class="pc-case">광고 납품</span>
+            <span class="pc-case">창작 활동</span>
+            <span class="pc-case">SNS 마케터</span>
+          </div>
+          <div class="pc-courses-label">추천 과정</div>
+          <div class="pc-courses">
+            <span class="pc-course-tag pct-red">AI 크리에이터 영상/모션</span>
+            <span class="pc-course-tag pct-red">AI 크리에이터 유튜브</span>
+            <span class="pc-course-tag pct-red">AI 크리에이터 시각편집</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="purpose-card">
+        <div class="pc-head">
+          <div class="pc-ico pc-ico-blue">🌐</div>
+          <div class="pc-head-text">
+            <div class="pc-situation s-blue">창업 · 사업화</div>
+            <h3>개발자 없이 직접 사이트와 서비스를 만들고 싶다</h3>
+          </div>
+        </div>
+        <div class="pc-body">
+          <p class="pc-desc">창업 준비, 쇼핑몰 운영, 서비스 런칭, 포트폴리오 사이트—코딩 없이 직접 만들고 운영하고 싶은 상황에 해당합니다.</p>
+          <div class="pc-cases">
+            <span class="pc-case">창업 준비</span>
+            <span class="pc-case">쇼핑몰 운영</span>
+            <span class="pc-case">서비스 런칭</span>
+            <span class="pc-case">포트폴리오</span>
+            <span class="pc-case">사이드 프로젝트</span>
+          </div>
+          <div class="pc-courses-label">추천 과정</div>
+          <div class="pc-courses">
+            <span class="pc-course-tag pct-blue">AI 바이브코딩 웹</span>
+            <span class="pc-course-tag pct-blue">AI 프롬프트 엔지니어링</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="purpose-card">
+        <div class="pc-head">
+          <div class="pc-ico pc-ico-purple">🏆</div>
+          <div class="pc-head-text">
+            <div class="pc-situation s-purple">공모전 · 포트폴리오</div>
+            <h3>보여줄 수 있는 결과물이 필요하다</h3>
+          </div>
+        </div>
+        <div class="pc-body">
+          <p class="pc-desc">공모전, 디자인 프로젝트, 나라지원 사업, 취업 포트폴리오—AI를 활용해 더 빠르고 완성도 높은 결과물을 만드는 모든 상황.</p>
+          <div class="pc-cases">
+            <span class="pc-case">공모전 준비</span>
+            <span class="pc-case">국가지원 프로젝트</span>
+            <span class="pc-case">취업 포트폴리오</span>
+            <span class="pc-case">졸업 작품</span>
+            <span class="pc-case">디자인 수주</span>
+          </div>
+          <div class="pc-courses-label">추천 과정</div>
+          <div class="pc-courses">
+            <span class="pc-course-tag pct-purple">AI 크리에이터 아트웍</span>
+            <span class="pc-course-tag pct-purple">AI 크리에이터 시각편집</span>
+            <span class="pc-course-tag pct-purple">AI 크리에이터 CG/마야</span>
+            <span class="pc-course-tag pct-purple">AI 프롬프트 엔지니어링</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="purpose-card">
+        <div class="pc-head">
+          <div class="pc-ico pc-ico-green">⚡</div>
+          <div class="pc-head-text">
+            <div class="pc-situation s-green">업무 · 효율화</div>
+            <h3>지금 하는 일을 더 빠르고 스마트하게</h3>
+          </div>
+        </div>
+        <div class="pc-body">
+          <p class="pc-desc">직장인 자동화, 사무 업무 개선, 반복 작업 제거, AI 도구 연결—일하는 방식 자체를 바꾸고 싶은 모든 상황.</p>
+          <div class="pc-cases">
+            <span class="pc-case">직장인 자동화</span>
+            <span class="pc-case">스타트업</span>
+            <span class="pc-case">사무업무 개선</span>
+            <span class="pc-case">보고서 자동화</span>
+            <span class="pc-case">AI 도구 연결</span>
+          </div>
+          <div class="pc-courses-label">추천 과정</div>
+          <div class="pc-courses">
+            <span class="pc-course-tag pct-green">AI 에이전트</span>
+            <span class="pc-course-tag pct-green">AI 프롬프트 엔지니어링</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── S4 : 과정 로드맵 ─── -->
+<section class="sec roadmap-sec" id="roadmap">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow">과정 로드맵</div>
+    <h2 class="sec-title">어떤 과정부터<br>시작하면 될까?</h2>
+    <p class="sec-lead">목적에 따라 시작점이 다릅니다. 아래에서 내 상황에 맞는 트랙을 확인하세요. <strong>AI 프롬프트 엔지니어링</strong>은 모든 과정의 기반이 됩니다.</p>
+
+    <div class="track-grid">
+
+      <div class="track-card tc-red">
+        <div class="track-ico">🎬</div>
+        <span class="track-label tl-red">영상 · 모션 트랙</span>
+        <h3>AI로 영상을<br>만들고 싶다면</h3>
+        <p>브랜드 광고, 유튜브, 뮤직비디오—AI 영상 제작의 전 과정을 배우는 트랙입니다.</p>
+        <div class="track-steps">
+          <div class="track-step"><div class="track-step-dot ts-red"></div>AI 프롬프트 엔지니어링 (기초)</div>
+          <div class="track-step"><div class="track-step-dot ts-red"></div>AI 크리에이터 유튜브</div>
+          <div class="track-step"><div class="track-step-dot ts-red"></div>AI 크리에이터 영상/모션</div>
+          <div class="track-step"><div class="track-step-dot"></div>포트폴리오 완성</div>
+        </div>
+      </div>
+
+      <div class="track-card tc-pink">
+        <div class="track-ico">🎨</div>
+        <span class="track-label tl-pink">디자인 · 아트 트랙</span>
+        <h3>AI로 이미지·디자인을<br>만들고 싶다면</h3>
+        <p>SNS 광고, 공모전, 굿즈, 브랜딩—AI 그래픽 제작 전 과정을 배우는 트랙입니다.</p>
+        <div class="track-steps">
+          <div class="track-step"><div class="track-step-dot ts-pink"></div>AI 프롬프트 엔지니어링 (기초)</div>
+          <div class="track-step"><div class="track-step-dot ts-pink"></div>AI 크리에이터 아트웍</div>
+          <div class="track-step"><div class="track-step-dot ts-pink"></div>AI 크리에이터 시각편집</div>
+          <div class="track-step"><div class="track-step-dot"></div>포트폴리오 완성</div>
+        </div>
+      </div>
+
+      <div class="track-card tc-blue">
+        <div class="track-ico">🌐</div>
+        <span class="track-label tl-blue">웹 · 창업 트랙</span>
+        <h3>코딩 없이 사이트를<br>만들고 싶다면</h3>
+        <p>창업, 쇼핑몰, 포트폴리오—AI로 직접 사이트를 완성하는 트랙입니다.</p>
+        <div class="track-steps">
+          <div class="track-step"><div class="track-step-dot ts-blue"></div>AI 프롬프트 엔지니어링 (기초)</div>
+          <div class="track-step"><div class="track-step-dot ts-blue"></div>AI 바이브코딩 웹</div>
+          <div class="track-step"><div class="track-step-dot"></div>사이트 완성 · 배포</div>
+        </div>
+      </div>
+
+      <div class="track-card tc-green">
+        <div class="track-ico">🤖</div>
+        <span class="track-label tl-green">자동화 · 업무 트랙</span>
+        <h3>업무를 자동화하고<br>싶다면</h3>
+        <p>반복 업무 제거, AI 연결—일하는 방식 자체를 바꾸는 트랙입니다.</p>
+        <div class="track-steps">
+          <div class="track-step"><div class="track-step-dot ts-green"></div>AI 프롬프트 엔지니어링 (기초)</div>
+          <div class="track-step"><div class="track-step-dot ts-green"></div>AI 에이전트</div>
+          <div class="track-step"><div class="track-step-dot"></div>업무 자동화 시스템 완성</div>
+        </div>
+      </div>
+
+      <div class="track-card tc-purple">
+        <div class="track-ico">🏠</div>
+        <span class="track-label tl-purple">인테리어 트랙</span>
+        <h3>AI로 공간을<br>디자인하고 싶다면</h3>
+        <p>인테리어 시안, AI 렌더링, 공간 제안—AI로 공간 디자인을 완성하는 트랙.</p>
+        <div class="track-steps">
+          <div class="track-step"><div class="track-step-dot ts-purple"></div>AI 프롬프트 엔지니어링 (기초)</div>
+          <div class="track-step"><div class="track-step-dot ts-purple"></div>AI 크리에이터 인테리어</div>
+          <div class="track-step"><div class="track-step-dot"></div>AI 시안 완성</div>
+        </div>
+      </div>
+
+      <div class="track-card tc-orange">
+        <div class="track-ico">🎭</div>
+        <span class="track-label tl-orange">CG · 시네마틱 트랙</span>
+        <h3>3D + AI로 영화 같은<br>영상을 만들고 싶다면</h3>
+        <p>시네마틱 영상, VFX, 캐릭터—AI와 3D 툴을 결합한 고급 트랙입니다.</p>
+        <div class="track-steps">
+          <div class="track-step"><div class="track-step-dot ts-orange"></div>AI 프롬프트 엔지니어링 (기초)</div>
+          <div class="track-step"><div class="track-step-dot ts-orange"></div>AI 크리에이터 CG/마야</div>
+          <div class="track-step"><div class="track-step-dot"></div>시네마틱 포트폴리오 완성</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── S5 : 왜 SBS ─── -->
+<section class="sec" id="why">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow">왜 SBS아카데미인가</div>
+    <h2 class="sec-title">같은 AI를 배워도<br>결과는 다릅니다</h2>
+    <p class="sec-lead">AI 도구는 누구나 쓸 수 있습니다. 차이는 <strong>목적에 맞게 활용하는 능력</strong>과 <strong>결과물로 완성하는 흐름</strong>을 아는가에 있습니다.</p>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">9개</div>
+        <div class="stat-label">AI 전문 과정 라인업</div>
+        <div class="stat-desc">영상·웹·디자인·자동화·인테리어·CG까지 목적별 특화 과정 운영</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num sn-blue">실무</div>
+        <div class="stat-label">상업 영상 기반 실습</div>
+        <div class="stat-desc">브랜드 광고, 뮤직비디오, 모션그래픽—실제 납품 수준의 예제로 수업</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num sn-green">연계</div>
+        <div class="stat-label">과정 간 연결 로드맵</div>
+        <div class="stat-desc">기초 → 심화 → 포트폴리오까지 끊기지 않는 학습 경로 제공</div>
+      </div>
+    </div>
+
+    <div class="insight-box ib-red">
+      <p>"AI 영상 과정에서 중요한 것은 단순한 AI 사용이 아니라, <strong>AI 소스를 목적에 맞게 커스터마이징하고 원하는 결과로 컨트롤하는 능력</strong>입니다. 포토샵, After Effects, Premiere 등 기초 툴과 영상 제작 흐름에 대한 이해가 갖춰져야 AI를 내 입맛에 맞게 활용할 수 있습니다."</p>
+    </div>
+
+    <div class="compare-heading">인강 · 독학 · 타학원 vs SBS아카데미</div>
+    <div class="compare-grid-new">
+      <div class="cmp-col-left">
+        <div class="cmp-card-sm">
+          <div class="cmp-head-sm"><div class="cmp-label">인강 · 독학</div><div class="cmp-desc">온라인 강의, 유튜브 등 자기학습</div></div>
+          <div class="cmp-rows-mini">
+            <span class="cmp-badge cmp-badge-yes">툴 기능 학습 가능</span>
+            <span class="cmp-badge cmp-badge-no">즉각 피드백 없음</span>
+            <span class="cmp-badge cmp-badge-no">결과물 방향 잡기 어려움</span>
+            <span class="cmp-badge cmp-badge-no">포트폴리오 완성 어려움</span>
+          </div>
+        </div>
+        <div class="cmp-card-sm">
+          <div class="cmp-head-sm"><div class="cmp-label">일반 AI 툴 강의</div><div class="cmp-desc">특정 도구 사용법 중심 수업</div></div>
+          <div class="cmp-rows-mini">
+            <span class="cmp-badge cmp-badge-yes">툴 조작 가능</span>
+            <span class="cmp-badge cmp-badge-no">결과물 완성 흐름 없음</span>
+            <span class="cmp-badge cmp-badge-half">얕은 수준 마무리</span>
+            <span class="cmp-badge cmp-badge-no">실무 연결 없음</span>
+          </div>
+        </div>
+      </div>
+      <div class="cmp-card-main">
+        <div class="cmp-main-badge">추천</div>
+        <div class="cmp-main-head">
+          <div class="cmp-label">SBS아카데미 AI 과정</div>
+          <div class="cmp-desc">결과물 중심 · 실무 흐름 · 강사 피드백</div>
+        </div>
+        <div class="cmp-main-rows">
+          <div class="cmp-main-row"><span class="cmp-row-key">결과물 완성 여부</span><span class="cmp-val cv-best">상업용 수준</span></div>
+          <div class="cmp-main-row"><span class="cmp-row-key">강사 즉각 피드백</span><span class="cmp-val cv-yes">✓ 실시간</span></div>
+          <div class="cmp-main-row"><span class="cmp-row-key">AI + 실무 툴 연계</span><span class="cmp-val cv-yes">✓ 전 과정</span></div>
+          <div class="cmp-main-row"><span class="cmp-row-key">목적별 과정 설계</span><span class="cmp-val cv-yes">✓ 9개 트랙</span></div>
+          <div class="cmp-main-row"><span class="cmp-row-key">포트폴리오 연결</span><span class="cmp-val cv-yes">✓ 실습 기반</span></div>
+          <div class="cmp-main-row"><span class="cmp-row-key">최신 AI 트렌드 반영</span><span class="cmp-val cv-best">지속 업데이트</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reason-grid">
+      <div class="reason-card">
+        <div class="reason-ico">🎯</div>
+        <h4>결과물 중심 수업</h4>
+        <p>기능을 배우는 것으로 끝나지 않습니다. <strong>브랜드 광고, 뮤직비디오, 완성된 사이트</strong>—실제 납품·출품 수준의 결과물로 수업이 마무리됩니다.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-ico">🔄</div>
+        <h4>AI + 실무 툴 연계</h4>
+        <p>AI 혼자로는 완성되지 않습니다. <strong>Runway → After Effects, AI 이미지 → Photoshop</strong>처럼 AI와 실무 툴을 연결하는 전체 흐름을 배웁니다.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-ico">🧭</div>
+        <h4>목적별 맞춤 설계</h4>
+        <p>유튜버, 창업자, 직장인, 공모전 준비생—<strong>상황과 목적이 다른 수강생</strong>을 위해 9개 트랙으로 분리된 과정을 운영합니다.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── S6 : 수강 후 달라지는 점 ─── -->
+<section class="sec sec-after" id="after">
+  <div class="sec-wrap">
+    <div class="sec-eyebrow">수강 후 달라지는 점</div>
+    <h2 class="sec-title">수업이 끝나면<br>이게 달라집니다</h2>
+    <p class="sec-lead">단순히 실력이 오르는 것이 아닙니다. 실제로 체감할 수 있는 변화입니다.</p>
+
+    <div class="after-grid">
+      <div class="after-card">
+        <div class="after-ico">🎬</div>
+        <h3>보여줄 결과물이 생긴다</h3>
+        <p>포트폴리오에 넣을 수 있는 완성된 작업물—브랜드 광고, 뮤직비디오, 완성된 사이트가 생깁니다.</p>
+      </div>
+      <div class="after-card">
+        <div class="after-ico">⚡</div>
+        <h3>제작 시간이 줄어든다</h3>
+        <p>촬영, 수작업, 반복 편집—AI가 이 모든 과정을 단축합니다. 같은 시간에 더 많은 결과물을 만들 수 있습니다.</p>
+      </div>
+      <div class="after-card">
+        <div class="after-ico">💡</div>
+        <h3>아이디어가 바로 시각화된다</h3>
+        <p>머릿속에만 있던 기획이 AI를 통해 빠르게 영상·이미지·사이트로 구현됩니다.</p>
+      </div>
+      <div class="after-card">
+        <div class="after-ico">🎯</div>
+        <h3>AI를 목적에 맞게 다룬다</h3>
+        <p>"AI를 써봤다"가 아니라, 원하는 결과를 정확히 뽑아내는 프롬프트 설계 능력이 생깁니다.</p>
+      </div>
+      <div class="after-card">
+        <div class="after-ico">🌐</div>
+        <h3>개발자 없이도 만들 수 있다</h3>
+        <p>코딩 한 줄 없이 완성된 사이트를 직접 제작하고 배포할 수 있습니다. 창업과 서비스 런칭이 현실이 됩니다.</p>
+      </div>
+      <div class="after-card">
+        <div class="after-ico">🤖</div>
+        <h3>일하는 방식이 바뀐다</h3>
+        <p>반복 업무가 자동화되고, 더 창의적인 일에 시간을 쓸 수 있습니다. AI가 나의 업무 파트너가 됩니다.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:56px; text-align:center; padding:48px 40px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:var(--r-lg);">
+      <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:clamp(24px,4vw,42px);color:#fff;line-height:1.2;margin-bottom:16px;">모두가 같은 AI를 사용해도,<br>결과는 결코 같지 않습니다.</div>
+      <p style="font-size:15px;color:rgba(255,255,255,.42);line-height:1.8;margin-bottom:32px;">그 차이를 만드는 건 결국 <span style="color:#fff;font-weight:700;">'사람'</span>입니다.<br>저희는 그 '사람'을 만듭니다.</p>
+      <div style="display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+        <div style="background:rgba(201,30,30,.15);border:1px solid rgba(201,30,30,.3);border-radius:12px;padding:16px 24px;">
+          <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:14px;color:#e8557a;margin-bottom:4px;">SBS아카데미 컴퓨터아트학원</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.38);">AI학과 · 9개 전문 과정</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
