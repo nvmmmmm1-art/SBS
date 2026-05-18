@@ -358,6 +358,16 @@ nav {
 .pf-video-brand { font-family:'Paperlogy',sans-serif; font-weight:800; font-size:10px; color:rgba(255,255,255,.7); letter-spacing:1px; text-align:center; }
 .pf-video-student { font-size:9px; color:rgba(255,255,255,.3); margin-top:2px; font-family:'SUIT Variable',sans-serif; }
 
+/* ─── VIDEO MODAL ─── */
+#vmodal { display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,.88); align-items:center; justify-content:center; flex-direction:column; }
+#vmodal.open { display:flex; }
+#vmodal video { max-width:90vw; max-height:82vh; border-radius:12px; box-shadow:0 24px 80px rgba(0,0,0,.7); }
+#vmodal-label { margin-top:14px; font-family:'SUIT Variable',sans-serif; font-weight:700; font-size:14px; color:rgba(255,255,255,.75); }
+#vmodal-close { position:fixed; top:20px; right:24px; font-size:28px; color:rgba(255,255,255,.6); cursor:pointer; line-height:1; background:none; border:none; padding:4px 10px; }
+#vmodal-close:hover { color:#fff; }
+.pf-item, .pf-grid-3 > div[style] { cursor:pointer; }
+.pf-item:hover img, .pf-grid-3 > div[style]:hover video { opacity:.82; }
+
 /* ─── RESPONSIVE ─── */
 @media(max-width:1024px) {
   .hero-wrap { grid-template-columns:1fr; }
@@ -1545,6 +1555,13 @@ nav {
   </div>
 </section>
 
+<!-- 영상 모달 -->
+<div id="vmodal" onclick="closeModal(event)">
+  <button id="vmodal-close" onclick="closeModal()">✕</button>
+  <video id="vmodal-video" controls playsinline style=""></video>
+  <div id="vmodal-label"></div>
+</div>
+
 <script>
 function showTab(id) {
   document.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
@@ -1562,6 +1579,50 @@ function goToTab(id) {
   });
   document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
 }
+
+// 영상 클릭 → 모달 재생
+function openVideo(src, label) {
+  const modal = document.getElementById('vmodal');
+  const v = document.getElementById('vmodal-video');
+  document.getElementById('vmodal-label').textContent = label;
+  v.src = src;
+  v.play();
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('vmodal') && e.target !== document.getElementById('vmodal-close')) return;
+  const v = document.getElementById('vmodal-video');
+  v.pause(); v.src = '';
+  document.getElementById('vmodal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal({target: document.getElementById('vmodal')}); });
+
+// 이미지 클릭 → 새 탭 열기
+function openImage(src) { window.open(src, '_blank'); }
+
+// 자동으로 video/img 카드에 클릭 이벤트 등록
+document.addEventListener('DOMContentLoaded', () => {
+  // video 카드
+  document.querySelectorAll('.pf-grid-3 > div, .cp-showcase > div').forEach(card => {
+    const v = card.querySelector('video');
+    const label = card.querySelector('[style*="bottom"]');
+    if (v) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => openVideo(v.src || v.getAttribute('src'), label ? label.textContent : ''));
+    }
+  });
+  // 이미지 카드
+  document.querySelectorAll('.pf-item').forEach(card => {
+    const img = card.querySelector('img');
+    const lbl = card.querySelector('.pf-item-label');
+    if (img) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => openImage(img.src));
+    }
+  });
+});
 </script>
 </body>
 </html>
